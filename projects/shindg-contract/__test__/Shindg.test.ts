@@ -1,6 +1,8 @@
 import { describe, test, expect, beforeAll, beforeEach } from '@jest/globals';
 import { algorandFixture } from '@algorandfoundation/algokit-utils/testing';
 import * as algokit from '@algorandfoundation/algokit-utils';
+import algosdk, { LogicSigAccount } from 'algosdk';
+import { readFileSync } from 'fs';
 import { ShindgClient } from '../contracts/clients/ShindgClient';
 
 const fixture = algorandFixture();
@@ -8,42 +10,31 @@ algokit.Config.configure({ populateAppCallResources: true });
 
 let appClient: ShindgClient;
 
+async function getLsigAccount(algod: algosdk.Algodv2, appID: bigint): Promise<algosdk.LogicSigAccount> {
+  const qrLsigTeal = readFileSync(`./contracts/artifacts/QrLsig.lsig.teal`, 'utf8');
+  // Replace the template variable in the lsig TEAL
+  const teal = qrLsigTeal.replace('TMPL_APP_ID', appID.toString());
+
+  // Compile the TEAL
+  const result = await algod.compile(Buffer.from(teal)).do();
+  const b64program = result.result;
+
+  // Generate a LogicSigAccount object from the compiled program
+  return new algosdk.LogicSigAccount(new Uint8Array(Buffer.from(b64program, 'base64')));
+}
 describe('Shindg', () => {
   beforeEach(fixture.beforeEach);
 
-  beforeAll(async () => {
-    await fixture.beforeEach();
-    const { testAccount } = fixture.context;
-    const { algorand } = fixture;
+  test('makeQR', async () => {
+    const contract = 123n;
+    const lsig = await getLsigAccount(fixture.context.algod, contract);
 
-    appClient = new ShindgClient(
-      {
-        sender: testAccount,
-        resolveBy: 'id',
-        id: 0,
-      },
-      algorand.client.algod
-    );
-
-    await appClient.create.createApplication({});
-  });
-
-  test('sum', async () => {
-    const a = 13;
-    const b = 37;
-    const sum = await appClient.doMath({ a, b, operation: 'sum' });
-    expect(sum.return?.valueOf()).toBe(BigInt(a + b));
-  });
-
-  test('difference', async () => {
-    const a = 13;
-    const b = 37;
-    const diff = await appClient.doMath({ a, b, operation: 'difference' });
-    expect(diff.return?.valueOf()).toBe(BigInt(a >= b ? a - b : b - a));
-  });
-
-  test('hello', async () => {
-    const diff = await appClient.hello({ name: 'world!' });
-    expect(diff.return?.valueOf()).toBe('Hello, world!');
+    lsig.sign(fixture.context.testAccount.sk);
+    const qr = {
+      contract,
+      lisg: Buffer.from(lsig.toByte()).toString('base64url'),
+    };
+    console.log(qr);
+    expect(qr.lisg.length).toBeGreaterThan(50);
   });
 });

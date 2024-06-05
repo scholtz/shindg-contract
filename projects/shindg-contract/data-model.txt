@@ -1,0 +1,81 @@
+/creator-dashboard
+{
+    issuedNFTs: number
+    revenue: number
+    currency: string
+    events: [
+        {
+            name: string
+            issuedNFTs: number
+            nftsOnSale: number
+            revenue: number
+            currency: string
+        }
+    ]
+}
+
+/event
+{
+    id: string
+    data{
+        name: string
+        time: time
+        place: string
+        nftId: number
+        price: string
+        currency: string
+        image: string
+        state: Published|NotPublished
+    }
+}
+
+/event-nfts
+{
+    id: string
+    data{
+        name: string
+        seat: string
+        area: string
+        price: string
+        currency: string
+        image: string
+        uri: string
+        state: ON_SALE | NOT_CHECKED_IN | CHECKED_IN | CHECKED_OUT
+    }
+}
+
+/inbox-thread
+{
+    id: string
+    data{
+        name: string
+        time: time
+    }
+}
+
+/inbox-message
+{
+    id: string
+    data{
+        thread: string
+        name: string
+        text: string
+        time: time
+    }
+}
+
+/event-check-in
+{
+    qr: string
+} : { 
+ result: boolean
+ error: string?
+}
+
+/event-check-out
+{
+    qr: string
+} : { 
+ result: boolean
+ error: string?
+}
