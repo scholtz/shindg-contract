@@ -176,16 +176,21 @@ export class Shindg extends Contract {
   }
 
   // OTHER NFT METHODS
-  mint(to: Address, area: string, seat: string, image: string): void {
+  mint(to: Address, area: string, seat: string, image: string, uri: string): void {
+    assert(
+      this.txn.sender === globals.creatorAddress,
+      'Only creator is allowed to mint specific NFTs for this collection'
+    );
+
     const index = this.index.value;
 
     const token: Token = {
       owner: to,
       controller: Address.zeroAddress,
-      state: 'ON_SALE' as string,
+      state: 'ON_SALE',
       area: area,
       seat: seat,
-      uri: ('https://shindg.vercel.app/nft/' + globals.currentApplicationID + '/' + index) as string,
+      uri: uri,
       image: image,
     };
 

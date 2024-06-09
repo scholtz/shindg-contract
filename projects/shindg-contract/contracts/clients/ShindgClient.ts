@@ -12,6 +12,7 @@ import type {
   AppCompilationResult,
   AppReference,
   AppState,
+  AppStorageSchema,
   CoreAppCallArgs,
   RawAppCallArgs,
   TealTemplateParams,
@@ -29,19 +30,49 @@ import type { ABIResult, TransactionWithSigner } from 'algosdk'
 import { Algodv2, OnApplicationComplete, Transaction, AtomicTransactionComposer, modelsv2 } from 'algosdk'
 export const APP_SPEC: AppSpec = {
   "hints": {
-    "doMath(uint64,uint64,string)uint64": {
-      "call_config": {
-        "no_op": "CALL"
-      }
-    },
-    "hello(string)string": {
-      "call_config": {
-        "no_op": "CALL"
-      }
-    },
-    "createApplication()void": {
+    "createApplication(string,string)void": {
       "call_config": {
         "no_op": "CREATE"
+      }
+    },
+    "arc72_transferFrom(address,address,uint256)void": {
+      "call_config": {
+        "no_op": "CALL"
+      }
+    },
+    "arc72_approve(address,uint256)void": {
+      "call_config": {
+        "no_op": "CALL"
+      }
+    },
+    "arc72_setApprovalForAll(address,bool)void": {
+      "call_config": {
+        "no_op": "CALL"
+      }
+    },
+    "arc72_ownerOf(uint256)address": {
+      "call_config": {
+        "no_op": "CALL"
+      }
+    },
+    "arc72_tokenURI(uint256)string": {
+      "call_config": {
+        "no_op": "CALL"
+      }
+    },
+    "arc72_totalSupply()uint256": {
+      "call_config": {
+        "no_op": "CALL"
+      }
+    },
+    "arc72_tokenByIndex(uint256)uint256": {
+      "call_config": {
+        "no_op": "CALL"
+      }
+    },
+    "mint(address,string,string,string,string)void": {
+      "call_config": {
+        "no_op": "CALL"
       }
     }
   },
@@ -58,13 +89,26 @@ export const APP_SPEC: AppSpec = {
       "reserved": {}
     },
     "global": {
-      "declared": {},
+      "declared": {
+        "index": {
+          "type": "bytes",
+          "key": "index"
+        },
+        "name": {
+          "type": "bytes",
+          "key": "name"
+        },
+        "symbol": {
+          "type": "bytes",
+          "key": "symbol"
+        }
+      },
       "reserved": {}
     }
   },
   "state": {
     "global": {
-      "num_byte_slices": 0,
+      "num_byte_slices": 3,
       "num_uints": 0
     },
     "local": {
@@ -73,7 +117,7 @@ export const APP_SPEC: AppSpec = {
     }
   },
   "source": {
-    "approval": "I3ByYWdtYSB2ZXJzaW9uIDEwCgovLyBUaGlzIFRFQUwgd2FzIGdlbmVyYXRlZCBieSBURUFMU2NyaXB0IHYwLjkyLjAKLy8gaHR0cHM6Ly9naXRodWIuY29tL2FsZ29yYW5kZm91bmRhdGlvbi9URUFMU2NyaXB0CgovLyBUaGlzIGNvbnRyYWN0IGlzIGNvbXBsaWFudCB3aXRoIGFuZC9vciBpbXBsZW1lbnRzIHRoZSBmb2xsb3dpbmcgQVJDczogWyBBUkM0IF0KCi8vIFRoZSBmb2xsb3dpbmcgdGVuIGxpbmVzIG9mIFRFQUwgaGFuZGxlIGluaXRpYWwgcHJvZ3JhbSBmbG93Ci8vIFRoaXMgcGF0dGVybiBpcyB1c2VkIHRvIG1ha2UgaXQgZWFzeSBmb3IgYW55b25lIHRvIHBhcnNlIHRoZSBzdGFydCBvZiB0aGUgcHJvZ3JhbSBhbmQgZGV0ZXJtaW5lIGlmIGEgc3BlY2lmaWMgYWN0aW9uIGlzIGFsbG93ZWQKLy8gSGVyZSwgYWN0aW9uIHJlZmVycyB0byB0aGUgT25Db21wbGV0ZSBpbiBjb21iaW5hdGlvbiB3aXRoIHdoZXRoZXIgdGhlIGFwcCBpcyBiZWluZyBjcmVhdGVkIG9yIGNhbGxlZAovLyBFdmVyeSBwb3NzaWJsZSBhY3Rpb24gZm9yIHRoaXMgY29udHJhY3QgaXMgcmVwcmVzZW50ZWQgaW4gdGhlIHN3aXRjaCBzdGF0ZW1lbnQKLy8gSWYgdGhlIGFjdGlvbiBpcyBub3QgaW1wbGVtZW50ZWQgaW4gdGhlIGNvbnRyYWN0LCBpdHMgcmVzcGVjdGl2ZSBicmFuY2ggd2lsbCBiZSAiKk5PVF9JTVBMRU1FTlRFRCIgd2hpY2gganVzdCBjb250YWlucyAiZXJyIgp0eG4gQXBwbGljYXRpb25JRAohCmludCA2CioKdHhuIE9uQ29tcGxldGlvbgorCnN3aXRjaCAqY2FsbF9Ob09wICpOT1RfSU1QTEVNRU5URUQgKk5PVF9JTVBMRU1FTlRFRCAqTk9UX0lNUExFTUVOVEVEICpOT1RfSU1QTEVNRU5URUQgKk5PVF9JTVBMRU1FTlRFRCAqY3JlYXRlX05vT3AgKk5PVF9JTVBMRU1FTlRFRCAqTk9UX0lNUExFTUVOVEVEICpOT1RfSU1QTEVNRU5URUQgKk5PVF9JTVBMRU1FTlRFRCAqTk9UX0lNUExFTUVOVEVECgoqTk9UX0lNUExFTUVOVEVEOgoJLy8gVGhlIHJlcXVlc3RlZCBhY3Rpb24gaXMgbm90IGltcGxlbWVudGVkIGluIHRoaXMgY29udHJhY3QuIEFyZSB5b3UgdXNpbmcgdGhlIGNvcnJlY3QgT25Db21wbGV0ZT8gRGlkIHlvdSBzZXQgeW91ciBhcHAgSUQ/CgllcnIKCi8vIGdldFN1bShhOiB1aW50NjQsIGI6IHVpbnQ2NCk6IHVpbnQ2NAovLwovLyBDYWxjdWxhdGVzIHRoZSBzdW0gb2YgdHdvIG51bWJlcnMKLy8KLy8gQHBhcmFtIGEKLy8gQHBhcmFtIGIKLy8gQHJldHVybnMgVGhlIHN1bSBvZiBhIGFuZCBiCmdldFN1bToKCXByb3RvIDIgMQoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxMgoJLy8gcmV0dXJuIGEgKyBiOwoJZnJhbWVfZGlnIC0xIC8vIGE6IHVpbnQ2NAoJZnJhbWVfZGlnIC0yIC8vIGI6IHVpbnQ2NAoJKwoJcmV0c3ViCgovLyBnZXREaWZmZXJlbmNlKGE6IHVpbnQ2NCwgYjogdWludDY0KTogdWludDY0Ci8vCi8vIENhbGN1bGF0ZXMgdGhlIGRpZmZlcmVuY2UgYmV0d2VlbiB0d28gbnVtYmVycwovLwovLyBAcGFyYW0gYQovLyBAcGFyYW0gYgovLyBAcmV0dXJucyBUaGUgZGlmZmVyZW5jZSBiZXR3ZWVuIGEgYW5kIGIuCmdldERpZmZlcmVuY2U6Cglwcm90byAyIDEKCgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6MjMKCS8vIHJldHVybiBhID49IGIgPyBhIC0gYiA6IGIgLSBhOwoJZnJhbWVfZGlnIC0xIC8vIGE6IHVpbnQ2NAoJZnJhbWVfZGlnIC0yIC8vIGI6IHVpbnQ2NAoJPj0KCWJ6ICp0ZXJuYXJ5MF9mYWxzZQoJZnJhbWVfZGlnIC0xIC8vIGE6IHVpbnQ2NAoJZnJhbWVfZGlnIC0yIC8vIGI6IHVpbnQ2NAoJLQoJYiAqdGVybmFyeTBfZW5kCgoqdGVybmFyeTBfZmFsc2U6CglmcmFtZV9kaWcgLTIgLy8gYjogdWludDY0CglmcmFtZV9kaWcgLTEgLy8gYTogdWludDY0CgktCgoqdGVybmFyeTBfZW5kOgoJcmV0c3ViCgovLyBkb01hdGgodWludDY0LHVpbnQ2NCxzdHJpbmcpdWludDY0CiphYmlfcm91dGVfZG9NYXRoOgoJLy8gVGhlIEFCSSByZXR1cm4gcHJlZml4CglieXRlIDB4MTUxZjdjNzUKCgkvLyBvcGVyYXRpb246IHN0cmluZwoJdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMwoJZXh0cmFjdCAyIDAKCgkvLyBiOiB1aW50NjQKCXR4bmEgQXBwbGljYXRpb25BcmdzIDIKCWJ0b2kKCgkvLyBhOiB1aW50NjQKCXR4bmEgQXBwbGljYXRpb25BcmdzIDEKCWJ0b2kKCgkvLyBleGVjdXRlIGRvTWF0aCh1aW50NjQsdWludDY0LHN0cmluZyl1aW50NjQKCWNhbGxzdWIgZG9NYXRoCglpdG9iCgljb25jYXQKCWxvZwoJaW50IDEKCXJldHVybgoKLy8gZG9NYXRoKGE6IHVpbnQ2NCwgYjogdWludDY0LCBvcGVyYXRpb246IHN0cmluZyk6IHVpbnQ2NAovLwovLyBBIG1ldGhvZCB0aGF0IHRha2VzIHR3byBudW1iZXJzIGFuZCBkb2VzIGVpdGhlciBhZGRpdGlvbiBvciBzdWJ0cmFjdGlvbgovLwovLyBAcGFyYW0gYSBUaGUgZmlyc3QgdWludDY0Ci8vIEBwYXJhbSBiIFRoZSBzZWNvbmQgdWludDY0Ci8vIEBwYXJhbSBvcGVyYXRpb24gVGhlIG9wZXJhdGlvbiB0byBwZXJmb3JtLiBDYW4gYmUgZWl0aGVyICdzdW0nIG9yICdkaWZmZXJlbmNlJwovLwovLyBAcmV0dXJucyBUaGUgcmVzdWx0IG9mIHRoZSBvcGVyYXRpb24KZG9NYXRoOgoJcHJvdG8gMyAxCgoJLy8gUHVzaCBlbXB0eSBieXRlcyBhZnRlciB0aGUgZnJhbWUgcG9pbnRlciB0byByZXNlcnZlIHNwYWNlIGZvciBsb2NhbCB2YXJpYWJsZXMKCWJ5dGUgMHgKCgkvLyAqaWYwX2NvbmRpdGlvbgoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjM4CgkvLyBvcGVyYXRpb24gPT09ICdzdW0nCglmcmFtZV9kaWcgLTMgLy8gb3BlcmF0aW9uOiBzdHJpbmcKCWJ5dGUgMHg3Mzc1NmQgLy8gInN1bSIKCT09CglieiAqaWYwX2Vsc2VpZjFfY29uZGl0aW9uCgoJLy8gKmlmMF9jb25zZXF1ZW50CgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6MzkKCS8vIHJlc3VsdCA9IHRoaXMuZ2V0U3VtKGEsIGIpCglmcmFtZV9kaWcgLTIgLy8gYjogdWludDY0CglmcmFtZV9kaWcgLTEgLy8gYTogdWludDY0CgljYWxsc3ViIGdldFN1bQoJZnJhbWVfYnVyeSAwIC8vIHJlc3VsdDogdWludDY0CgliICppZjBfZW5kCgoqaWYwX2Vsc2VpZjFfY29uZGl0aW9uOgoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjQwCgkvLyBvcGVyYXRpb24gPT09ICdkaWZmZXJlbmNlJwoJZnJhbWVfZGlnIC0zIC8vIG9wZXJhdGlvbjogc3RyaW5nCglieXRlIDB4NjQ2OTY2NjY2NTcyNjU2ZTYzNjUgLy8gImRpZmZlcmVuY2UiCgk9PQoJYnogKmlmMF9lbHNlCgoJLy8gKmlmMF9lbHNlaWYxX2NvbnNlcXVlbnQKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czo0MQoJLy8gcmVzdWx0ID0gdGhpcy5nZXREaWZmZXJlbmNlKGEsIGIpCglmcmFtZV9kaWcgLTIgLy8gYjogdWludDY0CglmcmFtZV9kaWcgLTEgLy8gYTogdWludDY0CgljYWxsc3ViIGdldERpZmZlcmVuY2UKCWZyYW1lX2J1cnkgMCAvLyByZXN1bHQ6IHVpbnQ2NAoJYiAqaWYwX2VuZAoKKmlmMF9lbHNlOgoJLy8gSW52YWxpZCBvcGVyYXRpb24KCWVycgoKKmlmMF9lbmQ6CgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6NDQKCS8vIHJldHVybiByZXN1bHQ7CglmcmFtZV9kaWcgMCAvLyByZXN1bHQ6IHVpbnQ2NAoKCS8vIHNldCB0aGUgc3Vicm91dGluZSByZXR1cm4gdmFsdWUKCWZyYW1lX2J1cnkgMAoJcmV0c3ViCgovLyBoZWxsbyhzdHJpbmcpc3RyaW5nCiphYmlfcm91dGVfaGVsbG86CgkvLyBUaGUgQUJJIHJldHVybiBwcmVmaXgKCWJ5dGUgMHgxNTFmN2M3NQoKCS8vIG5hbWU6IHN0cmluZwoJdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMQoJZXh0cmFjdCAyIDAKCgkvLyBleGVjdXRlIGhlbGxvKHN0cmluZylzdHJpbmcKCWNhbGxzdWIgaGVsbG8KCWR1cAoJbGVuCglpdG9iCglleHRyYWN0IDYgMgoJc3dhcAoJY29uY2F0Cgljb25jYXQKCWxvZwoJaW50IDEKCXJldHVybgoKLy8gaGVsbG8obmFtZTogc3RyaW5nKTogc3RyaW5nCi8vCi8vIEEgZGVtb25zdHJhdGlvbiBtZXRob2QgdXNlZCBpbiB0aGUgQWxnb0tpdCBmdWxsc3RhY2sgdGVtcGxhdGUuCi8vIEdyZWV0cyB0aGUgdXNlciBieSBuYW1lLgovLwovLyBAcGFyYW0gbmFtZSBUaGUgbmFtZSBvZiB0aGUgdXNlciB0byBncmVldC4KLy8gQHJldHVybnMgQSBncmVldGluZyBtZXNzYWdlIHRvIHRoZSB1c2VyLgpoZWxsbzoKCXByb3RvIDEgMQoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czo1NQoJLy8gcmV0dXJuICdIZWxsbywgJyArIG5hbWU7CglieXRlIDB4NDg2NTZjNmM2ZjJjMjAgLy8gIkhlbGxvLCAiCglmcmFtZV9kaWcgLTEgLy8gbmFtZTogc3RyaW5nCgljb25jYXQKCXJldHN1YgoKKmFiaV9yb3V0ZV9jcmVhdGVBcHBsaWNhdGlvbjoKCWludCAxCglyZXR1cm4KCipjcmVhdGVfTm9PcDoKCW1ldGhvZCAiY3JlYXRlQXBwbGljYXRpb24oKXZvaWQiCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAwCgltYXRjaCAqYWJpX3JvdXRlX2NyZWF0ZUFwcGxpY2F0aW9uCgoJLy8gdGhpcyBjb250cmFjdCBkb2VzIG5vdCBpbXBsZW1lbnQgdGhlIGdpdmVuIEFCSSBtZXRob2QgZm9yIGNyZWF0ZSBOb09wCgllcnIKCipjYWxsX05vT3A6CgltZXRob2QgImRvTWF0aCh1aW50NjQsdWludDY0LHN0cmluZyl1aW50NjQiCgltZXRob2QgImhlbGxvKHN0cmluZylzdHJpbmciCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAwCgltYXRjaCAqYWJpX3JvdXRlX2RvTWF0aCAqYWJpX3JvdXRlX2hlbGxvCgoJLy8gdGhpcyBjb250cmFjdCBkb2VzIG5vdCBpbXBsZW1lbnQgdGhlIGdpdmVuIEFCSSBtZXRob2QgZm9yIGNhbGwgTm9PcAoJZXJy",
+    "approval": "I3ByYWdtYSB2ZXJzaW9uIDEwCgovLyBUaGlzIFRFQUwgd2FzIGdlbmVyYXRlZCBieSBURUFMU2NyaXB0IHYwLjk0LjEKLy8gaHR0cHM6Ly9naXRodWIuY29tL2FsZ29yYW5kZm91bmRhdGlvbi9URUFMU2NyaXB0CgovLyBUaGlzIGNvbnRyYWN0IGlzIGNvbXBsaWFudCB3aXRoIGFuZC9vciBpbXBsZW1lbnRzIHRoZSBmb2xsb3dpbmcgQVJDczogWyBBUkM0IF0KCi8vIFRoZSBmb2xsb3dpbmcgdGVuIGxpbmVzIG9mIFRFQUwgaGFuZGxlIGluaXRpYWwgcHJvZ3JhbSBmbG93Ci8vIFRoaXMgcGF0dGVybiBpcyB1c2VkIHRvIG1ha2UgaXQgZWFzeSBmb3IgYW55b25lIHRvIHBhcnNlIHRoZSBzdGFydCBvZiB0aGUgcHJvZ3JhbSBhbmQgZGV0ZXJtaW5lIGlmIGEgc3BlY2lmaWMgYWN0aW9uIGlzIGFsbG93ZWQKLy8gSGVyZSwgYWN0aW9uIHJlZmVycyB0byB0aGUgT25Db21wbGV0ZSBpbiBjb21iaW5hdGlvbiB3aXRoIHdoZXRoZXIgdGhlIGFwcCBpcyBiZWluZyBjcmVhdGVkIG9yIGNhbGxlZAovLyBFdmVyeSBwb3NzaWJsZSBhY3Rpb24gZm9yIHRoaXMgY29udHJhY3QgaXMgcmVwcmVzZW50ZWQgaW4gdGhlIHN3aXRjaCBzdGF0ZW1lbnQKLy8gSWYgdGhlIGFjdGlvbiBpcyBub3QgaW1wbGVtZW50ZWQgaW4gdGhlIGNvbnRyYWN0LCBpdHMgcmVzcGVjdGl2ZSBicmFuY2ggd2lsbCBiZSAiKk5PVF9JTVBMRU1FTlRFRCIgd2hpY2gganVzdCBjb250YWlucyAiZXJyIgp0eG4gQXBwbGljYXRpb25JRAohCmludCA2CioKdHhuIE9uQ29tcGxldGlvbgorCnN3aXRjaCAqY2FsbF9Ob09wICpOT1RfSU1QTEVNRU5URUQgKk5PVF9JTVBMRU1FTlRFRCAqTk9UX0lNUExFTUVOVEVEICpOT1RfSU1QTEVNRU5URUQgKk5PVF9JTVBMRU1FTlRFRCAqY3JlYXRlX05vT3AgKk5PVF9JTVBMRU1FTlRFRCAqTk9UX0lNUExFTUVOVEVEICpOT1RfSU1QTEVNRU5URUQgKk5PVF9JTVBMRU1FTlRFRCAqTk9UX0lNUExFTUVOVEVECgoqTk9UX0lNUExFTUVOVEVEOgoJLy8gVGhlIHJlcXVlc3RlZCBhY3Rpb24gaXMgbm90IGltcGxlbWVudGVkIGluIHRoaXMgY29udHJhY3QuIEFyZSB5b3UgdXNpbmcgdGhlIGNvcnJlY3QgT25Db21wbGV0ZT8gRGlkIHlvdSBzZXQgeW91ciBhcHAgSUQ/CgllcnIKCi8vIGNyZWF0ZUFwcGxpY2F0aW9uKHN0cmluZyxzdHJpbmcpdm9pZAoqYWJpX3JvdXRlX2NyZWF0ZUFwcGxpY2F0aW9uOgoJLy8gc3ltYm9sOiBzdHJpbmcKCXR4bmEgQXBwbGljYXRpb25BcmdzIDIKCWV4dHJhY3QgMiAwCgoJLy8gbmFtZTogc3RyaW5nCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAxCglleHRyYWN0IDIgMAoKCS8vIGV4ZWN1dGUgY3JlYXRlQXBwbGljYXRpb24oc3RyaW5nLHN0cmluZyl2b2lkCgljYWxsc3ViIGNyZWF0ZUFwcGxpY2F0aW9uCglpbnQgMQoJcmV0dXJuCgovLyBjcmVhdGVBcHBsaWNhdGlvbihuYW1lOiBzdHJpbmcsIHN5bWJvbDogc3RyaW5nKTogdm9pZAovLwovLyBDb25zdHJ1Y3RvcgovLyBAcGFyYW0gbmFtZSBORlQgTmFtZQovLyBAcGFyYW0gc3ltYm9sIE5GVCBTeW1ib2wKY3JlYXRlQXBwbGljYXRpb246Cglwcm90byAyIDAKCgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6NzUKCS8vIHRoaXMubmFtZS52YWx1ZSA9IG5hbWUKCWJ5dGUgMHg2ZTYxNmQ2NSAvLyAibmFtZSIKCWZyYW1lX2RpZyAtMSAvLyBuYW1lOiBzdHJpbmcKCWR1cAoJbGVuCglpdG9iCglleHRyYWN0IDYgMgoJc3dhcAoJY29uY2F0CglhcHBfZ2xvYmFsX3B1dAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czo3NgoJLy8gdGhpcy5zeW1ib2wudmFsdWUgPSBzeW1ib2wKCWJ5dGUgMHg3Mzc5NmQ2MjZmNmMgLy8gInN5bWJvbCIKCWZyYW1lX2RpZyAtMiAvLyBzeW1ib2w6IHN0cmluZwoJZHVwCglsZW4KCWl0b2IKCWV4dHJhY3QgNiAyCglzd2FwCgljb25jYXQKCWFwcF9nbG9iYWxfcHV0CglyZXRzdWIKCi8vIHRyYW5zZmVyVG8odG86IEFkZHJlc3MsIHRva2VuSWQ6IHVpbnQyNTYpOiB2b2lkCi8vCi8vIEV4ZWN1dGUgdHJhbnNmZXIgLSBjaGFuZ2UgdGhlIHN0YXRlIG9mIHRoZSB0b2tlbi4KLy8gQHBhcmFtIHRvIEFkZHJlc3Mgb2YgcmVjZWl2ZXIKLy8gQHBhcmFtIHRva2VuSWQgVG9rZW5JRAp0cmFuc2ZlclRvOgoJcHJvdG8gMiAwCgoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjg3CgkvLyBhc3NlcnQodGhpcy50b2tlbkJveCh0b2tlbklkKS5leGlzdHMpCglmcmFtZV9kaWcgLTIgLy8gdG9rZW5JZDogdWludDI1NgoJYm94X2xlbgoJc3dhcAoJcG9wCglhc3NlcnQKCgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6ODgKCS8vIHRoaXMudG9rZW5Cb3godG9rZW5JZCkudmFsdWUub3duZXIgPSB0bwoJZnJhbWVfZGlnIC0yIC8vIHRva2VuSWQ6IHVpbnQyNTYKCWJveF9nZXQKCgkvLyBib3ggdmFsdWUgZG9lcyBub3QgZXhpc3Q6IHRoaXMudG9rZW5Cb3godG9rZW5JZCkudmFsdWUKCWFzc2VydAoJc3RvcmUgMjU1IC8vIGZ1bGwgYXJyYXkKCWxvYWQgMjU1IC8vIGZ1bGwgYXJyYXkKCWludCAwCglmcmFtZV9kaWcgLTEgLy8gdG86IEFkZHJlc3MKCWZyYW1lX2RpZyAtMiAvLyB0b2tlbklkOiB1aW50MjU2CglkdXAKCWJveF9kZWwKCXBvcAoJc3dhcAoJYm94X3B1dAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czo4OQoJLy8gdGhpcy50b2tlbkJveCh0b2tlbklkKS52YWx1ZS5jb250cm9sbGVyID0gZ2xvYmFscy56ZXJvQWRkcmVzcwoJZnJhbWVfZGlnIC0yIC8vIHRva2VuSWQ6IHVpbnQyNTYKCWJveF9nZXQKCgkvLyBib3ggdmFsdWUgZG9lcyBub3QgZXhpc3Q6IHRoaXMudG9rZW5Cb3godG9rZW5JZCkudmFsdWUKCWFzc2VydAoJc3RvcmUgMjU1IC8vIGZ1bGwgYXJyYXkKCWxvYWQgMjU1IC8vIGZ1bGwgYXJyYXkKCWludCAzMgoJZ2xvYmFsIFplcm9BZGRyZXNzCglmcmFtZV9kaWcgLTIgLy8gdG9rZW5JZDogdWludDI1NgoJZHVwCglib3hfZGVsCglwb3AKCXN3YXAKCWJveF9wdXQKCXJldHN1YgoKLy8gYXJjNzJfdHJhbnNmZXJGcm9tKGFkZHJlc3MsYWRkcmVzcyx1aW50MjU2KXZvaWQKKmFiaV9yb3V0ZV9hcmM3Ml90cmFuc2ZlckZyb206CgkvLyB0b2tlbklkOiB1aW50MjU2Cgl0eG5hIEFwcGxpY2F0aW9uQXJncyAzCglkdXAKCWxlbgoJaW50IDMyCgk9PQoKCS8vIGFyZ3VtZW50IDAgKHRva2VuSWQpIGZvciBhcmM3Ml90cmFuc2ZlckZyb20gbXVzdCBiZSBhIHVpbnQyNTYKCWFzc2VydAoKCS8vIHRvOiBhZGRyZXNzCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAyCglkdXAKCWxlbgoJaW50IDMyCgk9PQoKCS8vIGFyZ3VtZW50IDEgKHRvKSBmb3IgYXJjNzJfdHJhbnNmZXJGcm9tIG11c3QgYmUgYSBhZGRyZXNzCglhc3NlcnQKCgkvLyBfZnJvbTogYWRkcmVzcwoJdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMQoJZHVwCglsZW4KCWludCAzMgoJPT0KCgkvLyBhcmd1bWVudCAyIChfZnJvbSkgZm9yIGFyYzcyX3RyYW5zZmVyRnJvbSBtdXN0IGJlIGEgYWRkcmVzcwoJYXNzZXJ0CgoJLy8gZXhlY3V0ZSBhcmM3Ml90cmFuc2ZlckZyb20oYWRkcmVzcyxhZGRyZXNzLHVpbnQyNTYpdm9pZAoJY2FsbHN1YiBhcmM3Ml90cmFuc2ZlckZyb20KCWludCAxCglyZXR1cm4KCi8vIGFyYzcyX3RyYW5zZmVyRnJvbShfZnJvbTogQWRkcmVzcywgdG86IEFkZHJlc3MsIHRva2VuSWQ6IHVpbnQyNTYpOiB2b2lkCi8vCi8vIFRyYW5zZmVycyBvd25lcnNoaXAgb2YgYW4gTkZUCmFyYzcyX3RyYW5zZmVyRnJvbToKCXByb3RvIDMgMAoKCS8vIFB1c2ggZW1wdHkgYnl0ZXMgYWZ0ZXIgdGhlIGZyYW1lIHBvaW50ZXIgdG8gcmVzZXJ2ZSBzcGFjZSBmb3IgbG9jYWwgdmFyaWFibGVzCglieXRlIDB4CglkdXAKCgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6OTgKCS8vIHRva2VuID0gdGhpcy50b2tlbkJveCh0b2tlbklkKS52YWx1ZQoJZnJhbWVfZGlnIC0zIC8vIHRva2VuSWQ6IHVpbnQyNTYKCWZyYW1lX2J1cnkgMCAvLyBzdG9yYWdlIGtleS8vdG9rZW4KCgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6MTAwCgkvLyBrZXk6IENvbnRyb2wgPSB7IG93bmVyOiB0aGlzLnR4bi5zZW5kZXIsIGNvbnRyb2xsZXI6IF9mcm9tIH0KCXR4biBTZW5kZXIKCWZyYW1lX2RpZyAtMSAvLyBfZnJvbTogQWRkcmVzcwoJY29uY2F0CglmcmFtZV9idXJ5IDEgLy8ga2V5OiBDb250cm9sCgoJLy8gKmlmMF9jb25kaXRpb24KCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxMDIKCS8vIHRoaXMudHhuLnNlbmRlciA9PT0gX2Zyb20gfHwgdGhpcy50eG4uc2VuZGVyID09PSB0b2tlbi5jb250cm9sbGVyIHx8IHRoaXMuY29udHJvbEJveChrZXkpLmV4aXN0cwoJdHhuIFNlbmRlcgoJZnJhbWVfZGlnIC0xIC8vIF9mcm9tOiBBZGRyZXNzCgk9PQoJZHVwCglibnogKnNraXBfb3IwCgl0eG4gU2VuZGVyCglmcmFtZV9kaWcgMCAvLyBzdG9yYWdlIGtleS8vdG9rZW4KCWJveF9nZXQKCgkvLyBib3ggdmFsdWUgZG9lcyBub3QgZXhpc3Q6IHRoaXMudG9rZW5Cb3godG9rZW5JZCkudmFsdWUKCWFzc2VydAoJc3RvcmUgMjU1IC8vIGZ1bGwgYXJyYXkKCWxvYWQgMjU1IC8vIGZ1bGwgYXJyYXkKCWV4dHJhY3QgMzIgMzIKCT09Cgl8fAoKKnNraXBfb3IwOgoJZHVwCglibnogKnNraXBfb3IxCglmcmFtZV9kaWcgMSAvLyBrZXk6IENvbnRyb2wKCWJveF9sZW4KCXN3YXAKCXBvcAoJfHwKCipza2lwX29yMToKCWJ6ICppZjBfZWxzZQoKCS8vICppZjBfY29uc2VxdWVudAoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjEwMwoJLy8gdGhpcy50cmFuc2ZlclRvKHRvLCB0b2tlbklkKQoJZnJhbWVfZGlnIC0zIC8vIHRva2VuSWQ6IHVpbnQyNTYKCWZyYW1lX2RpZyAtMiAvLyB0bzogQWRkcmVzcwoJY2FsbHN1YiB0cmFuc2ZlclRvCgliICppZjBfZW5kCgoqaWYwX2Vsc2U6CgkvLyBUcmFuc2ZlciBub3QgYXV0aG9yaXplZAoJZXJyCgoqaWYwX2VuZDoKCXJldHN1YgoKLy8gYXJjNzJfYXBwcm92ZShhZGRyZXNzLHVpbnQyNTYpdm9pZAoqYWJpX3JvdXRlX2FyYzcyX2FwcHJvdmU6CgkvLyB0b2tlbklkOiB1aW50MjU2Cgl0eG5hIEFwcGxpY2F0aW9uQXJncyAyCglkdXAKCWxlbgoJaW50IDMyCgk9PQoKCS8vIGFyZ3VtZW50IDAgKHRva2VuSWQpIGZvciBhcmM3Ml9hcHByb3ZlIG11c3QgYmUgYSB1aW50MjU2Cglhc3NlcnQKCgkvLyBhcHByb3ZlZDogYWRkcmVzcwoJdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMQoJZHVwCglsZW4KCWludCAzMgoJPT0KCgkvLyBhcmd1bWVudCAxIChhcHByb3ZlZCkgZm9yIGFyYzcyX2FwcHJvdmUgbXVzdCBiZSBhIGFkZHJlc3MKCWFzc2VydAoKCS8vIGV4ZWN1dGUgYXJjNzJfYXBwcm92ZShhZGRyZXNzLHVpbnQyNTYpdm9pZAoJY2FsbHN1YiBhcmM3Ml9hcHByb3ZlCglpbnQgMQoJcmV0dXJuCgovLyBhcmM3Ml9hcHByb3ZlKGFwcHJvdmVkOiBBZGRyZXNzLCB0b2tlbklkOiB1aW50MjU2KTogdm9pZAovLwovLwovLyBBcHByb3ZlIGEgY29udHJvbGxlciBmb3IgYSBzaW5nbGUgTkZUCi8vCi8vIEBwYXJhbSBhcHByb3ZlZCBBcHByb3ZlZCBjb250cm9sbGVyIGFkZHJlc3MKLy8gQHBhcmFtIHRva2VuSWQgVGhlIElEIG9mIHRoZSBORlQKYXJjNzJfYXBwcm92ZToKCXByb3RvIDIgMAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxMTUKCS8vIGFzc2VydCh0aGlzLnRva2VuQm94KHRva2VuSWQpLmV4aXN0cykKCWZyYW1lX2RpZyAtMiAvLyB0b2tlbklkOiB1aW50MjU2Cglib3hfbGVuCglzd2FwCglwb3AKCWFzc2VydAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxMTYKCS8vIGFzc2VydCh0aGlzLnR4bi5zZW5kZXIgPT09IHRoaXMudG9rZW5Cb3godG9rZW5JZCkudmFsdWUub3duZXIpCgl0eG4gU2VuZGVyCglmcmFtZV9kaWcgLTIgLy8gdG9rZW5JZDogdWludDI1NgoJYm94X2dldAoKCS8vIGJveCB2YWx1ZSBkb2VzIG5vdCBleGlzdDogdGhpcy50b2tlbkJveCh0b2tlbklkKS52YWx1ZQoJYXNzZXJ0CglzdG9yZSAyNTUgLy8gZnVsbCBhcnJheQoJbG9hZCAyNTUgLy8gZnVsbCBhcnJheQoJZXh0cmFjdCAwIDMyCgk9PQoJYXNzZXJ0CgoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjExOAoJLy8gdGhpcy50b2tlbkJveCh0b2tlbklkKS52YWx1ZS5jb250cm9sbGVyID0gYXBwcm92ZWQKCWZyYW1lX2RpZyAtMiAvLyB0b2tlbklkOiB1aW50MjU2Cglib3hfZ2V0CgoJLy8gYm94IHZhbHVlIGRvZXMgbm90IGV4aXN0OiB0aGlzLnRva2VuQm94KHRva2VuSWQpLnZhbHVlCglhc3NlcnQKCXN0b3JlIDI1NSAvLyBmdWxsIGFycmF5Cglsb2FkIDI1NSAvLyBmdWxsIGFycmF5CglpbnQgMzIKCWZyYW1lX2RpZyAtMSAvLyBhcHByb3ZlZDogQWRkcmVzcwoJZnJhbWVfZGlnIC0yIC8vIHRva2VuSWQ6IHVpbnQyNTYKCWR1cAoJYm94X2RlbAoJcG9wCglzd2FwCglib3hfcHV0CglyZXRzdWIKCi8vIGFyYzcyX3NldEFwcHJvdmFsRm9yQWxsKGFkZHJlc3MsYm9vbCl2b2lkCiphYmlfcm91dGVfYXJjNzJfc2V0QXBwcm92YWxGb3JBbGw6CgkvLyBhcHByb3ZlZDogYm9vbAoJdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMgoJZHVwCglsZW4KCWludCAxCgk9PQoKCS8vIGFyZ3VtZW50IDAgKGFwcHJvdmVkKSBmb3IgYXJjNzJfc2V0QXBwcm92YWxGb3JBbGwgbXVzdCBiZSBhIGJvb2wKCWFzc2VydAoJaW50IDAKCWdldGJpdAoKCS8vIG9wZXJhdG9yOiBhZGRyZXNzCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAxCglkdXAKCWxlbgoJaW50IDMyCgk9PQoKCS8vIGFyZ3VtZW50IDEgKG9wZXJhdG9yKSBmb3IgYXJjNzJfc2V0QXBwcm92YWxGb3JBbGwgbXVzdCBiZSBhIGFkZHJlc3MKCWFzc2VydAoKCS8vIGV4ZWN1dGUgYXJjNzJfc2V0QXBwcm92YWxGb3JBbGwoYWRkcmVzcyxib29sKXZvaWQKCWNhbGxzdWIgYXJjNzJfc2V0QXBwcm92YWxGb3JBbGwKCWludCAxCglyZXR1cm4KCi8vIGFyYzcyX3NldEFwcHJvdmFsRm9yQWxsKG9wZXJhdG9yOiBBZGRyZXNzLCBhcHByb3ZlZDogYm9vbGVhbik6IHZvaWQKLy8KLy8KLy8gQXBwcm92ZSBhbiBvcGVyYXRvciBmb3IgYWxsIE5GVHMgZm9yIGEgdXNlcgovLwovLyBAcGFyYW0gb3BlcmF0b3IgQXBwcm92ZWQgb3BlcmF0b3IgYWRkcmVzcwovLyBAcGFyYW0gYXBwcm92ZWQgdHJ1ZSB0byBnaXZlIGFwcHJvdmFsLCBmYWxzZSB0byByZXZva2UKLy8gQHJldHVybnMKYXJjNzJfc2V0QXBwcm92YWxGb3JBbGw6Cglwcm90byAyIDAKCgkvLyBQdXNoIGVtcHR5IGJ5dGVzIGFmdGVyIHRoZSBmcmFtZSBwb2ludGVyIHRvIHJlc2VydmUgc3BhY2UgZm9yIGxvY2FsIHZhcmlhYmxlcwoJYnl0ZSAweAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxMzAKCS8vIGtleTogQ29udHJvbCA9IHsgb3duZXI6IHRoaXMudHhuLnNlbmRlciwgY29udHJvbGxlcjogb3BlcmF0b3IgfQoJdHhuIFNlbmRlcgoJZnJhbWVfZGlnIC0xIC8vIG9wZXJhdG9yOiBBZGRyZXNzCgljb25jYXQKCWZyYW1lX2J1cnkgMCAvLyBrZXk6IENvbnRyb2wKCgkvLyAqaWYxX2NvbmRpdGlvbgoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjEzMgoJLy8gYXBwcm92ZWQKCWZyYW1lX2RpZyAtMiAvLyBhcHByb3ZlZDogYm9vbGVhbgoJYnogKmlmMV9lbHNlaWYxX2NvbmRpdGlvbgoKCS8vICppZjFfY29uc2VxdWVudAoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjEzMgoJLy8gdGhpcy5jb250cm9sQm94KGtleSkudmFsdWUgPSAnJwoJZnJhbWVfZGlnIDAgLy8ga2V5OiBDb250cm9sCglkdXAKCWJveF9kZWwKCXBvcAoJYnl0ZSAweCAvLyAiIgoJYm94X3B1dAoJYiAqaWYxX2VuZAoKKmlmMV9lbHNlaWYxX2NvbmRpdGlvbjoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxMzMKCS8vIHRoaXMuY29udHJvbEJveChrZXkpLmV4aXN0cwoJZnJhbWVfZGlnIDAgLy8ga2V5OiBDb250cm9sCglib3hfbGVuCglzd2FwCglwb3AKCWJ6ICppZjFfZW5kCgoJLy8gKmlmMV9lbHNlaWYxX2NvbnNlcXVlbnQKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxMzMKCS8vIHRoaXMuY29udHJvbEJveChrZXkpLmRlbGV0ZSgpCglmcmFtZV9kaWcgMCAvLyBrZXk6IENvbnRyb2wKCWJveF9kZWwKCippZjFfZW5kOgoJcmV0c3ViCgovLyBhcmM3Ml9vd25lck9mKHVpbnQyNTYpYWRkcmVzcwoqYWJpX3JvdXRlX2FyYzcyX293bmVyT2Y6CgkvLyBUaGUgQUJJIHJldHVybiBwcmVmaXgKCWJ5dGUgMHgxNTFmN2M3NQoKCS8vIHRva2VuSWQ6IHVpbnQyNTYKCXR4bmEgQXBwbGljYXRpb25BcmdzIDEKCWR1cAoJbGVuCglpbnQgMzIKCT09CgoJLy8gYXJndW1lbnQgMCAodG9rZW5JZCkgZm9yIGFyYzcyX293bmVyT2YgbXVzdCBiZSBhIHVpbnQyNTYKCWFzc2VydAoKCS8vIGV4ZWN1dGUgYXJjNzJfb3duZXJPZih1aW50MjU2KWFkZHJlc3MKCWNhbGxzdWIgYXJjNzJfb3duZXJPZgoJY29uY2F0Cglsb2cKCWludCAxCglyZXR1cm4KCi8vIGFyYzcyX293bmVyT2YodG9rZW5JZDogdWludDI1Nik6IEFkZHJlc3MKLy8KLy8KLy8gUmV0dXJucyB0aGUgYWRkcmVzcyBvZiB0aGUgY3VycmVudCBvd25lciBvZiB0aGUgTkZUIHdpdGggdGhlIGdpdmVuIHRva2VuSWQKLy8KLy8gQHBhcmFtIHRva2VuSWQgVGhlIElEIG9mIHRoZSBORlQKLy8gQHJldHVybnMgVGhlIGN1cnJlbnQgb3duZXIgb2YgdGhlIE5GVAphcmM3Ml9vd25lck9mOgoJcHJvdG8gMSAxCgoJLy8gY29udHJhY3RzXFNoaW5kZy5hbGdvLnRzOjE0NwoJLy8gcmV0dXJuIHRoaXMudG9rZW5Cb3godG9rZW5JZCkudmFsdWUub3duZXI7CglmcmFtZV9kaWcgLTEgLy8gdG9rZW5JZDogdWludDI1NgoJYm94X2dldAoKCS8vIGJveCB2YWx1ZSBkb2VzIG5vdCBleGlzdDogdGhpcy50b2tlbkJveCh0b2tlbklkKS52YWx1ZQoJYXNzZXJ0CglzdG9yZSAyNTUgLy8gZnVsbCBhcnJheQoJbG9hZCAyNTUgLy8gZnVsbCBhcnJheQoJZXh0cmFjdCAwIDMyCglyZXRzdWIKCi8vIGFyYzcyX3Rva2VuVVJJKHVpbnQyNTYpc3RyaW5nCiphYmlfcm91dGVfYXJjNzJfdG9rZW5VUkk6CgkvLyBUaGUgQUJJIHJldHVybiBwcmVmaXgKCWJ5dGUgMHgxNTFmN2M3NQoKCS8vIHRva2VuSWQ6IHVpbnQyNTYKCXR4bmEgQXBwbGljYXRpb25BcmdzIDEKCWR1cAoJbGVuCglpbnQgMzIKCT09CgoJLy8gYXJndW1lbnQgMCAodG9rZW5JZCkgZm9yIGFyYzcyX3Rva2VuVVJJIG11c3QgYmUgYSB1aW50MjU2Cglhc3NlcnQKCgkvLyBleGVjdXRlIGFyYzcyX3Rva2VuVVJJKHVpbnQyNTYpc3RyaW5nCgljYWxsc3ViIGFyYzcyX3Rva2VuVVJJCglkdXAKCWxlbgoJaXRvYgoJZXh0cmFjdCA2IDIKCXN3YXAKCWNvbmNhdAoJY29uY2F0Cglsb2cKCWludCAxCglyZXR1cm4KCi8vIGFyYzcyX3Rva2VuVVJJKHRva2VuSWQ6IHVpbnQyNTYpOiBzdHJpbmcKLy8KLy8KLy8gUmV0dXJucyBhIFVSSSBwb2ludGluZyB0byB0aGUgTkZUIG1ldGFkYXRhCi8vCi8vIEBwYXJhbSB0b2tlbklkIFRoZSBJRCBvZiB0aGUgTkZUCi8vIEByZXR1cm5zIFVSSSB0byB0b2tlbiBtZXRhZGF0YQphcmM3Ml90b2tlblVSSToKCXByb3RvIDEgMQoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxNTkKCS8vIHJldHVybiB0aGlzLnRva2VuQm94KHRva2VuSWQpLnZhbHVlLnVyaTsKCWZyYW1lX2RpZyAtMSAvLyB0b2tlbklkOiB1aW50MjU2Cglib3hfZ2V0CgoJLy8gYm94IHZhbHVlIGRvZXMgbm90IGV4aXN0OiB0aGlzLnRva2VuQm94KHRva2VuSWQpLnZhbHVlCglhc3NlcnQKCXN0b3JlIDI1NSAvLyBmdWxsIGFycmF5CglpbnQgNzAKCWxvYWQgMjU1IC8vIGZ1bGwgYXJyYXkKCWxvYWQgMjU1IC8vIGZ1bGwgYXJyYXkKCXVuY292ZXIgMgoJZXh0cmFjdF91aW50MTYKCWR1cCAvLyBkdXBsaWNhdGUgc3RhcnQgb2YgZWxlbWVudAoJbG9hZCAyNTUgLy8gZnVsbCBhcnJheQoJc3dhcAoJZXh0cmFjdF91aW50MTYgLy8gZ2V0IG51bWJlciBvZiBlbGVtZW50cwoJaW50IDEgLy8gZ2V0IHR5cGUgbGVuZ3RoCgkqIC8vIG11bHRpcGx5IGJ5IHR5cGUgbGVuZ3RoCglpbnQgMgoJKyAvLyBhZGQgdHdvIGZvciBsZW5ndGgKCWV4dHJhY3QzCglleHRyYWN0IDIgMAoJcmV0c3ViCgovLyBhcmM3Ml90b3RhbFN1cHBseSgpdWludDI1NgoqYWJpX3JvdXRlX2FyYzcyX3RvdGFsU3VwcGx5OgoJLy8gVGhlIEFCSSByZXR1cm4gcHJlZml4CglieXRlIDB4MTUxZjdjNzUKCgkvLyBleGVjdXRlIGFyYzcyX3RvdGFsU3VwcGx5KCl1aW50MjU2CgljYWxsc3ViIGFyYzcyX3RvdGFsU3VwcGx5CglkdXAKCWJpdGxlbgoJaW50IDI1NgoJPD0KCgkvLyBhcmM3Ml90b3RhbFN1cHBseSByZXR1cm4gdmFsdWUgb3ZlcmZsb3dlZCAyNTYgYml0cwoJYXNzZXJ0CglieXRlIDB4RkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRgoJYiYKCWR1cAoJbGVuCglkdXAKCWludCAzMgoJLQoJc3dhcAoJc3Vic3RyaW5nMwoJY29uY2F0Cglsb2cKCWludCAxCglyZXR1cm4KCi8vIGFyYzcyX3RvdGFsU3VwcGx5KCk6IHVpbnQyNTYKLy8KLy8gUmV0dXJucyB0aGUgbnVtYmVyIG9mIE5GVHMgY3VycmVudGx5IGRlZmluZWQgYnkgdGhpcyBjb250cmFjdAphcmM3Ml90b3RhbFN1cHBseToKCXByb3RvIDAgMQoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxNjcKCS8vIHJldHVybiB0aGlzLmluZGV4LnZhbHVlOwoJYnl0ZSAweDY5NmU2NDY1NzggLy8gImluZGV4IgoJYXBwX2dsb2JhbF9nZXQKCXJldHN1YgoKLy8gYXJjNzJfdG9rZW5CeUluZGV4KHVpbnQyNTYpdWludDI1NgoqYWJpX3JvdXRlX2FyYzcyX3Rva2VuQnlJbmRleDoKCS8vIFRoZSBBQkkgcmV0dXJuIHByZWZpeAoJYnl0ZSAweDE1MWY3Yzc1CgoJLy8gaW5kZXg6IHVpbnQyNTYKCXR4bmEgQXBwbGljYXRpb25BcmdzIDEKCWR1cAoJbGVuCglpbnQgMzIKCT09CgoJLy8gYXJndW1lbnQgMCAoaW5kZXgpIGZvciBhcmM3Ml90b2tlbkJ5SW5kZXggbXVzdCBiZSBhIHVpbnQyNTYKCWFzc2VydAoKCS8vIGV4ZWN1dGUgYXJjNzJfdG9rZW5CeUluZGV4KHVpbnQyNTYpdWludDI1NgoJY2FsbHN1YiBhcmM3Ml90b2tlbkJ5SW5kZXgKCWR1cAoJYml0bGVuCglpbnQgMjU2Cgk8PQoKCS8vIGFyYzcyX3Rva2VuQnlJbmRleCByZXR1cm4gdmFsdWUgb3ZlcmZsb3dlZCAyNTYgYml0cwoJYXNzZXJ0CglieXRlIDB4RkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRgoJYiYKCWR1cAoJbGVuCglkdXAKCWludCAzMgoJLQoJc3dhcAoJc3Vic3RyaW5nMwoJY29uY2F0Cglsb2cKCWludCAxCglyZXR1cm4KCi8vIGFyYzcyX3Rva2VuQnlJbmRleChpbmRleDogdWludDI1Nik6IHVpbnQyNTYKLy8KLy8gUmV0dXJucyB0aGUgdG9rZW4gSUQgb2YgdGhlIHRva2VuIHdpdGggdGhlIGdpdmVuIGluZGV4IGFtb25nIGFsbCBORlRzIGRlZmluZWQgYnkgdGhlIGNvbnRyYWN0CmFyYzcyX3Rva2VuQnlJbmRleDoKCXByb3RvIDEgMQoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxNzUKCS8vIHJldHVybiBpbmRleDsKCWZyYW1lX2RpZyAtMSAvLyBpbmRleDogdWludDI1NgoJcmV0c3ViCgovLyBtaW50KGFkZHJlc3Msc3RyaW5nLHN0cmluZyxzdHJpbmcsc3RyaW5nKXZvaWQKKmFiaV9yb3V0ZV9taW50OgoJLy8gdXJpOiBzdHJpbmcKCXR4bmEgQXBwbGljYXRpb25BcmdzIDUKCWV4dHJhY3QgMiAwCgoJLy8gaW1hZ2U6IHN0cmluZwoJdHhuYSBBcHBsaWNhdGlvbkFyZ3MgNAoJZXh0cmFjdCAyIDAKCgkvLyBzZWF0OiBzdHJpbmcKCXR4bmEgQXBwbGljYXRpb25BcmdzIDMKCWV4dHJhY3QgMiAwCgoJLy8gYXJlYTogc3RyaW5nCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAyCglleHRyYWN0IDIgMAoKCS8vIHRvOiBhZGRyZXNzCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAxCglkdXAKCWxlbgoJaW50IDMyCgk9PQoKCS8vIGFyZ3VtZW50IDQgKHRvKSBmb3IgbWludCBtdXN0IGJlIGEgYWRkcmVzcwoJYXNzZXJ0CgoJLy8gZXhlY3V0ZSBtaW50KGFkZHJlc3Msc3RyaW5nLHN0cmluZyxzdHJpbmcsc3RyaW5nKXZvaWQKCWNhbGxzdWIgbWludAoJaW50IDEKCXJldHVybgoKLy8gbWludCh0bzogQWRkcmVzcywgYXJlYTogc3RyaW5nLCBzZWF0OiBzdHJpbmcsIGltYWdlOiBzdHJpbmcsIHVyaTogc3RyaW5nKTogdm9pZAptaW50OgoJcHJvdG8gNSAwCgoJLy8gUHVzaCBlbXB0eSBieXRlcyBhZnRlciB0aGUgZnJhbWUgcG9pbnRlciB0byByZXNlcnZlIHNwYWNlIGZvciBsb2NhbCB2YXJpYWJsZXMKCWJ5dGUgMHgKCWR1cAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxODAKCS8vIGFzc2VydCgKCS8vICAgICAgIHRoaXMudHhuLnNlbmRlciA9PT0gZ2xvYmFscy5jcmVhdG9yQWRkcmVzcywKCS8vICAgICAgICdPbmx5IGNyZWF0b3IgaXMgYWxsb3dlZCB0byBtaW50IHNwZWNpZmljIE5GVHMgZm9yIHRoaXMgY29sbGVjdGlvbicKCS8vICAgICApCgl0eG4gU2VuZGVyCglnbG9iYWwgQ3JlYXRvckFkZHJlc3MKCT09CgoJLy8gT25seSBjcmVhdG9yIGlzIGFsbG93ZWQgdG8gbWludCBzcGVjaWZpYyBORlRzIGZvciB0aGlzIGNvbGxlY3Rpb24KCWFzc2VydAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxODUKCS8vIGluZGV4ID0gdGhpcy5pbmRleC52YWx1ZQoJYnl0ZSAweDY5NmU2NDY1NzggLy8gImluZGV4IgoJYXBwX2dsb2JhbF9nZXQKCWZyYW1lX2J1cnkgMCAvLyBpbmRleDogdWludDI1NgoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxODcKCS8vIHRva2VuOiBUb2tlbiA9IHsKCS8vICAgICAgIG93bmVyOiB0bywKCS8vICAgICAgIGNvbnRyb2xsZXI6IEFkZHJlc3MuemVyb0FkZHJlc3MsCgkvLyAgICAgICBzdGF0ZTogJ09OX1NBTEUnLAoJLy8gICAgICAgYXJlYTogYXJlYSwKCS8vICAgICAgIHNlYXQ6IHNlYXQsCgkvLyAgICAgICB1cmk6IHVyaSwKCS8vICAgICAgIGltYWdlOiBpbWFnZSwKCS8vICAgICB9CglieXRlIDB4IC8vIGluaXRpYWwgaGVhZAoJYnl0ZSAweCAvLyBpbml0aWFsIHRhaWwKCWJ5dGUgMHgwMDRhIC8vIGluaXRpYWwgaGVhZCBvZmZzZXQKCWZyYW1lX2RpZyAtMSAvLyB0bzogQWRkcmVzcwoJY2FsbHN1YiAqcHJvY2Vzc19zdGF0aWNfdHVwbGVfZWxlbWVudAoJZ2xvYmFsIFplcm9BZGRyZXNzCgljYWxsc3ViICpwcm9jZXNzX3N0YXRpY190dXBsZV9lbGVtZW50CglieXRlIDB4MDAwNzRmNGU1ZjUzNDE0YzQ1CgljYWxsc3ViICpwcm9jZXNzX2R5bmFtaWNfdHVwbGVfZWxlbWVudAoJZnJhbWVfZGlnIC0yIC8vIGFyZWE6IHN0cmluZwoJZHVwCglsZW4KCWl0b2IKCWV4dHJhY3QgNiAyCglzd2FwCgljb25jYXQKCWNhbGxzdWIgKnByb2Nlc3NfZHluYW1pY190dXBsZV9lbGVtZW50CglmcmFtZV9kaWcgLTMgLy8gc2VhdDogc3RyaW5nCglkdXAKCWxlbgoJaXRvYgoJZXh0cmFjdCA2IDIKCXN3YXAKCWNvbmNhdAoJY2FsbHN1YiAqcHJvY2Vzc19keW5hbWljX3R1cGxlX2VsZW1lbnQKCWZyYW1lX2RpZyAtNSAvLyB1cmk6IHN0cmluZwoJZHVwCglsZW4KCWl0b2IKCWV4dHJhY3QgNiAyCglzd2FwCgljb25jYXQKCWNhbGxzdWIgKnByb2Nlc3NfZHluYW1pY190dXBsZV9lbGVtZW50CglmcmFtZV9kaWcgLTQgLy8gaW1hZ2U6IHN0cmluZwoJZHVwCglsZW4KCWl0b2IKCWV4dHJhY3QgNiAyCglzd2FwCgljb25jYXQKCWNhbGxzdWIgKnByb2Nlc3NfZHluYW1pY190dXBsZV9lbGVtZW50Cglwb3AgLy8gcG9wIGhlYWQgb2Zmc2V0Cgljb25jYXQgLy8gY29uY2F0IGhlYWQgYW5kIHRhaWwKCWZyYW1lX2J1cnkgMSAvLyB0b2tlbjogVG9rZW4KCgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6MTk3CgkvLyB0aGlzLnRva2VuQm94KGluZGV4KS52YWx1ZSA9IHRva2VuCglmcmFtZV9kaWcgMCAvLyBpbmRleDogdWludDI1NgoJZHVwCglib3hfZGVsCglwb3AKCWZyYW1lX2RpZyAxIC8vIHRva2VuOiBUb2tlbgoJYm94X3B1dAoKCS8vIGNvbnRyYWN0c1xTaGluZGcuYWxnby50czoxOTgKCS8vIHRoaXMudHJhbnNmZXJUbyh0bywgaW5kZXgpCglmcmFtZV9kaWcgMCAvLyBpbmRleDogdWludDI1NgoJZnJhbWVfZGlnIC0xIC8vIHRvOiBBZGRyZXNzCgljYWxsc3ViIHRyYW5zZmVyVG8KCgkvLyBjb250cmFjdHNcU2hpbmRnLmFsZ28udHM6MTk5CgkvLyB0aGlzLmluZGV4LnZhbHVlID0gaW5kZXggKyAxCglieXRlIDB4Njk2ZTY0NjU3OCAvLyAiaW5kZXgiCglmcmFtZV9kaWcgMCAvLyBpbmRleDogdWludDI1NgoJYnl0ZSAweDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDEKCWIrCglkdXAKCWJpdGxlbgoJaW50IDI1NgoJPD0KCgkvLyBpbmRleCArIDEgb3ZlcmZsb3dlZCAyNTYgYml0cwoJYXNzZXJ0CglieXRlIDB4RkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRgoJYiYKCWR1cAoJbGVuCglkdXAKCWludCAzMgoJLQoJc3dhcAoJc3Vic3RyaW5nMwoJYXBwX2dsb2JhbF9wdXQKCXJldHN1YgoKKmNyZWF0ZV9Ob09wOgoJbWV0aG9kICJjcmVhdGVBcHBsaWNhdGlvbihzdHJpbmcsc3RyaW5nKXZvaWQiCgl0eG5hIEFwcGxpY2F0aW9uQXJncyAwCgltYXRjaCAqYWJpX3JvdXRlX2NyZWF0ZUFwcGxpY2F0aW9uCgoJLy8gdGhpcyBjb250cmFjdCBkb2VzIG5vdCBpbXBsZW1lbnQgdGhlIGdpdmVuIEFCSSBtZXRob2QgZm9yIGNyZWF0ZSBOb09wCgllcnIKCipjYWxsX05vT3A6CgltZXRob2QgImFyYzcyX3RyYW5zZmVyRnJvbShhZGRyZXNzLGFkZHJlc3MsdWludDI1Nil2b2lkIgoJbWV0aG9kICJhcmM3Ml9hcHByb3ZlKGFkZHJlc3MsdWludDI1Nil2b2lkIgoJbWV0aG9kICJhcmM3Ml9zZXRBcHByb3ZhbEZvckFsbChhZGRyZXNzLGJvb2wpdm9pZCIKCW1ldGhvZCAiYXJjNzJfb3duZXJPZih1aW50MjU2KWFkZHJlc3MiCgltZXRob2QgImFyYzcyX3Rva2VuVVJJKHVpbnQyNTYpc3RyaW5nIgoJbWV0aG9kICJhcmM3Ml90b3RhbFN1cHBseSgpdWludDI1NiIKCW1ldGhvZCAiYXJjNzJfdG9rZW5CeUluZGV4KHVpbnQyNTYpdWludDI1NiIKCW1ldGhvZCAibWludChhZGRyZXNzLHN0cmluZyxzdHJpbmcsc3RyaW5nLHN0cmluZyl2b2lkIgoJdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMAoJbWF0Y2ggKmFiaV9yb3V0ZV9hcmM3Ml90cmFuc2ZlckZyb20gKmFiaV9yb3V0ZV9hcmM3Ml9hcHByb3ZlICphYmlfcm91dGVfYXJjNzJfc2V0QXBwcm92YWxGb3JBbGwgKmFiaV9yb3V0ZV9hcmM3Ml9vd25lck9mICphYmlfcm91dGVfYXJjNzJfdG9rZW5VUkkgKmFiaV9yb3V0ZV9hcmM3Ml90b3RhbFN1cHBseSAqYWJpX3JvdXRlX2FyYzcyX3Rva2VuQnlJbmRleCAqYWJpX3JvdXRlX21pbnQKCgkvLyB0aGlzIGNvbnRyYWN0IGRvZXMgbm90IGltcGxlbWVudCB0aGUgZ2l2ZW4gQUJJIG1ldGhvZCBmb3IgY2FsbCBOb09wCgllcnIKCipwcm9jZXNzX3N0YXRpY190dXBsZV9lbGVtZW50OgoJcHJvdG8gNCAzCglmcmFtZV9kaWcgLTQgLy8gdHVwbGUgaGVhZAoJZnJhbWVfZGlnIC0xIC8vIGVsZW1lbnQKCWNvbmNhdAoJZnJhbWVfZGlnIC0zIC8vIHR1cGxlIHRhaWwKCWZyYW1lX2RpZyAtMiAvLyBoZWFkIG9mZnNldAoJcmV0c3ViCgoqcHJvY2Vzc19keW5hbWljX3R1cGxlX2VsZW1lbnQ6Cglwcm90byA0IDMKCWZyYW1lX2RpZyAtNCAvLyB0dXBsZSBoZWFkCglmcmFtZV9kaWcgLTIgLy8gaGVhZCBvZmZzZXQKCWNvbmNhdAoJZnJhbWVfYnVyeSAtNCAvLyB0dXBsZSBoZWFkCglmcmFtZV9kaWcgLTEgLy8gZWxlbWVudAoJZHVwCglsZW4KCWZyYW1lX2RpZyAtMiAvLyBoZWFkIG9mZnNldAoJYnRvaQoJKwoJaXRvYgoJZXh0cmFjdCA2IDIKCWZyYW1lX2J1cnkgLTIgLy8gaGVhZCBvZmZzZXQKCWZyYW1lX2RpZyAtMyAvLyB0dXBsZSB0YWlsCglzd2FwCgljb25jYXQKCWZyYW1lX2J1cnkgLTMgLy8gdHVwbGUgdGFpbAoJZnJhbWVfZGlnIC00IC8vIHR1cGxlIGhlYWQKCWZyYW1lX2RpZyAtMyAvLyB0dXBsZSB0YWlsCglmcmFtZV9kaWcgLTIgLy8gaGVhZCBvZmZzZXQKCXJldHN1Yg==",
     "clear": "I3ByYWdtYSB2ZXJzaW9uIDEw"
   },
   "contract": {
@@ -81,48 +125,162 @@ export const APP_SPEC: AppSpec = {
     "desc": "",
     "methods": [
       {
-        "name": "doMath",
-        "desc": "A method that takes two numbers and does either addition or subtraction",
-        "args": [
-          {
-            "name": "a",
-            "type": "uint64",
-            "desc": "The first uint64"
-          },
-          {
-            "name": "b",
-            "type": "uint64",
-            "desc": "The second uint64"
-          },
-          {
-            "name": "operation",
-            "type": "string",
-            "desc": "The operation to perform. Can be either 'sum' or 'difference'"
-          }
-        ],
-        "returns": {
-          "type": "uint64",
-          "desc": "The result of the operation"
-        }
-      },
-      {
-        "name": "hello",
-        "desc": "A demonstration method used in the AlgoKit fullstack template.Greets the user by name.",
+        "name": "createApplication",
+        "desc": "Constructor",
         "args": [
           {
             "name": "name",
             "type": "string",
-            "desc": "The name of the user to greet."
+            "desc": "NFT Name"
+          },
+          {
+            "name": "symbol",
+            "type": "string",
+            "desc": "NFT Symbol"
+          }
+        ],
+        "returns": {
+          "type": "void"
+        }
+      },
+      {
+        "name": "arc72_transferFrom",
+        "desc": "Transfers ownership of an NFT",
+        "args": [
+          {
+            "name": "_from",
+            "type": "address"
+          },
+          {
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256"
+          }
+        ],
+        "returns": {
+          "type": "void"
+        }
+      },
+      {
+        "name": "arc72_approve",
+        "desc": "Approve a controller for a single NFT",
+        "args": [
+          {
+            "name": "approved",
+            "type": "address",
+            "desc": "Approved controller address"
+          },
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "desc": "The ID of the NFT"
+          }
+        ],
+        "returns": {
+          "type": "void"
+        }
+      },
+      {
+        "name": "arc72_setApprovalForAll",
+        "desc": "Approve an operator for all NFTs for a user",
+        "args": [
+          {
+            "name": "operator",
+            "type": "address",
+            "desc": "Approved operator address"
+          },
+          {
+            "name": "approved",
+            "type": "bool",
+            "desc": "true to give approval, false to revoke"
+          }
+        ],
+        "returns": {
+          "type": "void"
+        }
+      },
+      {
+        "name": "arc72_ownerOf",
+        "desc": "Returns the address of the current owner of the NFT with the given tokenId",
+        "readonly": true,
+        "args": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "desc": "The ID of the NFT"
+          }
+        ],
+        "returns": {
+          "type": "address",
+          "desc": "The current owner of the NFT"
+        }
+      },
+      {
+        "name": "arc72_tokenURI",
+        "desc": "Returns a URI pointing to the NFT metadata",
+        "readonly": true,
+        "args": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "desc": "The ID of the NFT"
           }
         ],
         "returns": {
           "type": "string",
-          "desc": "A greeting message to the user."
+          "desc": "URI to token metadata"
         }
       },
       {
-        "name": "createApplication",
+        "name": "arc72_totalSupply",
+        "desc": "Returns the number of NFTs currently defined by this contract",
+        "readonly": true,
         "args": [],
+        "returns": {
+          "type": "uint256"
+        }
+      },
+      {
+        "name": "arc72_tokenByIndex",
+        "desc": "Returns the token ID of the token with the given index among all NFTs defined by the contract",
+        "readonly": true,
+        "args": [
+          {
+            "name": "index",
+            "type": "uint256"
+          }
+        ],
+        "returns": {
+          "type": "uint256"
+        }
+      },
+      {
+        "name": "mint",
+        "args": [
+          {
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "name": "area",
+            "type": "string"
+          },
+          {
+            "name": "seat",
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          }
+        ],
         "returns": {
           "type": "void"
         }
@@ -186,6 +344,13 @@ export type AppClientComposeCallCoreParams = Omit<AppClientCallCoreParams, 'send
 }
 export type AppClientComposeExecuteParams = Pick<SendTransactionParams, 'skipWaiting' | 'maxRoundsToWaitForConfirmation' | 'populateAppCallResources' | 'suppressLog'>
 
+export type IncludeSchema = {
+  /**
+   * Any overrides for the storage schema to request for the created app; by default the schema indicated by the app spec is used.
+   */
+  schema?: Partial<AppStorageSchema>
+}
+
 /**
  * Defines the types of available calls and state of the Shindg smart contract.
  */
@@ -194,46 +359,117 @@ export type Shindg = {
    * Maps method signatures / names to their argument and return types.
    */
   methods:
-    & Record<'doMath(uint64,uint64,string)uint64' | 'doMath', {
+    & Record<'createApplication(string,string)void' | 'createApplication', {
       argsObj: {
         /**
-         * The first uint64
-         */
-        a: bigint | number
-        /**
-         * The second uint64
-         */
-        b: bigint | number
-        /**
-         * The operation to perform. Can be either 'sum' or 'difference'
-         */
-        operation: string
-      }
-      argsTuple: [a: bigint | number, b: bigint | number, operation: string]
-      /**
-       * The result of the operation
-       */
-      returns: bigint
-    }>
-    & Record<'hello(string)string' | 'hello', {
-      argsObj: {
-        /**
-         * The name of the user to greet.
+         * NFT Name
          */
         name: string
+        /**
+         * NFT Symbol
+         */
+        symbol: string
       }
-      argsTuple: [name: string]
+      argsTuple: [name: string, symbol: string]
+      returns: void
+    }>
+    & Record<'arc72_transferFrom(address,address,uint256)void' | 'arc72_transferFrom', {
+      argsObj: {
+        from: string
+        to: string
+        tokenId: bigint | number
+      }
+      argsTuple: [from: string, to: string, tokenId: bigint | number]
+      returns: void
+    }>
+    & Record<'arc72_approve(address,uint256)void' | 'arc72_approve', {
+      argsObj: {
+        /**
+         * Approved controller address
+         */
+        approved: string
+        /**
+         * The ID of the NFT
+         */
+        tokenId: bigint | number
+      }
+      argsTuple: [approved: string, tokenId: bigint | number]
+      returns: void
+    }>
+    & Record<'arc72_setApprovalForAll(address,bool)void' | 'arc72_setApprovalForAll', {
+      argsObj: {
+        /**
+         * Approved operator address
+         */
+        operator: string
+        /**
+         * true to give approval, false to revoke
+         */
+        approved: boolean
+      }
+      argsTuple: [operator: string, approved: boolean]
+      returns: void
+    }>
+    & Record<'arc72_ownerOf(uint256)address' | 'arc72_ownerOf', {
+      argsObj: {
+        /**
+         * The ID of the NFT
+         */
+        tokenId: bigint | number
+      }
+      argsTuple: [tokenId: bigint | number]
       /**
-       * A greeting message to the user.
+       * The current owner of the NFT
        */
       returns: string
     }>
-    & Record<'createApplication()void' | 'createApplication', {
+    & Record<'arc72_tokenURI(uint256)string' | 'arc72_tokenURI', {
+      argsObj: {
+        /**
+         * The ID of the NFT
+         */
+        tokenId: bigint | number
+      }
+      argsTuple: [tokenId: bigint | number]
+      /**
+       * URI to token metadata
+       */
+      returns: string
+    }>
+    & Record<'arc72_totalSupply()uint256' | 'arc72_totalSupply', {
       argsObj: {
       }
       argsTuple: []
+      returns: bigint
+    }>
+    & Record<'arc72_tokenByIndex(uint256)uint256' | 'arc72_tokenByIndex', {
+      argsObj: {
+        index: bigint | number
+      }
+      argsTuple: [index: bigint | number]
+      returns: bigint
+    }>
+    & Record<'mint(address,string,string,string,string)void' | 'mint', {
+      argsObj: {
+        to: string
+        area: string
+        seat: string
+        image: string
+        uri: string
+      }
+      argsTuple: [to: string, area: string, seat: string, image: string, uri: string]
       returns: void
     }>
+  /**
+   * Defines the shape of the global and local state of the application.
+   */
+  state: {
+    global: {
+      index?: BinaryState
+      name?: BinaryState
+      symbol?: BinaryState
+    }
+  }
 }
 /**
  * Defines the possible abi call signatures
@@ -267,7 +503,7 @@ export type ShindgCreateCalls = (typeof ShindgCallFactory)['create']
  * Defines supported create methods for this smart contract
  */
 export type ShindgCreateCallParams =
-  | (TypedCallParams<'createApplication()void'> & (OnCompleteNoOp))
+  | (TypedCallParams<'createApplication(string,string)void'> & (OnCompleteNoOp))
 /**
  * Defines arguments required for the deploy method.
  */
@@ -290,16 +526,16 @@ export abstract class ShindgCallFactory {
   static get create() {
     return {
       /**
-       * Constructs a create call for the Shindg smart contract using the createApplication()void ABI method
+       * Constructs a create call for the Shindg smart contract using the createApplication(string,string)void ABI method
        *
        * @param args Any args for the contract call
        * @param params Any additional parameters for the call
        * @returns A TypedCallParams object for the call
        */
-      createApplication(args: MethodArgs<'createApplication()void'>, params: AppClientCallCoreParams & CoreAppCallArgs & AppClientCompilationParams & (OnCompleteNoOp) = {}) {
+      createApplication(args: MethodArgs<'createApplication(string,string)void'>, params: AppClientCallCoreParams & CoreAppCallArgs & AppClientCompilationParams & (OnCompleteNoOp) = {}) {
         return {
-          method: 'createApplication()void' as const,
-          methodArgs: Array.isArray(args) ? args : [],
+          method: 'createApplication(string,string)void' as const,
+          methodArgs: Array.isArray(args) ? args : [args.name, args.symbol],
           ...params,
         }
       },
@@ -307,34 +543,128 @@ export abstract class ShindgCallFactory {
   }
 
   /**
-   * Constructs a no op call for the doMath(uint64,uint64,string)uint64 ABI method
+   * Constructs a no op call for the arc72_transferFrom(address,address,uint256)void ABI method
    *
-   * A method that takes two numbers and does either addition or subtraction
+   * Transfers ownership of an NFT
    *
    * @param args Any args for the contract call
    * @param params Any additional parameters for the call
    * @returns A TypedCallParams object for the call
    */
-  static doMath(args: MethodArgs<'doMath(uint64,uint64,string)uint64'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+  static arc72TransferFrom(args: MethodArgs<'arc72_transferFrom(address,address,uint256)void'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
     return {
-      method: 'doMath(uint64,uint64,string)uint64' as const,
-      methodArgs: Array.isArray(args) ? args : [args.a, args.b, args.operation],
+      method: 'arc72_transferFrom(address,address,uint256)void' as const,
+      methodArgs: Array.isArray(args) ? args : [args.from, args.to, args.tokenId],
       ...params,
     }
   }
   /**
-   * Constructs a no op call for the hello(string)string ABI method
+   * Constructs a no op call for the arc72_approve(address,uint256)void ABI method
    *
-   * A demonstration method used in the AlgoKit fullstack template.Greets the user by name.
+   * Approve a controller for a single NFT
    *
    * @param args Any args for the contract call
    * @param params Any additional parameters for the call
    * @returns A TypedCallParams object for the call
    */
-  static hello(args: MethodArgs<'hello(string)string'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+  static arc72Approve(args: MethodArgs<'arc72_approve(address,uint256)void'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
     return {
-      method: 'hello(string)string' as const,
-      methodArgs: Array.isArray(args) ? args : [args.name],
+      method: 'arc72_approve(address,uint256)void' as const,
+      methodArgs: Array.isArray(args) ? args : [args.approved, args.tokenId],
+      ...params,
+    }
+  }
+  /**
+   * Constructs a no op call for the arc72_setApprovalForAll(address,bool)void ABI method
+   *
+   * Approve an operator for all NFTs for a user
+   *
+   * @param args Any args for the contract call
+   * @param params Any additional parameters for the call
+   * @returns A TypedCallParams object for the call
+   */
+  static arc72SetApprovalForAll(args: MethodArgs<'arc72_setApprovalForAll(address,bool)void'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+    return {
+      method: 'arc72_setApprovalForAll(address,bool)void' as const,
+      methodArgs: Array.isArray(args) ? args : [args.operator, args.approved],
+      ...params,
+    }
+  }
+  /**
+   * Constructs a no op call for the arc72_ownerOf(uint256)address ABI method
+   *
+   * Returns the address of the current owner of the NFT with the given tokenId
+   *
+   * @param args Any args for the contract call
+   * @param params Any additional parameters for the call
+   * @returns A TypedCallParams object for the call
+   */
+  static arc72OwnerOf(args: MethodArgs<'arc72_ownerOf(uint256)address'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+    return {
+      method: 'arc72_ownerOf(uint256)address' as const,
+      methodArgs: Array.isArray(args) ? args : [args.tokenId],
+      ...params,
+    }
+  }
+  /**
+   * Constructs a no op call for the arc72_tokenURI(uint256)string ABI method
+   *
+   * Returns a URI pointing to the NFT metadata
+   *
+   * @param args Any args for the contract call
+   * @param params Any additional parameters for the call
+   * @returns A TypedCallParams object for the call
+   */
+  static arc72TokenUri(args: MethodArgs<'arc72_tokenURI(uint256)string'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+    return {
+      method: 'arc72_tokenURI(uint256)string' as const,
+      methodArgs: Array.isArray(args) ? args : [args.tokenId],
+      ...params,
+    }
+  }
+  /**
+   * Constructs a no op call for the arc72_totalSupply()uint256 ABI method
+   *
+   * Returns the number of NFTs currently defined by this contract
+   *
+   * @param args Any args for the contract call
+   * @param params Any additional parameters for the call
+   * @returns A TypedCallParams object for the call
+   */
+  static arc72TotalSupply(args: MethodArgs<'arc72_totalSupply()uint256'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+    return {
+      method: 'arc72_totalSupply()uint256' as const,
+      methodArgs: Array.isArray(args) ? args : [],
+      ...params,
+    }
+  }
+  /**
+   * Constructs a no op call for the arc72_tokenByIndex(uint256)uint256 ABI method
+   *
+   * Returns the token ID of the token with the given index among all NFTs defined by the contract
+   *
+   * @param args Any args for the contract call
+   * @param params Any additional parameters for the call
+   * @returns A TypedCallParams object for the call
+   */
+  static arc72TokenByIndex(args: MethodArgs<'arc72_tokenByIndex(uint256)uint256'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+    return {
+      method: 'arc72_tokenByIndex(uint256)uint256' as const,
+      methodArgs: Array.isArray(args) ? args : [args.index],
+      ...params,
+    }
+  }
+  /**
+   * Constructs a no op call for the mint(address,string,string,string,string)void ABI method
+   *
+   * @param args Any args for the contract call
+   * @param params Any additional parameters for the call
+   * @returns A TypedCallParams object for the call
+   */
+  static mint(args: MethodArgs<'mint(address,string,string,string,string)void'>, params: AppClientCallCoreParams & CoreAppCallArgs) {
+    return {
+      method: 'mint(address,string,string,string,string)void' as const,
+      methodArgs: Array.isArray(args) ? args : [args.to, args.area, args.seat, args.image, args.uri],
       ...params,
     }
   }
@@ -399,7 +729,7 @@ export class ShindgClient {
    * @param params The arguments for the contract calls and any additional parameters for the call
    * @returns The deployment result
    */
-  public deploy(params: ShindgDeployArgs & AppClientDeployCoreParams = {}): ReturnType<ApplicationClient['deploy']> {
+  public deploy(params: ShindgDeployArgs & AppClientDeployCoreParams & IncludeSchema = {}): ReturnType<ApplicationClient['deploy']> {
     const createArgs = params.createCall?.(ShindgCallFactory.create)
     return this.appClient.deploy({
       ...params,
@@ -415,14 +745,14 @@ export class ShindgClient {
     const $this = this
     return {
       /**
-       * Creates a new instance of the Shindg smart contract using the createApplication()void ABI method.
+       * Creates a new instance of the Shindg smart contract using the createApplication(string,string)void ABI method.
        *
        * @param args The arguments for the smart contract call
        * @param params Any additional parameters for the call
        * @returns The create result
        */
-      async createApplication(args: MethodArgs<'createApplication()void'>, params: AppClientCallCoreParams & AppClientCompilationParams & (OnCompleteNoOp) = {}) {
-        return $this.mapReturnValue<MethodReturn<'createApplication()void'>, AppCreateCallTransactionResult>(await $this.appClient.create(ShindgCallFactory.create.createApplication(args, params)))
+      async createApplication(args: MethodArgs<'createApplication(string,string)void'>, params: AppClientCallCoreParams & AppClientCompilationParams & IncludeSchema & CoreAppCallArgs & (OnCompleteNoOp) = {}) {
+        return $this.mapReturnValue<MethodReturn<'createApplication(string,string)void'>, AppCreateCallTransactionResult>(await $this.appClient.create(ShindgCallFactory.create.createApplication(args, params)))
       },
     }
   }
@@ -438,29 +768,167 @@ export class ShindgClient {
   }
 
   /**
-   * Calls the doMath(uint64,uint64,string)uint64 ABI method.
+   * Calls the arc72_transferFrom(address,address,uint256)void ABI method.
    *
-   * A method that takes two numbers and does either addition or subtraction
+   * Transfers ownership of an NFT
    *
    * @param args The arguments for the contract call
    * @param params Any additional parameters for the call
-   * @returns The result of the call: The result of the operation
+   * @returns The result of the call
    */
-  public doMath(args: MethodArgs<'doMath(uint64,uint64,string)uint64'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
-    return this.call(ShindgCallFactory.doMath(args, params))
+  public arc72TransferFrom(args: MethodArgs<'arc72_transferFrom(address,address,uint256)void'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.arc72TransferFrom(args, params))
   }
 
   /**
-   * Calls the hello(string)string ABI method.
+   * Calls the arc72_approve(address,uint256)void ABI method.
    *
-   * A demonstration method used in the AlgoKit fullstack template.Greets the user by name.
+   * Approve a controller for a single NFT
    *
    * @param args The arguments for the contract call
    * @param params Any additional parameters for the call
-   * @returns The result of the call: A greeting message to the user.
+   * @returns The result of the call
    */
-  public hello(args: MethodArgs<'hello(string)string'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
-    return this.call(ShindgCallFactory.hello(args, params))
+  public arc72Approve(args: MethodArgs<'arc72_approve(address,uint256)void'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.arc72Approve(args, params))
+  }
+
+  /**
+   * Calls the arc72_setApprovalForAll(address,bool)void ABI method.
+   *
+   * Approve an operator for all NFTs for a user
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The result of the call
+   */
+  public arc72SetApprovalForAll(args: MethodArgs<'arc72_setApprovalForAll(address,bool)void'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.arc72SetApprovalForAll(args, params))
+  }
+
+  /**
+   * Calls the arc72_ownerOf(uint256)address ABI method.
+   *
+   * Returns the address of the current owner of the NFT with the given tokenId
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The result of the call: The current owner of the NFT
+   */
+  public arc72OwnerOf(args: MethodArgs<'arc72_ownerOf(uint256)address'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.arc72OwnerOf(args, params))
+  }
+
+  /**
+   * Calls the arc72_tokenURI(uint256)string ABI method.
+   *
+   * Returns a URI pointing to the NFT metadata
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The result of the call: URI to token metadata
+   */
+  public arc72TokenUri(args: MethodArgs<'arc72_tokenURI(uint256)string'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.arc72TokenUri(args, params))
+  }
+
+  /**
+   * Calls the arc72_totalSupply()uint256 ABI method.
+   *
+   * Returns the number of NFTs currently defined by this contract
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The result of the call
+   */
+  public arc72TotalSupply(args: MethodArgs<'arc72_totalSupply()uint256'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.arc72TotalSupply(args, params))
+  }
+
+  /**
+   * Calls the arc72_tokenByIndex(uint256)uint256 ABI method.
+   *
+   * Returns the token ID of the token with the given index among all NFTs defined by the contract
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The result of the call
+   */
+  public arc72TokenByIndex(args: MethodArgs<'arc72_tokenByIndex(uint256)uint256'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.arc72TokenByIndex(args, params))
+  }
+
+  /**
+   * Calls the mint(address,string,string,string,string)void ABI method.
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The result of the call
+   */
+  public mint(args: MethodArgs<'mint(address,string,string,string,string)void'>, params: AppClientCallCoreParams & CoreAppCallArgs = {}) {
+    return this.call(ShindgCallFactory.mint(args, params))
+  }
+
+  /**
+   * Extracts a binary state value out of an AppState dictionary
+   *
+   * @param state The state dictionary containing the state value
+   * @param key The key of the state value
+   * @returns A BinaryState instance containing the state value, or undefined if the key was not found
+   */
+  private static getBinaryState(state: AppState, key: string): BinaryState | undefined {
+    const value = state[key]
+    if (!value) return undefined
+    if (!('valueRaw' in value))
+      throw new Error(`Failed to parse state value for ${key}; received an int when expected a byte array`)
+    return {
+      asString(): string {
+        return value.value
+      },
+      asByteArray(): Uint8Array {
+        return value.valueRaw
+      }
+    }
+  }
+
+  /**
+   * Extracts a integer state value out of an AppState dictionary
+   *
+   * @param state The state dictionary containing the state value
+   * @param key The key of the state value
+   * @returns An IntegerState instance containing the state value, or undefined if the key was not found
+   */
+  private static getIntegerState(state: AppState, key: string): IntegerState | undefined {
+    const value = state[key]
+    if (!value) return undefined
+    if ('valueRaw' in value)
+      throw new Error(`Failed to parse state value for ${key}; received a byte array when expected a number`)
+    return {
+      asBigInt() {
+        return typeof value.value === 'bigint' ? value.value : BigInt(value.value)
+      },
+      asNumber(): number {
+        return typeof value.value === 'bigint' ? Number(value.value) : value.value
+      },
+    }
+  }
+
+  /**
+   * Returns the smart contract's global state wrapped in a strongly typed accessor with options to format the stored value
+   */
+  public async getGlobalState(): Promise<Shindg['state']['global']> {
+    const state = await this.appClient.getGlobalState()
+    return {
+      get index() {
+        return ShindgClient.getBinaryState(state, 'index')
+      },
+      get name() {
+        return ShindgClient.getBinaryState(state, 'name')
+      },
+      get symbol() {
+        return ShindgClient.getBinaryState(state, 'symbol')
+      },
+    }
   }
 
   public compose(): ShindgComposer {
@@ -469,13 +937,43 @@ export class ShindgClient {
     let promiseChain:Promise<unknown> = Promise.resolve()
     const resultMappers: Array<undefined | ((x: any) => any)> = []
     return {
-      doMath(args: MethodArgs<'doMath(uint64,uint64,string)uint64'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
-        promiseChain = promiseChain.then(() => client.doMath(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+      arc72TransferFrom(args: MethodArgs<'arc72_transferFrom(address,address,uint256)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.arc72TransferFrom(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
         resultMappers.push(undefined)
         return this
       },
-      hello(args: MethodArgs<'hello(string)string'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
-        promiseChain = promiseChain.then(() => client.hello(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+      arc72Approve(args: MethodArgs<'arc72_approve(address,uint256)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.arc72Approve(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+        resultMappers.push(undefined)
+        return this
+      },
+      arc72SetApprovalForAll(args: MethodArgs<'arc72_setApprovalForAll(address,bool)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.arc72SetApprovalForAll(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+        resultMappers.push(undefined)
+        return this
+      },
+      arc72OwnerOf(args: MethodArgs<'arc72_ownerOf(uint256)address'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.arc72OwnerOf(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+        resultMappers.push(undefined)
+        return this
+      },
+      arc72TokenUri(args: MethodArgs<'arc72_tokenURI(uint256)string'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.arc72TokenUri(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+        resultMappers.push(undefined)
+        return this
+      },
+      arc72TotalSupply(args: MethodArgs<'arc72_totalSupply()uint256'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.arc72TotalSupply(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+        resultMappers.push(undefined)
+        return this
+      },
+      arc72TokenByIndex(args: MethodArgs<'arc72_tokenByIndex(uint256)uint256'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.arc72TokenByIndex(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
+        resultMappers.push(undefined)
+        return this
+      },
+      mint(args: MethodArgs<'mint(address,string,string,string,string)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs) {
+        promiseChain = promiseChain.then(() => client.mint(args, {...params, sendParams: {...params?.sendParams, skipSending: true, atc}}))
         resultMappers.push(undefined)
         return this
       },
@@ -513,26 +1011,90 @@ export class ShindgClient {
 }
 export type ShindgComposer<TReturns extends [...any[]] = []> = {
   /**
-   * Calls the doMath(uint64,uint64,string)uint64 ABI method.
+   * Calls the arc72_transferFrom(address,address,uint256)void ABI method.
    *
-   * A method that takes two numbers and does either addition or subtraction
+   * Transfers ownership of an NFT
    *
    * @param args The arguments for the contract call
    * @param params Any additional parameters for the call
    * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
    */
-  doMath(args: MethodArgs<'doMath(uint64,uint64,string)uint64'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'doMath(uint64,uint64,string)uint64'>]>
+  arc72TransferFrom(args: MethodArgs<'arc72_transferFrom(address,address,uint256)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'arc72_transferFrom(address,address,uint256)void'>]>
 
   /**
-   * Calls the hello(string)string ABI method.
+   * Calls the arc72_approve(address,uint256)void ABI method.
    *
-   * A demonstration method used in the AlgoKit fullstack template.Greets the user by name.
+   * Approve a controller for a single NFT
    *
    * @param args The arguments for the contract call
    * @param params Any additional parameters for the call
    * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
    */
-  hello(args: MethodArgs<'hello(string)string'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'hello(string)string'>]>
+  arc72Approve(args: MethodArgs<'arc72_approve(address,uint256)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'arc72_approve(address,uint256)void'>]>
+
+  /**
+   * Calls the arc72_setApprovalForAll(address,bool)void ABI method.
+   *
+   * Approve an operator for all NFTs for a user
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
+   */
+  arc72SetApprovalForAll(args: MethodArgs<'arc72_setApprovalForAll(address,bool)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'arc72_setApprovalForAll(address,bool)void'>]>
+
+  /**
+   * Calls the arc72_ownerOf(uint256)address ABI method.
+   *
+   * Returns the address of the current owner of the NFT with the given tokenId
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
+   */
+  arc72OwnerOf(args: MethodArgs<'arc72_ownerOf(uint256)address'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'arc72_ownerOf(uint256)address'>]>
+
+  /**
+   * Calls the arc72_tokenURI(uint256)string ABI method.
+   *
+   * Returns a URI pointing to the NFT metadata
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
+   */
+  arc72TokenUri(args: MethodArgs<'arc72_tokenURI(uint256)string'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'arc72_tokenURI(uint256)string'>]>
+
+  /**
+   * Calls the arc72_totalSupply()uint256 ABI method.
+   *
+   * Returns the number of NFTs currently defined by this contract
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
+   */
+  arc72TotalSupply(args: MethodArgs<'arc72_totalSupply()uint256'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'arc72_totalSupply()uint256'>]>
+
+  /**
+   * Calls the arc72_tokenByIndex(uint256)uint256 ABI method.
+   *
+   * Returns the token ID of the token with the given index among all NFTs defined by the contract
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
+   */
+  arc72TokenByIndex(args: MethodArgs<'arc72_tokenByIndex(uint256)uint256'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'arc72_tokenByIndex(uint256)uint256'>]>
+
+  /**
+   * Calls the mint(address,string,string,string,string)void ABI method.
+   *
+   * @param args The arguments for the contract call
+   * @param params Any additional parameters for the call
+   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
+   */
+  mint(args: MethodArgs<'mint(address,string,string,string,string)void'>, params?: AppClientComposeCallCoreParams & CoreAppCallArgs): ShindgComposer<[...TReturns, MethodReturn<'mint(address,string,string,string,string)void'>]>
 
   /**
    * Makes a clear_state call to an existing instance of the Shindg smart contract.
