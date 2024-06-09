@@ -80,6 +80,7 @@ transferTo:
 
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	byte 0x
+	dup
 
 	// contracts\Shindg.algo.ts:98
 	// tokenId64 = tokenId as uint64
@@ -105,9 +106,14 @@ transferTo:
 	assert
 
 	// contracts\Shindg.algo.ts:100
-	// this.tokenBox(tokenId64).value.owner = to
+	// box = this.tokenBox(tokenId64).value
 	frame_dig 0 // tokenId64: uint64
 	itob
+	frame_bury 1 // storage key//box
+
+	// contracts\Shindg.algo.ts:101
+	// box.owner = to
+	frame_dig 1 // storage key//box
 	box_get
 
 	// box value does not exist: this.tokenBox(tokenId64).value
@@ -116,18 +122,17 @@ transferTo:
 	load 255 // full array
 	int 8
 	frame_dig -1 // to: Address
-	frame_dig 0 // tokenId64: uint64
-	itob
+	replace3
+	frame_dig 1 // storage key//box
 	dup
 	box_del
 	pop
 	swap
 	box_put
 
-	// contracts\Shindg.algo.ts:101
-	// this.tokenBox(tokenId64).value.controller = globals.zeroAddress
-	frame_dig 0 // tokenId64: uint64
-	itob
+	// contracts\Shindg.algo.ts:102
+	// box.controller = to
+	frame_dig 1 // storage key//box
 	box_get
 
 	// box value does not exist: this.tokenBox(tokenId64).value
@@ -135,9 +140,9 @@ transferTo:
 	store 255 // full array
 	load 255 // full array
 	int 40
-	global ZeroAddress
-	frame_dig 0 // tokenId64: uint64
-	itob
+	frame_dig -1 // to: Address
+	replace3
+	frame_dig 1 // storage key//box
 	dup
 	box_del
 	pop
@@ -192,7 +197,7 @@ arc72_transferFrom:
 	byte 0x
 	dup
 
-	// contracts\Shindg.algo.ts:110
+	// contracts\Shindg.algo.ts:111
 	// token = this.tokenBox(tokenId as uint64).value
 	frame_dig -3 // tokenId: uint256
 	dup
@@ -207,7 +212,7 @@ arc72_transferFrom:
 	itob
 	frame_bury 0 // storage key//token
 
-	// contracts\Shindg.algo.ts:112
+	// contracts\Shindg.algo.ts:113
 	// key: Control = { owner: this.txn.sender, controller: _from }
 	txn Sender
 	frame_dig -1 // _from: Address
@@ -215,7 +220,7 @@ arc72_transferFrom:
 	frame_bury 1 // key: Control
 
 	// *if0_condition
-	// contracts\Shindg.algo.ts:114
+	// contracts\Shindg.algo.ts:115
 	// this.txn.sender === _from || this.txn.sender === token.controller || this.controlBox(key).exists
 	txn Sender
 	frame_dig -1 // _from: Address
@@ -247,7 +252,7 @@ arc72_transferFrom:
 	bz *if0_else
 
 	// *if0_consequent
-	// contracts\Shindg.algo.ts:115
+	// contracts\Shindg.algo.ts:116
 	// this.transferTo(to, tokenId)
 	frame_dig -3 // tokenId: uint256
 	frame_dig -2 // to: Address
@@ -300,8 +305,9 @@ arc72_approve:
 
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	byte 0x
+	dup
 
-	// contracts\Shindg.algo.ts:127
+	// contracts\Shindg.algo.ts:128
 	// tokenId64 = tokenId as uint64
 	frame_dig -2 // tokenId: uint256
 	dup
@@ -315,7 +321,7 @@ arc72_approve:
 	btoi
 	frame_bury 0 // tokenId64: uint64
 
-	// contracts\Shindg.algo.ts:128
+	// contracts\Shindg.algo.ts:129
 	// assert(this.tokenBox(tokenId64).exists)
 	frame_dig 0 // tokenId64: uint64
 	itob
@@ -324,11 +330,16 @@ arc72_approve:
 	pop
 	assert
 
-	// contracts\Shindg.algo.ts:129
-	// assert(this.txn.sender === this.tokenBox(tokenId64).value.owner)
-	txn Sender
+	// contracts\Shindg.algo.ts:130
+	// box = this.tokenBox(tokenId64).value
 	frame_dig 0 // tokenId64: uint64
 	itob
+	frame_bury 1 // storage key//box
+
+	// contracts\Shindg.algo.ts:131
+	// assert(this.txn.sender === box.owner)
+	txn Sender
+	frame_dig 1 // storage key//box
 	box_get
 
 	// box value does not exist: this.tokenBox(tokenId64).value
@@ -339,10 +350,9 @@ arc72_approve:
 	==
 	assert
 
-	// contracts\Shindg.algo.ts:131
-	// this.tokenBox(tokenId64).value.controller = approved
-	frame_dig 0 // tokenId64: uint64
-	itob
+	// contracts\Shindg.algo.ts:133
+	// box.controller = approved
+	frame_dig 1 // storage key//box
 	box_get
 
 	// box value does not exist: this.tokenBox(tokenId64).value
@@ -351,8 +361,8 @@ arc72_approve:
 	load 255 // full array
 	int 40
 	frame_dig -1 // approved: Address
-	frame_dig 0 // tokenId64: uint64
-	itob
+	replace3
+	frame_dig 1 // storage key//box
 	dup
 	box_del
 	pop
@@ -403,7 +413,7 @@ arc72_setApprovalForAll:
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	byte 0x
 
-	// contracts\Shindg.algo.ts:143
+	// contracts\Shindg.algo.ts:145
 	// key: Control = { owner: this.txn.sender, controller: operator }
 	txn Sender
 	frame_dig -1 // operator: Address
@@ -411,13 +421,13 @@ arc72_setApprovalForAll:
 	frame_bury 0 // key: Control
 
 	// *if1_condition
-	// contracts\Shindg.algo.ts:145
+	// contracts\Shindg.algo.ts:147
 	// approved
 	frame_dig -2 // approved: boolean
 	bz *if1_elseif1_condition
 
 	// *if1_consequent
-	// contracts\Shindg.algo.ts:145
+	// contracts\Shindg.algo.ts:147
 	// this.controlBox(key).value = ''
 	frame_dig 0 // key: Control
 	dup
@@ -428,7 +438,7 @@ arc72_setApprovalForAll:
 	b *if1_end
 
 *if1_elseif1_condition:
-	// contracts\Shindg.algo.ts:146
+	// contracts\Shindg.algo.ts:148
 	// this.controlBox(key).exists
 	frame_dig 0 // key: Control
 	box_len
@@ -437,7 +447,7 @@ arc72_setApprovalForAll:
 	bz *if1_end
 
 	// *if1_elseif1_consequent
-	// contracts\Shindg.algo.ts:146
+	// contracts\Shindg.algo.ts:148
 	// this.controlBox(key).delete()
 	frame_dig 0 // key: Control
 	box_del
@@ -477,7 +487,7 @@ arc72_setApprovalForAll:
 arc72_ownerOf:
 	proto 1 1
 
-	// contracts\Shindg.algo.ts:160
+	// contracts\Shindg.algo.ts:162
 	// return this.tokenBox(tokenId as uint64).value.owner;
 	frame_dig -1 // tokenId: uint256
 	dup
@@ -537,7 +547,7 @@ arc72_ownerOf:
 arc72_tokenURI:
 	proto 1 1
 
-	// contracts\Shindg.algo.ts:172
+	// contracts\Shindg.algo.ts:174
 	// return this.tokenBox(tokenId as uint64).value.uri;
 	frame_dig -1 // tokenId: uint256
 	dup
@@ -606,7 +616,7 @@ arc72_tokenURI:
 arc72_totalSupply:
 	proto 0 1
 
-	// contracts\Shindg.algo.ts:180
+	// contracts\Shindg.algo.ts:182
 	// return this.index.value as uint256;
 	byte 0x696e646578 // "index"
 	app_global_get
@@ -657,7 +667,7 @@ arc72_totalSupply:
 arc72_tokenByIndex:
 	proto 1 1
 
-	// contracts\Shindg.algo.ts:188
+	// contracts\Shindg.algo.ts:190
 	// return index;
 	frame_dig -1 // index: uint256
 	retsub
@@ -715,7 +725,7 @@ mint:
 	byte 0x
 	dup
 
-	// contracts\Shindg.algo.ts:202
+	// contracts\Shindg.algo.ts:204
 	// assert(
 	//       this.txn.sender === globals.creatorAddress,
 	//       'Only creator is allowed to mint specific NFTs for this collection'
@@ -727,7 +737,7 @@ mint:
 	// Only creator is allowed to mint specific NFTs for this collection
 	assert
 
-	// contracts\Shindg.algo.ts:206
+	// contracts\Shindg.algo.ts:208
 	// assert(state === 1 || state === 10, 'Minter can set state only to ON_SALE or not for sale ')
 	frame_dig -1 // state: uint64
 	int 1
@@ -743,17 +753,17 @@ mint:
 	// Minter can set state only to ON_SALE or not for sale
 	assert
 
-	// contracts\Shindg.algo.ts:207
+	// contracts\Shindg.algo.ts:209
 	// index = this.index.value
 	byte 0x696e646578 // "index"
 	app_global_get
 	frame_bury 0 // index: uint64
 
-	// contracts\Shindg.algo.ts:209
+	// contracts\Shindg.algo.ts:211
 	// token: Token = {
 	//       state: state,
 	//       owner: to,
-	//       controller: Address.zeroAddress,
+	//       controller: to,
 	//       area: area,
 	//       seat: seat,
 	//       uri: uri,
@@ -769,7 +779,7 @@ mint:
 	callsub *process_static_tuple_element
 	frame_dig -2 // to: Address
 	callsub *process_static_tuple_element
-	global ZeroAddress
+	frame_dig -2 // to: Address
 	callsub *process_static_tuple_element
 	frame_dig -3 // area: string
 	dup
@@ -813,7 +823,7 @@ mint:
 	concat // concat head and tail
 	frame_bury 1 // token: Token
 
-	// contracts\Shindg.algo.ts:220
+	// contracts\Shindg.algo.ts:222
 	// assert(token.state !== 0, 'Token state is not 0')
 	frame_dig 1 // token: Token
 	store 255 // full array
@@ -826,7 +836,7 @@ mint:
 	// Token state is not 0
 	assert
 
-	// contracts\Shindg.algo.ts:221
+	// contracts\Shindg.algo.ts:223
 	// this.tokenBox(index).value = token
 	frame_dig 0 // index: uint64
 	itob
@@ -836,7 +846,7 @@ mint:
 	frame_dig 1 // token: Token
 	box_put
 
-	// contracts\Shindg.algo.ts:222
+	// contracts\Shindg.algo.ts:224
 	// this.transferTo(to, index as uint256)
 	frame_dig 0 // index: uint64
 	itob
@@ -859,25 +869,7 @@ mint:
 	frame_dig -2 // to: Address
 	callsub transferTo
 
-	// contracts\Shindg.algo.ts:224
-	// assert(this.tokenBox(index).value.state !== 0, 'State cannot be zero after minting')
-	frame_dig 0 // index: uint64
-	itob
-	box_get
-
-	// box value does not exist: this.tokenBox(index).value
-	assert
-	store 255 // full array
-	load 255 // full array
-	extract 0 8
-	btoi
-	int 0
-	!=
-
-	// State cannot be zero after minting
-	assert
-
-	// contracts\Shindg.algo.ts:225
+	// contracts\Shindg.algo.ts:227
 	// this.index.value = index + 1
 	byte 0x696e646578 // "index"
 	frame_dig 0 // index: uint64
@@ -912,13 +904,13 @@ checkIn:
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	byte 0x
 
-	// contracts\Shindg.algo.ts:234
+	// contracts\Shindg.algo.ts:236
 	// nft = this.tokenBox(nftIndex).value
 	frame_dig -1 // nftIndex: uint64
 	itob
 	frame_bury 0 // storage key//nft
 
-	// contracts\Shindg.algo.ts:235
+	// contracts\Shindg.algo.ts:237
 	// assert(nft.owner === this.txn.sender, 'Only owner of the NFT can change the state')
 	frame_dig 0 // storage key//nft
 	box_get
@@ -934,7 +926,7 @@ checkIn:
 	// Only owner of the NFT can change the state
 	assert
 
-	// contracts\Shindg.algo.ts:236
+	// contracts\Shindg.algo.ts:238
 	// assert(state === 100 || state === 1000, 'Only owner of the NFT can change the state')
 	frame_dig -2 // state: uint64
 	int 100
@@ -950,10 +942,9 @@ checkIn:
 	// Only owner of the NFT can change the state
 	assert
 
-	// contracts\Shindg.algo.ts:237
-	// this.tokenBox(nftIndex).value.state = state
-	frame_dig -1 // nftIndex: uint64
-	itob
+	// contracts\Shindg.algo.ts:239
+	// nft.state = state
+	frame_dig 0 // storage key//nft
 	box_get
 
 	// box value does not exist: this.tokenBox(nftIndex).value
@@ -963,8 +954,8 @@ checkIn:
 	int 0
 	frame_dig -2 // state: uint64
 	itob
-	frame_dig -1 // nftIndex: uint64
-	itob
+	replace3
+	frame_dig 0 // storage key//nft
 	dup
 	box_del
 	pop
@@ -999,85 +990,15 @@ buy:
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	byte 0x
 
-	// contracts\Shindg.algo.ts:246
+	// contracts\Shindg.algo.ts:248
 	// nft = this.tokenBox(nftIndex).value
 	frame_dig -2 // nftIndex: uint64
 	itob
 	frame_bury 0 // storage key//nft
 
-	// contracts\Shindg.algo.ts:247
-	// assert(nft.state !== 1, 'X1')
-	frame_dig 0 // storage key//nft
-	box_get
-
-	// box value does not exist: this.tokenBox(nftIndex).value
-	assert
-	store 255 // full array
-	load 255 // full array
-	extract 0 8
-	btoi
-	int 1
-	!=
-
-	// X1
-	assert
-
-	// contracts\Shindg.algo.ts:248
-	// assert(nft.state !== 10, 'X10')
-	frame_dig 0 // storage key//nft
-	box_get
-
-	// box value does not exist: this.tokenBox(nftIndex).value
-	assert
-	store 255 // full array
-	load 255 // full array
-	extract 0 8
-	btoi
-	int 10
-	!=
-
-	// X10
-	assert
-
 	// contracts\Shindg.algo.ts:249
-	// assert(nft.state !== 100, 'X100')
+	// assert(nft.state === 1, 'NFT Ticket is not for sale')
 	frame_dig 0 // storage key//nft
-	box_get
-
-	// box value does not exist: this.tokenBox(nftIndex).value
-	assert
-	store 255 // full array
-	load 255 // full array
-	extract 0 8
-	btoi
-	int 100
-	!=
-
-	// X100
-	assert
-
-	// contracts\Shindg.algo.ts:250
-	// assert(this.tokenBox(nftIndex).value.state !== 0, 'X0')
-	frame_dig -2 // nftIndex: uint64
-	itob
-	box_get
-
-	// box value does not exist: this.tokenBox(nftIndex).value
-	assert
-	store 255 // full array
-	load 255 // full array
-	extract 0 8
-	btoi
-	int 0
-	!=
-
-	// X0
-	assert
-
-	// contracts\Shindg.algo.ts:251
-	// assert(this.tokenBox(nftIndex).value.state === 1, 'NFT Ticket is not for sale')
-	frame_dig -2 // nftIndex: uint64
-	itob
 	box_get
 
 	// box value does not exist: this.tokenBox(nftIndex).value
@@ -1092,7 +1013,7 @@ buy:
 	// NFT Ticket is not for sale
 	assert
 
-	// contracts\Shindg.algo.ts:252
+	// contracts\Shindg.algo.ts:250
 	// assert(nft.owner === buyTxn.assetReceiver, 'Price must be paid to the owner of the NFT')
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1109,7 +1030,7 @@ buy:
 	// Price must be paid to the owner of the NFT
 	assert
 
-	// contracts\Shindg.algo.ts:253
+	// contracts\Shindg.algo.ts:251
 	// assert(nft.price === buyTxn.assetAmount, 'Exact price must be paid to the owner of the NFT')
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1127,7 +1048,7 @@ buy:
 	// Exact price must be paid to the owner of the NFT
 	assert
 
-	// contracts\Shindg.algo.ts:255
+	// contracts\Shindg.algo.ts:253
 	// nft.owner = buyTxn.sender
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1147,7 +1068,7 @@ buy:
 	swap
 	box_put
 
-	// contracts\Shindg.algo.ts:256
+	// contracts\Shindg.algo.ts:254
 	// nft.state = 10
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1197,13 +1118,13 @@ setPrice:
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	byte 0x
 
-	// contracts\Shindg.algo.ts:266
+	// contracts\Shindg.algo.ts:264
 	// nft = this.tokenBox(nftIndex).value
 	frame_dig -1 // nftIndex: uint64
 	itob
 	frame_bury 0 // storage key//nft
 
-	// contracts\Shindg.algo.ts:267
+	// contracts\Shindg.algo.ts:265
 	// assert(nft.state === 1 || nft.state === 10, 'NFT Ticket is not in valid state')
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1235,7 +1156,7 @@ setPrice:
 	// NFT Ticket is not in valid state
 	assert
 
-	// contracts\Shindg.algo.ts:268
+	// contracts\Shindg.algo.ts:266
 	// assert(nft.owner === this.txn.sender, 'Only owner of this NFT can change the price')
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1251,7 +1172,7 @@ setPrice:
 	// Only owner of this NFT can change the price
 	assert
 
-	// contracts\Shindg.algo.ts:270
+	// contracts\Shindg.algo.ts:268
 	// nft.state = 1
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1269,7 +1190,7 @@ setPrice:
 	swap
 	box_put
 
-	// contracts\Shindg.algo.ts:271
+	// contracts\Shindg.algo.ts:269
 	// nft.currency = currency
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1289,7 +1210,7 @@ setPrice:
 	swap
 	box_put
 
-	// contracts\Shindg.algo.ts:272
+	// contracts\Shindg.algo.ts:270
 	// nft.price = price
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1331,13 +1252,13 @@ setNotForSale:
 	// Push empty bytes after the frame pointer to reserve space for local variables
 	byte 0x
 
-	// contracts\Shindg.algo.ts:280
+	// contracts\Shindg.algo.ts:278
 	// nft = this.tokenBox(nftIndex).value
 	frame_dig -1 // nftIndex: uint64
 	itob
 	frame_bury 0 // storage key//nft
 
-	// contracts\Shindg.algo.ts:281
+	// contracts\Shindg.algo.ts:279
 	// assert(nft.state === 1, 'NFT Ticket is not for sale')
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1354,7 +1275,7 @@ setNotForSale:
 	// NFT Ticket is not for sale
 	assert
 
-	// contracts\Shindg.algo.ts:282
+	// contracts\Shindg.algo.ts:280
 	// assert(nft.owner === this.txn.sender, 'Only owner of this NFT can change it from being on sale')
 	frame_dig 0 // storage key//nft
 	box_get
@@ -1370,7 +1291,7 @@ setNotForSale:
 	// Only owner of this NFT can change it from being on sale
 	assert
 
-	// contracts\Shindg.algo.ts:284
+	// contracts\Shindg.algo.ts:282
 	// nft.state = 10
 	frame_dig 0 // storage key//nft
 	box_get

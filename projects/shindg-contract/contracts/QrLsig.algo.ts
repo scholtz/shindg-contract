@@ -9,7 +9,7 @@ class QrLsig extends LogicSig {
     verifyTxn(this.txn, {
       // It's very important to set fee to 0 for delegated logic signatures
       // Otherwise the fee can be used to drain the signer's account
-      fee: 0,
+      // fee: 0, TODO FOR DEMO ONLY WE ACCEPT THIS DELEGATED SIG TO CAST FEE.. In the future must be rewritten so that other txn is taking care of fees.
       // Also very important to check that the rekey is set to zero address
       rekeyTo: globals.zeroAddress,
       // Finally we must ensure that this is not a close transaction, which will drain the signer's account of the given asset

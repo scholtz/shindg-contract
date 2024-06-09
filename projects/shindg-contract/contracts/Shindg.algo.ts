@@ -97,8 +97,9 @@ export class Shindg extends Contract {
   private transferTo(to: Address, tokenId: uint256): void {
     const tokenId64 = tokenId as uint64;
     assert(this.tokenBox(tokenId64).exists);
-    this.tokenBox(tokenId64).value.owner = to;
-    this.tokenBox(tokenId64).value.controller = globals.zeroAddress;
+    const box = this.tokenBox(tokenId64).value;
+    box.owner = to;
+    box.controller = to;
   }
 
   // ARC76 NON READONLY METHODS
@@ -126,9 +127,10 @@ export class Shindg extends Contract {
   arc72_approve(approved: Address, tokenId: uint256): void {
     const tokenId64 = tokenId as uint64;
     assert(this.tokenBox(tokenId64).exists);
-    assert(this.txn.sender === this.tokenBox(tokenId64).value.owner);
+    const box = this.tokenBox(tokenId64).value;
+    assert(this.txn.sender === box.owner);
 
-    this.tokenBox(tokenId64).value.controller = approved;
+    box.controller = approved;
   }
 
   /**
@@ -209,7 +211,7 @@ export class Shindg extends Contract {
     const token: Token = {
       state: state,
       owner: to,
-      controller: Address.zeroAddress,
+      controller: to,
       area: area,
       seat: seat,
       uri: uri,
@@ -221,7 +223,7 @@ export class Shindg extends Contract {
     this.tokenBox(index).value = token;
     this.transferTo(to, index as uint256);
 
-    assert(this.tokenBox(index).value.state !== 0, 'State cannot be zero after minting');
+    // assert(this.tokenBox(index).value.state !== 0, 'State cannot be zero after minting');
     this.index.value = index + 1;
   }
 
@@ -234,7 +236,7 @@ export class Shindg extends Contract {
     const nft = this.tokenBox(nftIndex).value;
     assert(nft.owner === this.txn.sender, 'Only owner of the NFT can change the state');
     assert(state === 100 || state === 1000, 'Only owner of the NFT can change the state');
-    this.tokenBox(nftIndex).value.state = state;
+    nft.state = state;
   }
 
   /**
@@ -244,11 +246,7 @@ export class Shindg extends Contract {
    */
   buy(buyTxn: Txn, nftIndex: uint64): void {
     const nft = this.tokenBox(nftIndex).value;
-    assert(nft.state !== 1, 'X1');
-    assert(nft.state !== 10, 'X10');
-    assert(nft.state !== 100, 'X100');
-    assert(this.tokenBox(nftIndex).value.state !== 0, 'X0');
-    assert(this.tokenBox(nftIndex).value.state === 1, 'NFT Ticket is not for sale');
+    assert(nft.state === 1, 'NFT Ticket is not for sale');
     assert(nft.owner === buyTxn.assetReceiver, 'Price must be paid to the owner of the NFT');
     assert(nft.price === buyTxn.assetAmount, 'Exact price must be paid to the owner of the NFT');
 
