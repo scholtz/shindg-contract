@@ -19,6 +19,6 @@ class QrLsig extends LogicSig {
     // const appCall = this.txn;
     // // Use assert instead of verifyTxn because applicationArgs array is not yet supported in verifyTxn
     assert(this.txn.applicationID === this.APP_ID);
-    assert(this.txn.applicationArgs[0] === method('verifyCreator(axfer,asset)void'));
+    assert(this.txn.applicationArgs[0] === method('checkIn(uint64,uint64)void'));
   }
 }

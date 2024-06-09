@@ -139,6 +139,10 @@
       "name": "mint",
       "args": [
         {
+          "name": "state",
+          "type": "uint64"
+        },
+        {
           "name": "to",
           "type": "address"
         },
@@ -157,6 +161,88 @@
         {
           "name": "uri",
           "type": "string"
+        },
+        {
+          "name": "price",
+          "type": "uint64"
+        },
+        {
+          "name": "currency",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "checkIn",
+      "desc": "Owner of NFT can check in or check out from the event",
+      "args": [
+        {
+          "name": "nftIndex",
+          "type": "uint64"
+        },
+        {
+          "name": "state",
+          "type": "uint64"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "buy",
+      "desc": "Owner of NFT can check in or check out from the event",
+      "args": [
+        {
+          "name": "buyTxn",
+          "type": "txn",
+          "desc": "The buy transaction"
+        },
+        {
+          "name": "nftIndex",
+          "type": "uint64",
+          "desc": "NFT Index"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "setPrice",
+      "desc": "Owner of NFT can check in or check out from the event",
+      "args": [
+        {
+          "name": "nftIndex",
+          "type": "uint64",
+          "desc": "NFT Index"
+        },
+        {
+          "name": "price",
+          "type": "uint64",
+          "desc": "The price which has to be paid"
+        },
+        {
+          "name": "currency",
+          "type": "uint64",
+          "desc": "The currency for price"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      }
+    },
+    {
+      "name": "setNotForSale",
+      "desc": "Set not for sale",
+      "args": [
+        {
+          "name": "nftIndex",
+          "type": "uint64",
+          "desc": "NFT"
         }
       ],
       "returns": {

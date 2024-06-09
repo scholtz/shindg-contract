@@ -1,15 +1,19 @@
-import { describe, test, expect, beforeAll, beforeEach } from '@jest/globals';
+import { describe, test, expect, beforeEach } from '@jest/globals';
 import { algorandFixture } from '@algorandfoundation/algokit-utils/testing';
 import * as algokit from '@algorandfoundation/algokit-utils';
-import algosdk, { LogicSigAccount } from 'algosdk';
-import { readFileSync } from 'fs';
+import algosdk, {
+  LogicSigAccount,
+  Transaction,
+  makeAssetCreateTxnWithSuggestedParamsFromObject,
+  makeAssetTransferTxnWithSuggestedParamsFromObject,
+} from 'algosdk';
 import { ShindgClient } from '../contracts/clients/ShindgClient';
 import { getLsigAccount } from '../src';
+import { IQRCode } from '../src/types/IQRCode';
+import { State } from '../src/types/State';
 
 const fixture = algorandFixture();
 algokit.Config.configure({ populateAppCallResources: true });
-
-let appClient: ShindgClient;
 
 // async function getLsigAccount(algod: algosdk.Algodv2, appID: bigint): Promise<algosdk.LogicSigAccount> {
 //   const qrLsigTeal = readFileSync(`./contracts/artifacts/QrLsig.lsig.teal`, 'utf8');
@@ -37,5 +41,199 @@ describe('Shindg', () => {
     };
     console.log(qr);
     expect(qr.lisg.length).toBeGreaterThan(50);
+  });
+  test('create nft event, buy ticket, and enter event', async () => {
+    const { algod } = fixture.context;
+    const eventCreatorAccount = await fixture.context.generateAccount({
+      initialFunds: algokit.microAlgos(1_000_000_000),
+    });
+    const eventBuyerAccount = await fixture.context.generateAccount({
+      initialFunds: algokit.microAlgos(1_000_000_000),
+    });
+    const params = await algod.getTransactionParams().do();
+    // create fake USDC asset
+    const assetTx = makeAssetCreateTxnWithSuggestedParamsFromObject({
+      decimals: 6,
+      assetName: 'USDC',
+      defaultFrozen: false,
+      from: eventCreatorAccount.addr,
+      suggestedParams: params,
+      total: 1_000_000_000_000,
+    });
+    await algod.sendRawTransaction(assetTx.signTxn(eventCreatorAccount.sk)).do();
+
+    const assetInfo = await algosdk.waitForConfirmation(algod, assetTx.txID(), 4);
+    // console.log('assetInfo', assetInfo);
+    const usdcAsset = assetInfo['asset-index'] as bigint;
+    expect(usdcAsset).toBeGreaterThan(0);
+
+    // optin buyer to the USDC
+    const optinBuyer = makeAssetTransferTxnWithSuggestedParamsFromObject({
+      amount: 0,
+      assetIndex: Number(usdcAsset),
+      from: eventBuyerAccount.addr, // fake usdc creator
+      suggestedParams: params,
+      to: eventBuyerAccount.addr,
+    });
+    await algod.sendRawTransaction(optinBuyer.signTxn(eventBuyerAccount.sk)).do();
+    await algosdk.waitForConfirmation(algod, optinBuyer.txID(), 4);
+
+    // fund buyer with the USDC
+    const fundBuyerUsdc = makeAssetTransferTxnWithSuggestedParamsFromObject({
+      amount: 100_000_000,
+      assetIndex: Number(usdcAsset),
+      from: eventCreatorAccount.addr, // fake usdc creator
+      suggestedParams: params,
+      to: eventBuyerAccount.addr,
+    });
+    await algod.sendRawTransaction(fundBuyerUsdc.signTxn(eventCreatorAccount.sk)).do();
+    await algosdk.waitForConfirmation(algod, fundBuyerUsdc.txID(), 4);
+
+    // CREATE CLIENT
+    const eventCreator = {
+      addr: eventCreatorAccount.addr,
+      // eslint-disable-next-line no-unused-vars
+      signer: async (txnGroup: Transaction[], indexesToSign: number[]) => {
+        return txnGroup.map((tx) => tx.signTxn(eventCreatorAccount.sk));
+      },
+    };
+    const client = new ShindgClient(
+      {
+        sender: eventCreator,
+        resolveBy: 'id',
+        id: 0,
+      },
+      algod
+    );
+    await client.create.createApplication({ name: 'Test event', symbol: 'TSTEVENT' });
+
+    const ref = await client.appClient.getAppReference();
+    expect(ref.appId).toBeGreaterThan(0);
+
+    // FUND the NFT contract by creator
+    const fundTx = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+      from: eventCreatorAccount.addr,
+      amount: 100_000_000,
+      suggestedParams: params,
+      to: ref.appAddress,
+    });
+    await algod.sendRawTransaction(fundTx.signTxn(eventCreatorAccount.sk)).do();
+
+    // MINT nft one by one
+    await client.mint({
+      to: eventCreator.addr,
+      area: 'Red Zone',
+      seat: 'Seat 1',
+      image: 'https://shindg.vercel.app/seat1.png',
+      uri: 'https://shindg.vercel.app/Event1',
+      price: 10_000_000n, // 10 USDC
+      currency: usdcAsset,
+      state: State.ON_SALE,
+    });
+    // MINT nft one by one
+    await client.mint({
+      to: eventCreator.addr,
+      area: 'Red Zone',
+      seat: 'Seat 2',
+      image: 'https://shindg.vercel.app/seat2.png',
+      uri: 'https://shindg.vercel.app/Event1',
+      price: 9_000_000n, // 9 USDC
+      currency: usdcAsset,
+      state: State.ON_SALE,
+    });
+    // MINT nft one by one
+    await client.mint({
+      to: eventCreator.addr,
+      area: 'Blue Zone',
+      seat: 'Seat 1',
+      image: 'https://shindg.vercel.app/seat3.png',
+      uri: 'https://shindg.vercel.app/Event1',
+      price: 8_000_000n, // 8 USDC
+      currency: usdcAsset,
+      state: State.ON_SALE,
+    });
+
+    expect((await client.getGlobalState()).index?.asNumber()).toBe(3);
+    /// buy ticket by user
+
+    // CREATE CLIENT for BUYER
+    const eventBuyer = {
+      addr: eventBuyerAccount.addr,
+      // eslint-disable-next-line no-unused-vars
+      signer: async (txnGroup: Transaction[], indexesToSign: number[]) => {
+        return txnGroup.map((tx) => tx.signTxn(eventBuyerAccount.sk));
+      },
+    };
+    const clientBuyer = new ShindgClient(
+      {
+        sender: eventBuyer,
+        resolveBy: 'id',
+        id: ref.appId,
+      },
+      algod
+    );
+    // Buy nft
+    const buyNFTIndex = 1;
+
+    await clientBuyer.buy({
+      buyTxn: makeAssetTransferTxnWithSuggestedParamsFromObject({
+        amount: 9_000_000n,
+        assetIndex: Number(usdcAsset),
+        from: eventBuyerAccount.addr,
+        suggestedParams: params,
+        to: eventCreatorAccount.addr,
+      }),
+      nftIndex: buyNFTIndex,
+    });
+
+    const lsig = await getLsigAccount(algod, BigInt(ref.appId));
+    lsig.sign(eventBuyerAccount.sk);
+    const qr = JSON.stringify({
+      contract: ref.appId,
+      nftId: buyNFTIndex,
+      lisg: Buffer.from(lsig.toByte()).toString('base64url'),
+    });
+    console.log(qr);
+    expect(qr.length).toBeGreaterThan(50);
+
+    // DECODE QR CODE
+    const decodedQR = JSON.parse(qr) as IQRCode;
+    const bytes = Buffer.from(decodedQR.lisg, 'base64url');
+    const lsigDecoded = LogicSigAccount.fromByte(bytes);
+
+    // CREATE CLIENT for BUYER with delegated sig
+    const eventBuyerLsig = {
+      addr: eventBuyerAccount.addr,
+      // eslint-disable-next-line no-unused-vars
+      signer: async (txnGroup: Transaction[], indexesToSign: number[]) => {
+        return txnGroup.map((tx) => {
+          const signedSmartSigTxn = algosdk.signLogicSigTransactionObject(tx, lsigDecoded);
+          return signedSmartSigTxn.blob;
+        });
+      },
+    };
+    const clientBuyerLsig = new ShindgClient(
+      {
+        sender: eventBuyerLsig,
+        resolveBy: 'id',
+        id: ref.appId,
+      },
+      algod
+    );
+    // Check in
+    await clientBuyerLsig.checkIn({
+      nftIndex: buyNFTIndex,
+      state: State.CHECKED_IN,
+    });
+    // Check out .. person needs to go to the car
+    await clientBuyerLsig.checkIn({
+      nftIndex: buyNFTIndex,
+      state: State.CHECKED_OUT,
+    });
+    // Check in back again
+    await clientBuyerLsig.checkIn({
+      nftIndex: buyNFTIndex,
+      state: State.CHECKED_IN,
+    });
   });
 });

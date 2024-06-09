@@ -1,6 +1,6 @@
 {
   "name": "shindg",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "license": "MIT",
   "scripts": {
     "generate-client": "algokit generate client contracts/artifacts/ --language typescript  --output contracts/clients/{contract_name}Client.ts",

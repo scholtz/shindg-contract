@@ -1,7 +1,7 @@
 [
   {
     "teal": 1,
-    "source": 46,
+    "source": 57,
     "pc": [
       0,
       1,
@@ -57,72 +57,72 @@
       51,
       52,
       53,
-      54
-    ]
-  },
-  {
-    "teal": 13,
-    "source": 46,
-    "pc": [
+      54,
       55,
-      56
-    ]
-  },
-  {
-    "teal": 14,
-    "source": 46,
-    "pc": [
-      57
-    ]
-  },
-  {
-    "teal": 15,
-    "source": 46,
-    "pc": [
+      56,
+      57,
       58,
-      59
-    ]
-  },
-  {
-    "teal": 16,
-    "source": 46,
-    "pc": [
-      60
-    ]
-  },
-  {
-    "teal": 17,
-    "source": 46,
-    "pc": [
+      59,
+      60,
       61,
-      62
-    ]
-  },
-  {
-    "teal": 18,
-    "source": 46,
-    "pc": [
-      63
-    ]
-  },
-  {
-    "teal": 19,
-    "source": 46,
-    "pc": [
+      62,
+      63,
       64,
       65,
       66,
       67,
-      68,
+      68
+    ]
+  },
+  {
+    "teal": 13,
+    "source": 57,
+    "pc": [
       69,
-      70,
-      71,
+      70
+    ]
+  },
+  {
+    "teal": 14,
+    "source": 57,
+    "pc": [
+      71
+    ]
+  },
+  {
+    "teal": 15,
+    "source": 57,
+    "pc": [
       72,
-      73,
-      74,
+      73
+    ]
+  },
+  {
+    "teal": 16,
+    "source": 57,
+    "pc": [
+      74
+    ]
+  },
+  {
+    "teal": 17,
+    "source": 57,
+    "pc": [
       75,
-      76,
-      77,
+      76
+    ]
+  },
+  {
+    "teal": 18,
+    "source": 57,
+    "pc": [
+      77
+    ]
+  },
+  {
+    "teal": 19,
+    "source": 57,
+    "pc": [
       78,
       79,
       80,
@@ -134,79 +134,43 @@
       86,
       87,
       88,
-      89
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103
     ]
   },
   {
     "teal": 23,
-    "source": 46,
+    "source": 57,
     "errorMessage": "The requested action is not implemented in this contract. Are you using the correct OnComplete? Did you set your app ID?",
     "pc": [
-      90
+      104
     ]
   },
   {
     "teal": 28,
-    "source": 74,
+    "source": 85,
     "pc": [
-      91,
-      92,
-      93
-    ]
-  },
-  {
-    "teal": 29,
-    "source": 74,
-    "pc": [
-      94,
-      95,
-      96
-    ]
-  },
-  {
-    "teal": 32,
-    "source": 74,
-    "pc": [
-      97,
-      98,
-      99
-    ]
-  },
-  {
-    "teal": 33,
-    "source": 74,
-    "pc": [
-      100,
-      101,
-      102
-    ]
-  },
-  {
-    "teal": 36,
-    "source": 74,
-    "pc": [
-      103,
-      104,
-      105
-    ]
-  },
-  {
-    "teal": 37,
-    "source": 74,
-    "pc": [
-      106
-    ]
-  },
-  {
-    "teal": 38,
-    "source": 74,
-    "pc": [
+      105,
+      106,
       107
     ]
   },
   {
-    "teal": 46,
-    "source": 74,
+    "teal": 29,
+    "source": 85,
     "pc": [
       108,
       109,
@@ -214,49 +178,49 @@
     ]
   },
   {
-    "teal": 50,
-    "source": 75,
+    "teal": 32,
+    "source": 85,
     "pc": [
       111,
       112,
-      113,
+      113
+    ]
+  },
+  {
+    "teal": 33,
+    "source": 85,
+    "pc": [
       114,
       115,
       116
     ]
   },
   {
-    "teal": 51,
-    "source": 75,
+    "teal": 36,
+    "source": 85,
     "pc": [
       117,
-      118
-    ]
-  },
-  {
-    "teal": 52,
-    "source": 75,
-    "pc": [
+      118,
       119
     ]
   },
   {
-    "teal": 53,
-    "source": 75,
+    "teal": 37,
+    "source": 85,
     "pc": [
       120
     ]
   },
   {
-    "teal": 54,
-    "source": 75,
+    "teal": 38,
+    "source": 85,
     "pc": [
       121
     ]
   },
   {
-    "teal": 55,
-    "source": 75,
+    "teal": 46,
+    "source": 85,
     "pc": [
       122,
       123,
@@ -264,613 +228,607 @@
     ]
   },
   {
-    "teal": 56,
-    "source": 75,
+    "teal": 50,
+    "source": 86,
     "pc": [
-      125
-    ]
-  },
-  {
-    "teal": 57,
-    "source": 75,
-    "pc": [
-      126
-    ]
-  },
-  {
-    "teal": 58,
-    "source": 75,
-    "pc": [
-      127
-    ]
-  },
-  {
-    "teal": 62,
-    "source": 76,
-    "pc": [
+      125,
+      126,
+      127,
       128,
       129,
-      130,
+      130
+    ]
+  },
+  {
+    "teal": 51,
+    "source": 86,
+    "pc": [
       131,
-      132,
-      133,
-      134,
+      132
+    ]
+  },
+  {
+    "teal": 52,
+    "source": 86,
+    "pc": [
+      133
+    ]
+  },
+  {
+    "teal": 53,
+    "source": 86,
+    "pc": [
+      134
+    ]
+  },
+  {
+    "teal": 54,
+    "source": 86,
+    "pc": [
       135
     ]
   },
   {
-    "teal": 63,
-    "source": 76,
+    "teal": 55,
+    "source": 86,
     "pc": [
       136,
-      137
-    ]
-  },
-  {
-    "teal": 64,
-    "source": 76,
-    "pc": [
+      137,
       138
     ]
   },
   {
-    "teal": 65,
-    "source": 76,
+    "teal": 56,
+    "source": 86,
     "pc": [
       139
     ]
   },
   {
-    "teal": 66,
-    "source": 76,
+    "teal": 57,
+    "source": 86,
     "pc": [
       140
     ]
   },
   {
-    "teal": 67,
-    "source": 76,
-    "pc": [
-      141,
-      142,
-      143
-    ]
-  },
-  {
-    "teal": 68,
-    "source": 76,
-    "pc": [
-      144
-    ]
-  },
-  {
-    "teal": 69,
-    "source": 76,
-    "pc": [
-      145
-    ]
-  },
-  {
-    "teal": 70,
-    "source": 76,
-    "pc": [
-      146
-    ]
-  },
-  {
-    "teal": 71,
-    "source": 74,
-    "pc": [
-      147
-    ]
-  },
-  {
-    "teal": 79,
+    "teal": 58,
     "source": 86,
     "pc": [
-      148,
-      149,
-      150
+      141
     ]
   },
   {
-    "teal": 83,
+    "teal": 62,
     "source": 87,
     "pc": [
-      151,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149
+    ]
+  },
+  {
+    "teal": 63,
+    "source": 87,
+    "pc": [
+      150,
+      151
+    ]
+  },
+  {
+    "teal": 64,
+    "source": 87,
+    "pc": [
       152
     ]
   },
   {
-    "teal": 84,
+    "teal": 65,
     "source": 87,
     "pc": [
       153
     ]
   },
   {
-    "teal": 85,
+    "teal": 66,
     "source": 87,
     "pc": [
       154
     ]
   },
   {
-    "teal": 86,
+    "teal": 67,
     "source": 87,
     "pc": [
-      155
+      155,
+      156,
+      157
     ]
   },
   {
-    "teal": 87,
+    "teal": 68,
     "source": 87,
     "pc": [
-      156
-    ]
-  },
-  {
-    "teal": 91,
-    "source": 88,
-    "pc": [
-      157,
       158
     ]
   },
   {
-    "teal": 92,
-    "source": 88,
+    "teal": 69,
+    "source": 87,
     "pc": [
       159
     ]
   },
   {
-    "teal": 95,
-    "source": 88,
-    "errorMessage": "box value does not exist: this.tokenBox(tokenId).value",
+    "teal": 70,
+    "source": 87,
     "pc": [
       160
     ]
   },
   {
-    "teal": 96,
-    "source": 88,
+    "teal": 71,
+    "source": 85,
     "pc": [
-      161,
-      162
+      161
     ]
   },
   {
-    "teal": 97,
-    "source": 88,
+    "teal": 79,
+    "source": 97,
     "pc": [
+      162,
       163,
       164
     ]
   },
   {
-    "teal": 98,
-    "source": 88,
+    "teal": 82,
+    "source": 97,
     "pc": [
       165
     ]
   },
   {
-    "teal": 99,
-    "source": 88,
+    "teal": 86,
+    "source": 98,
     "pc": [
       166,
       167
     ]
   },
   {
-    "teal": 100,
-    "source": 88,
+    "teal": 87,
+    "source": 98,
     "pc": [
-      168,
+      168
+    ]
+  },
+  {
+    "teal": 88,
+    "source": 98,
+    "pc": [
       169
     ]
   },
   {
-    "teal": 101,
-    "source": 88,
+    "teal": 89,
+    "source": 98,
     "pc": [
       170
     ]
   },
   {
-    "teal": 102,
-    "source": 88,
+    "teal": 90,
+    "source": 98,
     "pc": [
       171
     ]
   },
   {
-    "teal": 103,
-    "source": 88,
+    "teal": 93,
+    "source": 98,
+    "errorMessage": "tokenId as uint64 overflowed 64 bits",
     "pc": [
       172
     ]
   },
   {
-    "teal": 104,
-    "source": 88,
+    "teal": 94,
+    "source": 98,
     "pc": [
-      173
+      173,
+      174,
+      175
     ]
   },
   {
-    "teal": 105,
-    "source": 88,
+    "teal": 95,
+    "source": 98,
     "pc": [
-      174
-    ]
-  },
-  {
-    "teal": 109,
-    "source": 89,
-    "pc": [
-      175,
       176
     ]
   },
   {
-    "teal": 110,
-    "source": 89,
+    "teal": 96,
+    "source": 98,
     "pc": [
-      177
-    ]
-  },
-  {
-    "teal": 113,
-    "source": 89,
-    "errorMessage": "box value does not exist: this.tokenBox(tokenId).value",
-    "pc": [
+      177,
       178
     ]
   },
   {
-    "teal": 114,
-    "source": 89,
+    "teal": 100,
+    "source": 99,
     "pc": [
       179,
       180
     ]
   },
   {
-    "teal": 115,
-    "source": 89,
+    "teal": 101,
+    "source": 99,
     "pc": [
-      181,
+      181
+    ]
+  },
+  {
+    "teal": 102,
+    "source": 99,
+    "pc": [
       182
     ]
   },
   {
-    "teal": 116,
-    "source": 89,
+    "teal": 103,
+    "source": 99,
     "pc": [
       183
     ]
   },
   {
-    "teal": 117,
-    "source": 89,
+    "teal": 104,
+    "source": 99,
     "pc": [
-      184,
+      184
+    ]
+  },
+  {
+    "teal": 105,
+    "source": 99,
+    "pc": [
       185
     ]
   },
   {
-    "teal": 118,
-    "source": 89,
+    "teal": 109,
+    "source": 100,
     "pc": [
       186,
       187
     ]
   },
   {
-    "teal": 119,
-    "source": 89,
+    "teal": 110,
+    "source": 100,
     "pc": [
       188
     ]
   },
   {
-    "teal": 120,
-    "source": 89,
+    "teal": 111,
+    "source": 100,
     "pc": [
       189
     ]
   },
   {
-    "teal": 121,
-    "source": 89,
+    "teal": 114,
+    "source": 100,
+    "errorMessage": "box value does not exist: this.tokenBox(tokenId64).value",
     "pc": [
       190
     ]
   },
   {
-    "teal": 122,
-    "source": 89,
+    "teal": 115,
+    "source": 100,
     "pc": [
-      191
-    ]
-  },
-  {
-    "teal": 123,
-    "source": 89,
-    "pc": [
+      191,
       192
     ]
   },
   {
-    "teal": 124,
-    "source": 86,
+    "teal": 116,
+    "source": 100,
     "pc": [
-      193
+      193,
+      194
     ]
   },
   {
-    "teal": 129,
-    "source": 97,
+    "teal": 117,
+    "source": 100,
     "pc": [
-      194,
       195,
       196
     ]
   },
   {
-    "teal": 130,
-    "source": 97,
+    "teal": 118,
+    "source": 100,
     "pc": [
-      197
-    ]
-  },
-  {
-    "teal": 131,
-    "source": 97,
-    "pc": [
+      197,
       198
     ]
   },
   {
-    "teal": 132,
-    "source": 97,
+    "teal": 119,
+    "source": 100,
     "pc": [
-      199
-    ]
-  },
-  {
-    "teal": 133,
-    "source": 97,
-    "pc": [
+      199,
       200
     ]
   },
   {
-    "teal": 136,
-    "source": 97,
-    "errorMessage": "argument 0 (tokenId) for arc72_transferFrom must be a uint256",
+    "teal": 120,
+    "source": 100,
     "pc": [
       201
     ]
   },
   {
-    "teal": 139,
-    "source": 97,
+    "teal": 121,
+    "source": 100,
     "pc": [
-      202,
-      203,
+      202
+    ]
+  },
+  {
+    "teal": 122,
+    "source": 100,
+    "pc": [
+      203
+    ]
+  },
+  {
+    "teal": 123,
+    "source": 100,
+    "pc": [
       204
     ]
   },
   {
-    "teal": 140,
-    "source": 97,
+    "teal": 124,
+    "source": 100,
     "pc": [
       205
     ]
   },
   {
-    "teal": 141,
-    "source": 97,
+    "teal": 125,
+    "source": 100,
     "pc": [
       206
     ]
   },
   {
-    "teal": 142,
-    "source": 97,
+    "teal": 129,
+    "source": 101,
     "pc": [
-      207
-    ]
-  },
-  {
-    "teal": 143,
-    "source": 97,
-    "pc": [
+      207,
       208
     ]
   },
   {
-    "teal": 146,
-    "source": 97,
-    "errorMessage": "argument 1 (to) for arc72_transferFrom must be a address",
+    "teal": 130,
+    "source": 101,
     "pc": [
       209
     ]
   },
   {
-    "teal": 149,
-    "source": 97,
+    "teal": 131,
+    "source": 101,
     "pc": [
-      210,
-      211,
-      212
+      210
     ]
   },
   {
-    "teal": 150,
-    "source": 97,
+    "teal": 134,
+    "source": 101,
+    "errorMessage": "box value does not exist: this.tokenBox(tokenId64).value",
     "pc": [
+      211
+    ]
+  },
+  {
+    "teal": 135,
+    "source": 101,
+    "pc": [
+      212,
       213
     ]
   },
   {
-    "teal": 151,
-    "source": 97,
+    "teal": 136,
+    "source": 101,
     "pc": [
-      214
-    ]
-  },
-  {
-    "teal": 152,
-    "source": 97,
-    "pc": [
+      214,
       215
     ]
   },
   {
-    "teal": 153,
-    "source": 97,
+    "teal": 137,
+    "source": 101,
     "pc": [
-      216
-    ]
-  },
-  {
-    "teal": 156,
-    "source": 97,
-    "errorMessage": "argument 2 (_from) for arc72_transferFrom must be a address",
-    "pc": [
+      216,
       217
     ]
   },
   {
-    "teal": 159,
-    "source": 97,
+    "teal": 138,
+    "source": 101,
     "pc": [
       218,
-      219,
-      220
+      219
     ]
   },
   {
-    "teal": 160,
-    "source": 97,
+    "teal": 139,
+    "source": 101,
     "pc": [
+      220,
       221
     ]
   },
   {
-    "teal": 161,
-    "source": 97,
+    "teal": 140,
+    "source": 101,
     "pc": [
       222
     ]
   },
   {
-    "teal": 167,
-    "source": 97,
+    "teal": 141,
+    "source": 101,
     "pc": [
-      223,
-      224,
+      223
+    ]
+  },
+  {
+    "teal": 142,
+    "source": 101,
+    "pc": [
+      224
+    ]
+  },
+  {
+    "teal": 143,
+    "source": 101,
+    "pc": [
       225
     ]
   },
   {
-    "teal": 170,
-    "source": 97,
+    "teal": 144,
+    "source": 101,
     "pc": [
       226
     ]
   },
   {
-    "teal": 171,
-    "source": 97,
+    "teal": 145,
+    "source": 101,
     "pc": [
       227
     ]
   },
   {
-    "teal": 175,
-    "source": 98,
+    "teal": 146,
+    "source": 97,
     "pc": [
-      228,
-      229
+      228
     ]
   },
   {
-    "teal": 176,
-    "source": 98,
+    "teal": 151,
+    "source": 109,
     "pc": [
+      229,
       230,
       231
     ]
   },
   {
-    "teal": 180,
-    "source": 100,
+    "teal": 152,
+    "source": 109,
     "pc": [
-      232,
+      232
+    ]
+  },
+  {
+    "teal": 153,
+    "source": 109,
+    "pc": [
       233
     ]
   },
   {
-    "teal": 181,
-    "source": 100,
+    "teal": 154,
+    "source": 109,
     "pc": [
-      234,
+      234
+    ]
+  },
+  {
+    "teal": 155,
+    "source": 109,
+    "pc": [
       235
     ]
   },
   {
-    "teal": 182,
-    "source": 100,
+    "teal": 158,
+    "source": 109,
+    "errorMessage": "argument 0 (tokenId) for arc72_transferFrom must be a uint256",
     "pc": [
       236
     ]
   },
   {
-    "teal": 183,
-    "source": 100,
+    "teal": 161,
+    "source": 109,
     "pc": [
       237,
-      238
+      238,
+      239
     ]
   },
   {
-    "teal": 188,
-    "source": 102,
+    "teal": 162,
+    "source": 109,
     "pc": [
-      239,
       240
     ]
   },
   {
-    "teal": 189,
-    "source": 102,
+    "teal": 163,
+    "source": 109,
     "pc": [
-      241,
+      241
+    ]
+  },
+  {
+    "teal": 164,
+    "source": 109,
+    "pc": [
       242
     ]
   },
   {
-    "teal": 190,
-    "source": 102,
+    "teal": 165,
+    "source": 109,
     "pc": [
       243
     ]
   },
   {
-    "teal": 191,
-    "source": 102,
+    "teal": 168,
+    "source": 109,
+    "errorMessage": "argument 1 (to) for arc72_transferFrom must be a address",
     "pc": [
       244
     ]
   },
   {
-    "teal": 192,
-    "source": 102,
+    "teal": 171,
+    "source": 109,
     "pc": [
       245,
       246,
@@ -878,55 +836,67 @@
     ]
   },
   {
-    "teal": 193,
-    "source": 102,
+    "teal": 172,
+    "source": 109,
     "pc": [
-      248,
+      248
+    ]
+  },
+  {
+    "teal": 173,
+    "source": 109,
+    "pc": [
       249
     ]
   },
   {
-    "teal": 194,
-    "source": 98,
+    "teal": 174,
+    "source": 109,
     "pc": [
-      250,
+      250
+    ]
+  },
+  {
+    "teal": 175,
+    "source": 109,
+    "pc": [
       251
     ]
   },
   {
-    "teal": 195,
-    "source": 98,
+    "teal": 178,
+    "source": 109,
+    "errorMessage": "argument 2 (_from) for arc72_transferFrom must be a address",
     "pc": [
       252
     ]
   },
   {
-    "teal": 198,
-    "source": 98,
-    "errorMessage": "box value does not exist: this.tokenBox(tokenId).value",
+    "teal": 181,
+    "source": 109,
     "pc": [
-      253
-    ]
-  },
-  {
-    "teal": 199,
-    "source": 102,
-    "pc": [
+      253,
       254,
       255
     ]
   },
   {
-    "teal": 200,
-    "source": 102,
+    "teal": 182,
+    "source": 109,
     "pc": [
-      256,
+      256
+    ]
+  },
+  {
+    "teal": 183,
+    "source": 109,
+    "pc": [
       257
     ]
   },
   {
-    "teal": 201,
-    "source": 102,
+    "teal": 189,
+    "source": 109,
     "pc": [
       258,
       259,
@@ -934,244 +904,243 @@
     ]
   },
   {
-    "teal": 202,
-    "source": 102,
+    "teal": 192,
+    "source": 109,
     "pc": [
       261
     ]
   },
   {
-    "teal": 203,
-    "source": 102,
+    "teal": 193,
+    "source": 109,
     "pc": [
       262
     ]
   },
   {
-    "teal": 206,
-    "source": 102,
+    "teal": 197,
+    "source": 110,
     "pc": [
-      263
+      263,
+      264
     ]
   },
   {
-    "teal": 207,
-    "source": 102,
+    "teal": 198,
+    "source": 110,
     "pc": [
-      264,
-      265,
+      265
+    ]
+  },
+  {
+    "teal": 199,
+    "source": 110,
+    "pc": [
       266
     ]
   },
   {
-    "teal": 208,
-    "source": 102,
+    "teal": 200,
+    "source": 110,
     "pc": [
-      267,
+      267
+    ]
+  },
+  {
+    "teal": 201,
+    "source": 110,
+    "pc": [
       268
     ]
   },
   {
-    "teal": 209,
-    "source": 102,
+    "teal": 204,
+    "source": 110,
+    "errorMessage": "tokenId as uint64 overflowed 64 bits",
     "pc": [
       269
     ]
   },
   {
-    "teal": 210,
-    "source": 102,
+    "teal": 205,
+    "source": 110,
     "pc": [
-      270
-    ]
-  },
-  {
-    "teal": 211,
-    "source": 102,
-    "pc": [
-      271
-    ]
-  },
-  {
-    "teal": 212,
-    "source": 102,
-    "pc": [
+      270,
+      271,
       272
     ]
   },
   {
-    "teal": 215,
-    "source": 102,
+    "teal": 206,
+    "source": 110,
     "pc": [
-      273,
-      274,
-      275
+      273
+    ]
+  },
+  {
+    "teal": 207,
+    "source": 110,
+    "pc": [
+      274
+    ]
+  },
+  {
+    "teal": 208,
+    "source": 110,
+    "pc": [
+      275,
+      276
+    ]
+  },
+  {
+    "teal": 212,
+    "source": 112,
+    "pc": [
+      277,
+      278
+    ]
+  },
+  {
+    "teal": 213,
+    "source": 112,
+    "pc": [
+      279,
+      280
+    ]
+  },
+  {
+    "teal": 214,
+    "source": 112,
+    "pc": [
+      281
+    ]
+  },
+  {
+    "teal": 215,
+    "source": 112,
+    "pc": [
+      282,
+      283
     ]
   },
   {
     "teal": 220,
-    "source": 103,
+    "source": 114,
     "pc": [
-      276,
-      277
-    ]
-  },
-  {
-    "teal": 221,
-    "source": 103,
-    "pc": [
-      278,
-      279
-    ]
-  },
-  {
-    "teal": 222,
-    "source": 103,
-    "pc": [
-      280,
-      281,
-      282
-    ]
-  },
-  {
-    "teal": 223,
-    "source": 102,
-    "pc": [
-      283,
       284,
       285
     ]
   },
   {
-    "teal": 227,
-    "source": 104,
-    "errorMessage": "Transfer not authorized",
+    "teal": 221,
+    "source": 114,
     "pc": [
-      286
+      286,
+      287
+    ]
+  },
+  {
+    "teal": 222,
+    "source": 114,
+    "pc": [
+      288
+    ]
+  },
+  {
+    "teal": 223,
+    "source": 114,
+    "pc": [
+      289
+    ]
+  },
+  {
+    "teal": 224,
+    "source": 114,
+    "pc": [
+      290,
+      291,
+      292
+    ]
+  },
+  {
+    "teal": 225,
+    "source": 114,
+    "pc": [
+      293,
+      294
+    ]
+  },
+  {
+    "teal": 226,
+    "source": 110,
+    "pc": [
+      295,
+      296
+    ]
+  },
+  {
+    "teal": 227,
+    "source": 110,
+    "pc": [
+      297
     ]
   },
   {
     "teal": 230,
-    "source": 97,
+    "source": 110,
+    "errorMessage": "box value does not exist: this.tokenBox(tokenId as uint64).value",
     "pc": [
-      287
+      298
+    ]
+  },
+  {
+    "teal": 231,
+    "source": 114,
+    "pc": [
+      299,
+      300
+    ]
+  },
+  {
+    "teal": 232,
+    "source": 114,
+    "pc": [
+      301,
+      302
+    ]
+  },
+  {
+    "teal": 233,
+    "source": 114,
+    "pc": [
+      303,
+      304,
+      305
+    ]
+  },
+  {
+    "teal": 234,
+    "source": 114,
+    "pc": [
+      306
     ]
   },
   {
     "teal": 235,
     "source": 114,
     "pc": [
-      288,
-      289,
-      290
-    ]
-  },
-  {
-    "teal": 236,
-    "source": 114,
-    "pc": [
-      291
-    ]
-  },
-  {
-    "teal": 237,
-    "source": 114,
-    "pc": [
-      292
+      307
     ]
   },
   {
     "teal": 238,
     "source": 114,
     "pc": [
-      293
-    ]
-  },
-  {
-    "teal": 239,
-    "source": 114,
-    "pc": [
-      294
-    ]
-  },
-  {
-    "teal": 242,
-    "source": 114,
-    "errorMessage": "argument 0 (tokenId) for arc72_approve must be a uint256",
-    "pc": [
-      295
-    ]
-  },
-  {
-    "teal": 245,
-    "source": 114,
-    "pc": [
-      296,
-      297,
-      298
-    ]
-  },
-  {
-    "teal": 246,
-    "source": 114,
-    "pc": [
-      299
-    ]
-  },
-  {
-    "teal": 247,
-    "source": 114,
-    "pc": [
-      300
-    ]
-  },
-  {
-    "teal": 248,
-    "source": 114,
-    "pc": [
-      301
-    ]
-  },
-  {
-    "teal": 249,
-    "source": 114,
-    "pc": [
-      302
-    ]
-  },
-  {
-    "teal": 252,
-    "source": 114,
-    "errorMessage": "argument 1 (approved) for arc72_approve must be a address",
-    "pc": [
-      303
-    ]
-  },
-  {
-    "teal": 255,
-    "source": 114,
-    "pc": [
-      304,
-      305,
-      306
-    ]
-  },
-  {
-    "teal": 256,
-    "source": 114,
-    "pc": [
-      307
-    ]
-  },
-  {
-    "teal": 257,
-    "source": 114,
-    "pc": [
       308
     ]
   },
   {
-    "teal": 267,
+    "teal": 239,
     "source": 114,
     "pc": [
       309,
@@ -1180,91 +1149,78 @@
     ]
   },
   {
-    "teal": 271,
-    "source": 115,
+    "teal": 240,
+    "source": 114,
     "pc": [
       312,
       313
     ]
   },
   {
-    "teal": 272,
-    "source": 115,
+    "teal": 241,
+    "source": 114,
     "pc": [
       314
     ]
   },
   {
-    "teal": 273,
-    "source": 115,
+    "teal": 242,
+    "source": 114,
     "pc": [
       315
     ]
   },
   {
-    "teal": 274,
-    "source": 115,
+    "teal": 243,
+    "source": 114,
     "pc": [
       316
     ]
   },
   {
-    "teal": 275,
-    "source": 115,
+    "teal": 244,
+    "source": 114,
     "pc": [
       317
     ]
   },
   {
-    "teal": 279,
-    "source": 116,
+    "teal": 247,
+    "source": 114,
     "pc": [
       318,
-      319
+      319,
+      320
     ]
   },
   {
-    "teal": 280,
-    "source": 116,
+    "teal": 252,
+    "source": 115,
     "pc": [
-      320,
-      321
-    ]
-  },
-  {
-    "teal": 281,
-    "source": 116,
-    "pc": [
+      321,
       322
     ]
   },
   {
-    "teal": 284,
-    "source": 116,
-    "errorMessage": "box value does not exist: this.tokenBox(tokenId).value",
+    "teal": 253,
+    "source": 115,
     "pc": [
-      323
+      323,
+      324
     ]
   },
   {
-    "teal": 285,
-    "source": 116,
+    "teal": 254,
+    "source": 115,
     "pc": [
-      324,
-      325
-    ]
-  },
-  {
-    "teal": 286,
-    "source": 116,
-    "pc": [
+      325,
       326,
       327
     ]
   },
   {
-    "teal": 287,
-    "source": 116,
+    "teal": 255,
+    "source": 114,
     "pc": [
       328,
       329,
@@ -1272,1323 +1228,1333 @@
     ]
   },
   {
-    "teal": 288,
+    "teal": 259,
     "source": 116,
+    "errorMessage": "Transfer not authorized",
     "pc": [
       331
     ]
   },
   {
-    "teal": 289,
-    "source": 116,
+    "teal": 262,
+    "source": 109,
     "pc": [
       332
     ]
   },
   {
-    "teal": 293,
-    "source": 118,
+    "teal": 267,
+    "source": 126,
     "pc": [
       333,
-      334
-    ]
-  },
-  {
-    "teal": 294,
-    "source": 118,
-    "pc": [
+      334,
       335
     ]
   },
   {
-    "teal": 297,
-    "source": 118,
-    "errorMessage": "box value does not exist: this.tokenBox(tokenId).value",
+    "teal": 268,
+    "source": 126,
     "pc": [
       336
     ]
   },
   {
-    "teal": 298,
-    "source": 118,
+    "teal": 269,
+    "source": 126,
     "pc": [
-      337,
+      337
+    ]
+  },
+  {
+    "teal": 270,
+    "source": 126,
+    "pc": [
       338
     ]
   },
   {
-    "teal": 299,
-    "source": 118,
+    "teal": 271,
+    "source": 126,
     "pc": [
-      339,
+      339
+    ]
+  },
+  {
+    "teal": 274,
+    "source": 126,
+    "errorMessage": "argument 0 (tokenId) for arc72_approve must be a uint256",
+    "pc": [
       340
     ]
   },
   {
-    "teal": 300,
-    "source": 118,
+    "teal": 277,
+    "source": 126,
     "pc": [
-      341
-    ]
-  },
-  {
-    "teal": 301,
-    "source": 118,
-    "pc": [
+      341,
       342,
       343
     ]
   },
   {
-    "teal": 302,
-    "source": 118,
+    "teal": 278,
+    "source": 126,
     "pc": [
-      344,
+      344
+    ]
+  },
+  {
+    "teal": 279,
+    "source": 126,
+    "pc": [
       345
     ]
   },
   {
-    "teal": 303,
-    "source": 118,
+    "teal": 280,
+    "source": 126,
     "pc": [
       346
     ]
   },
   {
-    "teal": 304,
-    "source": 118,
+    "teal": 281,
+    "source": 126,
     "pc": [
       347
     ]
   },
   {
-    "teal": 305,
-    "source": 118,
+    "teal": 284,
+    "source": 126,
+    "errorMessage": "argument 1 (approved) for arc72_approve must be a address",
     "pc": [
       348
     ]
   },
   {
-    "teal": 306,
-    "source": 118,
+    "teal": 287,
+    "source": 126,
     "pc": [
-      349
-    ]
-  },
-  {
-    "teal": 307,
-    "source": 118,
-    "pc": [
-      350
-    ]
-  },
-  {
-    "teal": 308,
-    "source": 114,
-    "pc": [
+      349,
+      350,
       351
     ]
   },
   {
-    "teal": 313,
-    "source": 129,
+    "teal": 288,
+    "source": 126,
     "pc": [
-      352,
-      353,
-      354
+      352
     ]
   },
   {
-    "teal": 314,
-    "source": 129,
+    "teal": 289,
+    "source": 126,
     "pc": [
-      355
+      353
     ]
   },
   {
-    "teal": 315,
-    "source": 129,
+    "teal": 299,
+    "source": 126,
     "pc": [
+      354,
+      355,
       356
     ]
   },
   {
-    "teal": 316,
-    "source": 129,
+    "teal": 302,
+    "source": 126,
     "pc": [
       357
     ]
   },
   {
-    "teal": 317,
-    "source": 129,
+    "teal": 306,
+    "source": 127,
     "pc": [
-      358
-    ]
-  },
-  {
-    "teal": 320,
-    "source": 129,
-    "errorMessage": "argument 0 (approved) for arc72_setApprovalForAll must be a bool",
-    "pc": [
+      358,
       359
     ]
   },
   {
-    "teal": 321,
-    "source": 129,
+    "teal": 307,
+    "source": 127,
     "pc": [
       360
     ]
   },
   {
-    "teal": 322,
-    "source": 129,
+    "teal": 308,
+    "source": 127,
     "pc": [
       361
     ]
   },
   {
-    "teal": 325,
-    "source": 129,
+    "teal": 309,
+    "source": 127,
     "pc": [
-      362,
-      363,
+      362
+    ]
+  },
+  {
+    "teal": 310,
+    "source": 127,
+    "pc": [
+      363
+    ]
+  },
+  {
+    "teal": 313,
+    "source": 127,
+    "errorMessage": "tokenId as uint64 overflowed 64 bits",
+    "pc": [
       364
     ]
   },
   {
-    "teal": 326,
-    "source": 129,
+    "teal": 314,
+    "source": 127,
     "pc": [
-      365
-    ]
-  },
-  {
-    "teal": 327,
-    "source": 129,
-    "pc": [
-      366
-    ]
-  },
-  {
-    "teal": 328,
-    "source": 129,
-    "pc": [
+      365,
+      366,
       367
+    ]
+  },
+  {
+    "teal": 315,
+    "source": 127,
+    "pc": [
+      368
+    ]
+  },
+  {
+    "teal": 316,
+    "source": 127,
+    "pc": [
+      369,
+      370
+    ]
+  },
+  {
+    "teal": 320,
+    "source": 128,
+    "pc": [
+      371,
+      372
+    ]
+  },
+  {
+    "teal": 321,
+    "source": 128,
+    "pc": [
+      373
+    ]
+  },
+  {
+    "teal": 322,
+    "source": 128,
+    "pc": [
+      374
+    ]
+  },
+  {
+    "teal": 323,
+    "source": 128,
+    "pc": [
+      375
+    ]
+  },
+  {
+    "teal": 324,
+    "source": 128,
+    "pc": [
+      376
+    ]
+  },
+  {
+    "teal": 325,
+    "source": 128,
+    "pc": [
+      377
     ]
   },
   {
     "teal": 329,
     "source": 129,
     "pc": [
-      368
+      378,
+      379
+    ]
+  },
+  {
+    "teal": 330,
+    "source": 129,
+    "pc": [
+      380,
+      381
+    ]
+  },
+  {
+    "teal": 331,
+    "source": 129,
+    "pc": [
+      382
     ]
   },
   {
     "teal": 332,
     "source": 129,
-    "errorMessage": "argument 1 (operator) for arc72_setApprovalForAll must be a address",
     "pc": [
-      369
+      383
     ]
   },
   {
     "teal": 335,
     "source": 129,
+    "errorMessage": "box value does not exist: this.tokenBox(tokenId64).value",
     "pc": [
-      370,
-      371,
-      372
+      384
     ]
   },
   {
     "teal": 336,
     "source": 129,
     "pc": [
-      373
+      385,
+      386
     ]
   },
   {
     "teal": 337,
     "source": 129,
     "pc": [
-      374
+      387,
+      388
     ]
   },
   {
-    "teal": 348,
+    "teal": 338,
     "source": 129,
     "pc": [
-      375,
-      376,
-      377
-    ]
-  },
-  {
-    "teal": 351,
-    "source": 129,
-    "pc": [
-      378
-    ]
-  },
-  {
-    "teal": 355,
-    "source": 130,
-    "pc": [
-      379,
-      380
-    ]
-  },
-  {
-    "teal": 356,
-    "source": 130,
-    "pc": [
-      381,
-      382
-    ]
-  },
-  {
-    "teal": 357,
-    "source": 130,
-    "pc": [
-      383
-    ]
-  },
-  {
-    "teal": 358,
-    "source": 130,
-    "pc": [
-      384,
-      385
-    ]
-  },
-  {
-    "teal": 363,
-    "source": 132,
-    "pc": [
-      386,
-      387
-    ]
-  },
-  {
-    "teal": 364,
-    "source": 132,
-    "pc": [
-      388,
       389,
-      390
+      390,
+      391
     ]
   },
   {
-    "teal": 369,
-    "source": 132,
+    "teal": 339,
+    "source": 129,
     "pc": [
-      391,
       392
     ]
   },
   {
-    "teal": 370,
-    "source": 132,
+    "teal": 340,
+    "source": 129,
     "pc": [
       393
     ]
   },
   {
-    "teal": 371,
-    "source": 132,
+    "teal": 344,
+    "source": 131,
     "pc": [
-      394
-    ]
-  },
-  {
-    "teal": 372,
-    "source": 132,
-    "pc": [
+      394,
       395
     ]
   },
   {
-    "teal": 373,
-    "source": 132,
+    "teal": 345,
+    "source": 131,
     "pc": [
       396
     ]
   },
   {
-    "teal": 374,
-    "source": 132,
+    "teal": 346,
+    "source": 131,
     "pc": [
       397
     ]
   },
   {
-    "teal": 375,
-    "source": 132,
+    "teal": 349,
+    "source": 131,
+    "errorMessage": "box value does not exist: this.tokenBox(tokenId64).value",
     "pc": [
-      398,
+      398
+    ]
+  },
+  {
+    "teal": 350,
+    "source": 131,
+    "pc": [
       399,
       400
     ]
   },
   {
-    "teal": 380,
-    "source": 133,
+    "teal": 351,
+    "source": 131,
     "pc": [
       401,
       402
     ]
   },
   {
-    "teal": 381,
-    "source": 133,
+    "teal": 352,
+    "source": 131,
     "pc": [
-      403
-    ]
-  },
-  {
-    "teal": 382,
-    "source": 133,
-    "pc": [
+      403,
       404
     ]
   },
   {
-    "teal": 383,
-    "source": 133,
+    "teal": 353,
+    "source": 131,
     "pc": [
-      405
+      405,
+      406
     ]
   },
   {
-    "teal": 384,
-    "source": 133,
+    "teal": 354,
+    "source": 131,
     "pc": [
-      406,
       407,
       408
     ]
   },
   {
-    "teal": 389,
-    "source": 133,
+    "teal": 355,
+    "source": 131,
     "pc": [
-      409,
+      409
+    ]
+  },
+  {
+    "teal": 356,
+    "source": 131,
+    "pc": [
       410
     ]
   },
   {
-    "teal": 390,
-    "source": 133,
+    "teal": 357,
+    "source": 131,
     "pc": [
       411
     ]
   },
   {
-    "teal": 393,
-    "source": 129,
+    "teal": 358,
+    "source": 131,
     "pc": [
       412
     ]
   },
   {
-    "teal": 398,
-    "source": 145,
+    "teal": 359,
+    "source": 131,
     "pc": [
       413
     ]
   },
   {
-    "teal": 401,
-    "source": 146,
+    "teal": 360,
+    "source": 131,
     "pc": [
-      414,
-      415,
-      416
+      414
     ]
   },
   {
-    "teal": 402,
-    "source": 146,
+    "teal": 361,
+    "source": 126,
     "pc": [
-      417
+      415
     ]
   },
   {
-    "teal": 403,
-    "source": 146,
+    "teal": 366,
+    "source": 142,
     "pc": [
+      416,
+      417,
       418
     ]
   },
   {
-    "teal": 404,
-    "source": 146,
+    "teal": 367,
+    "source": 142,
     "pc": [
       419
     ]
   },
   {
-    "teal": 405,
-    "source": 146,
+    "teal": 368,
+    "source": 142,
     "pc": [
       420
     ]
   },
   {
-    "teal": 408,
-    "source": 146,
-    "errorMessage": "argument 0 (tokenId) for arc72_ownerOf must be a uint256",
+    "teal": 369,
+    "source": 142,
     "pc": [
       421
     ]
   },
   {
-    "teal": 411,
-    "source": 145,
+    "teal": 370,
+    "source": 142,
     "pc": [
-      422,
-      423,
+      422
+    ]
+  },
+  {
+    "teal": 373,
+    "source": 142,
+    "errorMessage": "argument 0 (approved) for arc72_setApprovalForAll must be a bool",
+    "pc": [
+      423
+    ]
+  },
+  {
+    "teal": 374,
+    "source": 142,
+    "pc": [
       424
     ]
   },
   {
-    "teal": 412,
-    "source": 145,
+    "teal": 375,
+    "source": 142,
     "pc": [
       425
     ]
   },
   {
-    "teal": 413,
-    "source": 145,
+    "teal": 378,
+    "source": 142,
     "pc": [
-      426
-    ]
-  },
-  {
-    "teal": 414,
-    "source": 145,
-    "pc": [
-      427
-    ]
-  },
-  {
-    "teal": 415,
-    "source": 145,
-    "pc": [
+      426,
+      427,
       428
+    ]
+  },
+  {
+    "teal": 379,
+    "source": 142,
+    "pc": [
+      429
+    ]
+  },
+  {
+    "teal": 380,
+    "source": 142,
+    "pc": [
+      430
+    ]
+  },
+  {
+    "teal": 381,
+    "source": 142,
+    "pc": [
+      431
+    ]
+  },
+  {
+    "teal": 382,
+    "source": 142,
+    "pc": [
+      432
+    ]
+  },
+  {
+    "teal": 385,
+    "source": 142,
+    "errorMessage": "argument 1 (operator) for arc72_setApprovalForAll must be a address",
+    "pc": [
+      433
+    ]
+  },
+  {
+    "teal": 388,
+    "source": 142,
+    "pc": [
+      434,
+      435,
+      436
+    ]
+  },
+  {
+    "teal": 389,
+    "source": 142,
+    "pc": [
+      437
+    ]
+  },
+  {
+    "teal": 390,
+    "source": 142,
+    "pc": [
+      438
+    ]
+  },
+  {
+    "teal": 401,
+    "source": 142,
+    "pc": [
+      439,
+      440,
+      441
+    ]
+  },
+  {
+    "teal": 404,
+    "source": 142,
+    "pc": [
+      442
+    ]
+  },
+  {
+    "teal": 408,
+    "source": 143,
+    "pc": [
+      443,
+      444
+    ]
+  },
+  {
+    "teal": 409,
+    "source": 143,
+    "pc": [
+      445,
+      446
+    ]
+  },
+  {
+    "teal": 410,
+    "source": 143,
+    "pc": [
+      447
+    ]
+  },
+  {
+    "teal": 411,
+    "source": 143,
+    "pc": [
+      448,
+      449
+    ]
+  },
+  {
+    "teal": 416,
+    "source": 145,
+    "pc": [
+      450,
+      451
+    ]
+  },
+  {
+    "teal": 417,
+    "source": 145,
+    "pc": [
+      452,
+      453,
+      454
+    ]
+  },
+  {
+    "teal": 422,
+    "source": 145,
+    "pc": [
+      455,
+      456
+    ]
+  },
+  {
+    "teal": 423,
+    "source": 145,
+    "pc": [
+      457
+    ]
+  },
+  {
+    "teal": 424,
+    "source": 145,
+    "pc": [
+      458
     ]
   },
   {
     "teal": 425,
     "source": 145,
     "pc": [
-      429,
-      430,
-      431
+      459
     ]
   },
   {
-    "teal": 429,
-    "source": 147,
-    "pc": [
-      432,
-      433
-    ]
-  },
-  {
-    "teal": 430,
-    "source": 147,
-    "pc": [
-      434
-    ]
-  },
-  {
-    "teal": 433,
-    "source": 147,
-    "errorMessage": "box value does not exist: this.tokenBox(tokenId).value",
-    "pc": [
-      435
-    ]
-  },
-  {
-    "teal": 434,
-    "source": 147,
-    "pc": [
-      436,
-      437
-    ]
-  },
-  {
-    "teal": 435,
-    "source": 147,
-    "pc": [
-      438,
-      439
-    ]
-  },
-  {
-    "teal": 436,
-    "source": 147,
-    "pc": [
-      440,
-      441,
-      442
-    ]
-  },
-  {
-    "teal": 437,
+    "teal": 426,
     "source": 145,
     "pc": [
-      443
+      460
     ]
   },
   {
-    "teal": 442,
-    "source": 157,
+    "teal": 427,
+    "source": 145,
     "pc": [
-      444
-    ]
-  },
-  {
-    "teal": 445,
-    "source": 158,
-    "pc": [
-      445,
-      446,
-      447
-    ]
-  },
-  {
-    "teal": 446,
-    "source": 158,
-    "pc": [
-      448
-    ]
-  },
-  {
-    "teal": 447,
-    "source": 158,
-    "pc": [
-      449
-    ]
-  },
-  {
-    "teal": 448,
-    "source": 158,
-    "pc": [
-      450
-    ]
-  },
-  {
-    "teal": 449,
-    "source": 158,
-    "pc": [
-      451
-    ]
-  },
-  {
-    "teal": 452,
-    "source": 158,
-    "errorMessage": "argument 0 (tokenId) for arc72_tokenURI must be a uint256",
-    "pc": [
-      452
-    ]
-  },
-  {
-    "teal": 455,
-    "source": 157,
-    "pc": [
-      453,
-      454,
-      455
-    ]
-  },
-  {
-    "teal": 456,
-    "source": 157,
-    "pc": [
-      456
-    ]
-  },
-  {
-    "teal": 457,
-    "source": 157,
-    "pc": [
-      457
-    ]
-  },
-  {
-    "teal": 458,
-    "source": 157,
-    "pc": [
-      458
-    ]
-  },
-  {
-    "teal": 459,
-    "source": 157,
-    "pc": [
-      459,
-      460,
       461
     ]
   },
   {
-    "teal": 460,
-    "source": 157,
+    "teal": 428,
+    "source": 145,
     "pc": [
-      462
-    ]
-  },
-  {
-    "teal": 461,
-    "source": 157,
-    "pc": [
-      463
-    ]
-  },
-  {
-    "teal": 462,
-    "source": 157,
-    "pc": [
+      462,
+      463,
       464
     ]
   },
   {
-    "teal": 463,
-    "source": 157,
+    "teal": 433,
+    "source": 146,
     "pc": [
-      465
-    ]
-  },
-  {
-    "teal": 464,
-    "source": 157,
-    "pc": [
+      465,
       466
     ]
   },
   {
-    "teal": 465,
-    "source": 157,
+    "teal": 434,
+    "source": 146,
     "pc": [
       467
     ]
   },
   {
-    "teal": 475,
-    "source": 157,
+    "teal": 435,
+    "source": 146,
     "pc": [
-      468,
-      469,
-      470
+      468
     ]
   },
   {
-    "teal": 479,
-    "source": 159,
+    "teal": 436,
+    "source": 146,
     "pc": [
+      469
+    ]
+  },
+  {
+    "teal": 437,
+    "source": 146,
+    "pc": [
+      470,
       471,
       472
     ]
   },
   {
-    "teal": 480,
-    "source": 159,
+    "teal": 442,
+    "source": 146,
     "pc": [
-      473
-    ]
-  },
-  {
-    "teal": 483,
-    "source": 159,
-    "errorMessage": "box value does not exist: this.tokenBox(tokenId).value",
-    "pc": [
+      473,
       474
     ]
   },
   {
-    "teal": 484,
-    "source": 159,
+    "teal": 443,
+    "source": 146,
     "pc": [
-      475,
+      475
+    ]
+  },
+  {
+    "teal": 446,
+    "source": 142,
+    "pc": [
       476
     ]
   },
   {
-    "teal": 485,
-    "source": 159,
+    "teal": 451,
+    "source": 158,
     "pc": [
-      477,
-      478
+      477
     ]
   },
   {
-    "teal": 486,
+    "teal": 454,
     "source": 159,
     "pc": [
+      478,
       479,
       480
     ]
   },
   {
-    "teal": 487,
+    "teal": 455,
     "source": 159,
     "pc": [
-      481,
+      481
+    ]
+  },
+  {
+    "teal": 456,
+    "source": 159,
+    "pc": [
       482
     ]
   },
   {
-    "teal": 488,
+    "teal": 457,
     "source": 159,
     "pc": [
-      483,
+      483
+    ]
+  },
+  {
+    "teal": 458,
+    "source": 159,
+    "pc": [
       484
     ]
   },
   {
-    "teal": 489,
+    "teal": 461,
     "source": 159,
+    "errorMessage": "argument 0 (tokenId) for arc72_ownerOf must be a uint256",
     "pc": [
       485
     ]
   },
   {
-    "teal": 490,
-    "source": 159,
+    "teal": 464,
+    "source": 158,
     "pc": [
-      486
-    ]
-  },
-  {
-    "teal": 491,
-    "source": 159,
-    "pc": [
+      486,
       487,
       488
     ]
   },
   {
-    "teal": 492,
-    "source": 159,
+    "teal": 465,
+    "source": 158,
     "pc": [
       489
     ]
   },
   {
-    "teal": 493,
-    "source": 159,
+    "teal": 466,
+    "source": 158,
     "pc": [
       490
     ]
   },
   {
-    "teal": 494,
-    "source": 159,
+    "teal": 467,
+    "source": 158,
     "pc": [
       491
     ]
   },
   {
-    "teal": 495,
-    "source": 159,
+    "teal": 468,
+    "source": 158,
     "pc": [
       492
     ]
   },
   {
-    "teal": 496,
-    "source": 159,
+    "teal": 478,
+    "source": 158,
     "pc": [
       493,
-      494
-    ]
-  },
-  {
-    "teal": 497,
-    "source": 159,
-    "pc": [
+      494,
       495
     ]
   },
   {
-    "teal": 498,
-    "source": 159,
+    "teal": 482,
+    "source": 160,
     "pc": [
-      496
+      496,
+      497
     ]
   },
   {
-    "teal": 499,
-    "source": 159,
+    "teal": 483,
+    "source": 160,
     "pc": [
-      497,
-      498,
+      498
+    ]
+  },
+  {
+    "teal": 484,
+    "source": 160,
+    "pc": [
       499
     ]
   },
   {
-    "teal": 500,
-    "source": 157,
+    "teal": 485,
+    "source": 160,
     "pc": [
       500
     ]
   },
   {
-    "teal": 505,
-    "source": 165,
+    "teal": 486,
+    "source": 160,
     "pc": [
       501
     ]
   },
   {
-    "teal": 508,
-    "source": 165,
+    "teal": 489,
+    "source": 160,
+    "errorMessage": "tokenId as uint64 overflowed 64 bits",
     "pc": [
-      502,
-      503,
-      504
+      502
     ]
   },
   {
-    "teal": 509,
-    "source": 165,
+    "teal": 490,
+    "source": 160,
     "pc": [
+      503,
+      504,
       505
     ]
   },
   {
-    "teal": 510,
-    "source": 165,
+    "teal": 491,
+    "source": 160,
     "pc": [
       506
     ]
   },
   {
-    "teal": 511,
-    "source": 165,
+    "teal": 492,
+    "source": 160,
     "pc": [
       507
     ]
   },
   {
-    "teal": 512,
-    "source": 165,
+    "teal": 493,
+    "source": 160,
     "pc": [
       508
     ]
   },
   {
-    "teal": 515,
-    "source": 165,
-    "errorMessage": "arc72_totalSupply return value overflowed 256 bits",
+    "teal": 496,
+    "source": 160,
+    "errorMessage": "box value does not exist: this.tokenBox(tokenId as uint64).value",
     "pc": [
       509
     ]
   },
   {
-    "teal": 516,
-    "source": 165,
+    "teal": 497,
+    "source": 160,
     "pc": [
-      510
-    ]
-  },
-  {
-    "teal": 517,
-    "source": 165,
-    "pc": [
+      510,
       511
     ]
   },
   {
-    "teal": 518,
-    "source": 165,
+    "teal": 498,
+    "source": 160,
     "pc": [
-      512
-    ]
-  },
-  {
-    "teal": 519,
-    "source": 165,
-    "pc": [
+      512,
       513
     ]
   },
   {
-    "teal": 520,
-    "source": 165,
+    "teal": 499,
+    "source": 160,
     "pc": [
-      514
-    ]
-  },
-  {
-    "teal": 521,
-    "source": 165,
-    "pc": [
-      515
-    ]
-  },
-  {
-    "teal": 522,
-    "source": 165,
-    "pc": [
+      514,
+      515,
       516
     ]
   },
   {
-    "teal": 523,
-    "source": 165,
+    "teal": 500,
+    "source": 158,
     "pc": [
       517
     ]
   },
   {
-    "teal": 524,
-    "source": 165,
+    "teal": 505,
+    "source": 170,
     "pc": [
       518
     ]
   },
   {
-    "teal": 525,
-    "source": 165,
+    "teal": 508,
+    "source": 171,
     "pc": [
-      519
-    ]
-  },
-  {
-    "teal": 526,
-    "source": 165,
-    "pc": [
-      520
-    ]
-  },
-  {
-    "teal": 527,
-    "source": 165,
-    "pc": [
+      519,
+      520,
       521
     ]
   },
   {
-    "teal": 528,
-    "source": 165,
+    "teal": 509,
+    "source": 171,
     "pc": [
       522
     ]
   },
   {
-    "teal": 534,
-    "source": 165,
+    "teal": 510,
+    "source": 171,
     "pc": [
-      523,
-      524,
+      523
+    ]
+  },
+  {
+    "teal": 511,
+    "source": 171,
+    "pc": [
+      524
+    ]
+  },
+  {
+    "teal": 512,
+    "source": 171,
+    "pc": [
       525
     ]
   },
   {
-    "teal": 538,
-    "source": 167,
+    "teal": 515,
+    "source": 171,
+    "errorMessage": "argument 0 (tokenId) for arc72_tokenURI must be a uint256",
     "pc": [
       526
     ]
   },
   {
-    "teal": 539,
-    "source": 167,
+    "teal": 518,
+    "source": 170,
     "pc": [
-      527
-    ]
-  },
-  {
-    "teal": 540,
-    "source": 165,
-    "pc": [
-      528
-    ]
-  },
-  {
-    "teal": 545,
-    "source": 173,
-    "pc": [
+      527,
+      528,
       529
     ]
   },
   {
-    "teal": 548,
-    "source": 174,
+    "teal": 519,
+    "source": 170,
     "pc": [
-      530,
-      531,
+      530
+    ]
+  },
+  {
+    "teal": 520,
+    "source": 170,
+    "pc": [
+      531
+    ]
+  },
+  {
+    "teal": 521,
+    "source": 170,
+    "pc": [
       532
     ]
   },
   {
-    "teal": 549,
-    "source": 174,
+    "teal": 522,
+    "source": 170,
     "pc": [
-      533
-    ]
-  },
-  {
-    "teal": 550,
-    "source": 174,
-    "pc": [
-      534
-    ]
-  },
-  {
-    "teal": 551,
-    "source": 174,
-    "pc": [
+      533,
+      534,
       535
     ]
   },
   {
-    "teal": 552,
-    "source": 174,
+    "teal": 523,
+    "source": 170,
     "pc": [
       536
     ]
   },
   {
-    "teal": 555,
-    "source": 174,
-    "errorMessage": "argument 0 (index) for arc72_tokenByIndex must be a uint256",
+    "teal": 524,
+    "source": 170,
     "pc": [
       537
     ]
   },
   {
-    "teal": 558,
-    "source": 173,
+    "teal": 525,
+    "source": 170,
     "pc": [
-      538,
-      539,
+      538
+    ]
+  },
+  {
+    "teal": 526,
+    "source": 170,
+    "pc": [
+      539
+    ]
+  },
+  {
+    "teal": 527,
+    "source": 170,
+    "pc": [
       540
     ]
   },
   {
-    "teal": 559,
-    "source": 173,
+    "teal": 528,
+    "source": 170,
     "pc": [
       541
     ]
   },
   {
-    "teal": 560,
-    "source": 173,
+    "teal": 538,
+    "source": 170,
     "pc": [
-      542
-    ]
-  },
-  {
-    "teal": 561,
-    "source": 173,
-    "pc": [
-      543
-    ]
-  },
-  {
-    "teal": 562,
-    "source": 173,
-    "pc": [
+      542,
+      543,
       544
     ]
   },
   {
-    "teal": 565,
-    "source": 173,
-    "errorMessage": "arc72_tokenByIndex return value overflowed 256 bits",
+    "teal": 542,
+    "source": 172,
     "pc": [
-      545
-    ]
-  },
-  {
-    "teal": 566,
-    "source": 173,
-    "pc": [
+      545,
       546
     ]
   },
   {
-    "teal": 567,
-    "source": 173,
+    "teal": 543,
+    "source": 172,
     "pc": [
       547
     ]
   },
   {
-    "teal": 568,
-    "source": 173,
+    "teal": 544,
+    "source": 172,
     "pc": [
       548
     ]
   },
   {
-    "teal": 569,
-    "source": 173,
+    "teal": 545,
+    "source": 172,
     "pc": [
       549
     ]
   },
   {
-    "teal": 570,
-    "source": 173,
+    "teal": 546,
+    "source": 172,
     "pc": [
       550
     ]
   },
   {
-    "teal": 571,
-    "source": 173,
+    "teal": 549,
+    "source": 172,
+    "errorMessage": "tokenId as uint64 overflowed 64 bits",
     "pc": [
       551
     ]
   },
   {
-    "teal": 572,
-    "source": 173,
+    "teal": 550,
+    "source": 172,
     "pc": [
-      552
-    ]
-  },
-  {
-    "teal": 573,
-    "source": 173,
-    "pc": [
-      553
-    ]
-  },
-  {
-    "teal": 574,
-    "source": 173,
-    "pc": [
+      552,
+      553,
       554
     ]
   },
   {
-    "teal": 575,
-    "source": 173,
+    "teal": 551,
+    "source": 172,
     "pc": [
       555
     ]
   },
   {
-    "teal": 576,
-    "source": 173,
+    "teal": 552,
+    "source": 172,
     "pc": [
       556
     ]
   },
   {
-    "teal": 577,
-    "source": 173,
+    "teal": 553,
+    "source": 172,
     "pc": [
       557
     ]
   },
   {
-    "teal": 578,
-    "source": 173,
+    "teal": 556,
+    "source": 172,
+    "errorMessage": "box value does not exist: this.tokenBox(tokenId as uint64).value",
     "pc": [
       558
     ]
   },
   {
-    "teal": 584,
-    "source": 173,
+    "teal": 557,
+    "source": 172,
     "pc": [
       559,
-      560,
-      561
+      560
     ]
   },
   {
-    "teal": 588,
-    "source": 175,
+    "teal": 558,
+    "source": 172,
     "pc": [
-      562,
-      563
+      561,
+      562
     ]
   },
   {
-    "teal": 589,
-    "source": 173,
+    "teal": 559,
+    "source": 172,
     "pc": [
+      563,
       564
     ]
   },
   {
-    "teal": 594,
-    "source": 179,
+    "teal": 560,
+    "source": 172,
     "pc": [
       565,
-      566,
-      567
+      566
     ]
   },
   {
-    "teal": 595,
-    "source": 179,
+    "teal": 561,
+    "source": 172,
     "pc": [
-      568,
-      569,
+      567,
+      568
+    ]
+  },
+  {
+    "teal": 562,
+    "source": 172,
+    "pc": [
+      569
+    ]
+  },
+  {
+    "teal": 563,
+    "source": 172,
+    "pc": [
       570
     ]
   },
   {
-    "teal": 598,
-    "source": 179,
+    "teal": 564,
+    "source": 172,
     "pc": [
       571,
-      572,
+      572
+    ]
+  },
+  {
+    "teal": 565,
+    "source": 172,
+    "pc": [
       573
     ]
   },
   {
-    "teal": 599,
-    "source": 179,
+    "teal": 566,
+    "source": 172,
     "pc": [
-      574,
-      575,
+      574
+    ]
+  },
+  {
+    "teal": 567,
+    "source": 172,
+    "pc": [
+      575
+    ]
+  },
+  {
+    "teal": 568,
+    "source": 172,
+    "pc": [
       576
     ]
   },
   {
-    "teal": 602,
-    "source": 179,
+    "teal": 569,
+    "source": 172,
     "pc": [
       577,
-      578,
+      578
+    ]
+  },
+  {
+    "teal": 570,
+    "source": 172,
+    "pc": [
       579
     ]
   },
   {
-    "teal": 603,
-    "source": 179,
+    "teal": 571,
+    "source": 172,
     "pc": [
-      580,
-      581,
-      582
+      580
     ]
   },
   {
-    "teal": 606,
-    "source": 179,
+    "teal": 572,
+    "source": 172,
     "pc": [
-      583,
-      584,
+      581,
+      582,
+      583
+    ]
+  },
+  {
+    "teal": 573,
+    "source": 170,
+    "pc": [
+      584
+    ]
+  },
+  {
+    "teal": 578,
+    "source": 178,
+    "pc": [
       585
     ]
   },
   {
-    "teal": 607,
-    "source": 179,
+    "teal": 581,
+    "source": 178,
     "pc": [
       586,
       587,
@@ -2596,265 +2562,386 @@
     ]
   },
   {
-    "teal": 610,
-    "source": 179,
+    "teal": 582,
+    "source": 178,
     "pc": [
-      589,
-      590,
-      591
+      589
     ]
   },
   {
-    "teal": 611,
-    "source": 179,
+    "teal": 583,
+    "source": 178,
     "pc": [
+      590
+    ]
+  },
+  {
+    "teal": 584,
+    "source": 178,
+    "pc": [
+      591,
       592
     ]
   },
   {
-    "teal": 612,
-    "source": 179,
+    "teal": 585,
+    "source": 178,
     "pc": [
       593
     ]
   },
   {
-    "teal": 613,
-    "source": 179,
+    "teal": 588,
+    "source": 178,
+    "errorMessage": "arc72_totalSupply return value overflowed 256 bits",
     "pc": [
       594
     ]
   },
   {
-    "teal": 614,
-    "source": 179,
+    "teal": 589,
+    "source": 178,
     "pc": [
       595
     ]
   },
   {
-    "teal": 617,
-    "source": 179,
-    "errorMessage": "argument 4 (to) for mint must be a address",
+    "teal": 590,
+    "source": 178,
     "pc": [
       596
     ]
   },
   {
-    "teal": 620,
-    "source": 179,
+    "teal": 591,
+    "source": 178,
     "pc": [
-      597,
-      598,
+      597
+    ]
+  },
+  {
+    "teal": 592,
+    "source": 178,
+    "pc": [
+      598
+    ]
+  },
+  {
+    "teal": 593,
+    "source": 178,
+    "pc": [
       599
     ]
   },
   {
-    "teal": 621,
-    "source": 179,
+    "teal": 594,
+    "source": 178,
     "pc": [
       600
     ]
   },
   {
-    "teal": 622,
-    "source": 179,
+    "teal": 595,
+    "source": 178,
     "pc": [
       601
     ]
   },
   {
-    "teal": 626,
-    "source": 179,
+    "teal": 596,
+    "source": 178,
     "pc": [
-      602,
-      603,
+      602
+    ]
+  },
+  {
+    "teal": 597,
+    "source": 178,
+    "pc": [
+      603
+    ]
+  },
+  {
+    "teal": 598,
+    "source": 178,
+    "pc": [
       604
     ]
   },
   {
-    "teal": 629,
-    "source": 179,
+    "teal": 599,
+    "source": 178,
     "pc": [
       605
     ]
   },
   {
-    "teal": 630,
-    "source": 179,
+    "teal": 600,
+    "source": 178,
     "pc": [
       606
     ]
   },
   {
-    "teal": 637,
-    "source": 181,
+    "teal": 601,
+    "source": 178,
     "pc": [
-      607,
-      608
+      607
     ]
   },
   {
-    "teal": 638,
-    "source": 181,
+    "teal": 607,
+    "source": 178,
     "pc": [
+      608,
       609,
       610
     ]
   },
   {
-    "teal": 639,
-    "source": 181,
+    "teal": 611,
+    "source": 180,
     "pc": [
       611
     ]
   },
   {
-    "teal": 642,
+    "teal": 612,
     "source": 180,
-    "errorMessage": "Only creator is allowed to mint specific NFTs for this collection",
     "pc": [
       612
     ]
   },
   {
-    "teal": 646,
-    "source": 185,
+    "teal": 613,
+    "source": 180,
     "pc": [
       613
     ]
   },
   {
-    "teal": 647,
-    "source": 185,
+    "teal": 614,
+    "source": 178,
     "pc": [
       614
     ]
   },
   {
-    "teal": 648,
-    "source": 185,
+    "teal": 619,
+    "source": 186,
     "pc": [
-      615,
-      616
+      615
     ]
   },
   {
-    "teal": 660,
+    "teal": 622,
     "source": 187,
     "pc": [
-      617
-    ]
-  },
-  {
-    "teal": 661,
-    "source": 187,
-    "pc": [
+      616,
+      617,
       618
     ]
   },
   {
-    "teal": 662,
+    "teal": 623,
     "source": 187,
     "pc": [
-      619,
-      620,
-      621,
+      619
+    ]
+  },
+  {
+    "teal": 624,
+    "source": 187,
+    "pc": [
+      620
+    ]
+  },
+  {
+    "teal": 625,
+    "source": 187,
+    "pc": [
+      621
+    ]
+  },
+  {
+    "teal": 626,
+    "source": 187,
+    "pc": [
       622
     ]
   },
   {
-    "teal": 663,
-    "source": 188,
+    "teal": 629,
+    "source": 187,
+    "errorMessage": "argument 0 (index) for arc72_tokenByIndex must be a uint256",
     "pc": [
-      623,
-      624
+      623
     ]
   },
   {
-    "teal": 664,
-    "source": 188,
+    "teal": 632,
+    "source": 186,
     "pc": [
+      624,
       625,
-      626,
+      626
+    ]
+  },
+  {
+    "teal": 633,
+    "source": 186,
+    "pc": [
       627
     ]
   },
   {
-    "teal": 665,
-    "source": 189,
+    "teal": 634,
+    "source": 186,
     "pc": [
-      628,
-      629
+      628
     ]
   },
   {
-    "teal": 666,
-    "source": 189,
+    "teal": 635,
+    "source": 186,
     "pc": [
-      630,
-      631,
+      629,
+      630
+    ]
+  },
+  {
+    "teal": 636,
+    "source": 186,
+    "pc": [
+      631
+    ]
+  },
+  {
+    "teal": 639,
+    "source": 186,
+    "errorMessage": "arc72_tokenByIndex return value overflowed 256 bits",
+    "pc": [
       632
     ]
   },
   {
-    "teal": 667,
-    "source": 190,
+    "teal": 640,
+    "source": 186,
     "pc": [
-      633,
-      634,
-      635,
-      636,
-      637,
-      638,
-      639,
-      640,
-      641,
-      642,
+      633
+    ]
+  },
+  {
+    "teal": 641,
+    "source": 186,
+    "pc": [
+      634
+    ]
+  },
+  {
+    "teal": 642,
+    "source": 186,
+    "pc": [
+      635
+    ]
+  },
+  {
+    "teal": 643,
+    "source": 186,
+    "pc": [
+      636
+    ]
+  },
+  {
+    "teal": 644,
+    "source": 186,
+    "pc": [
+      637
+    ]
+  },
+  {
+    "teal": 645,
+    "source": 186,
+    "pc": [
+      638
+    ]
+  },
+  {
+    "teal": 646,
+    "source": 186,
+    "pc": [
+      639
+    ]
+  },
+  {
+    "teal": 647,
+    "source": 186,
+    "pc": [
+      640
+    ]
+  },
+  {
+    "teal": 648,
+    "source": 186,
+    "pc": [
+      641
+    ]
+  },
+  {
+    "teal": 649,
+    "source": 186,
+    "pc": [
+      642
+    ]
+  },
+  {
+    "teal": 650,
+    "source": 186,
+    "pc": [
       643
     ]
   },
   {
-    "teal": 668,
-    "source": 190,
+    "teal": 651,
+    "source": 186,
     "pc": [
-      644,
-      645,
-      646
+      644
     ]
   },
   {
-    "teal": 669,
-    "source": 191,
+    "teal": 652,
+    "source": 186,
     "pc": [
+      645
+    ]
+  },
+  {
+    "teal": 658,
+    "source": 186,
+    "pc": [
+      646,
       647,
       648
     ]
   },
   {
-    "teal": 670,
-    "source": 191,
+    "teal": 662,
+    "source": 188,
     "pc": [
-      649
-    ]
-  },
-  {
-    "teal": 671,
-    "source": 191,
-    "pc": [
+      649,
       650
     ]
   },
   {
-    "teal": 672,
-    "source": 191,
+    "teal": 663,
+    "source": 186,
     "pc": [
       651
     ]
   },
   {
-    "teal": 673,
-    "source": 191,
+    "teal": 668,
+    "source": 200,
     "pc": [
       652,
       653,
@@ -2862,121 +2949,85 @@
     ]
   },
   {
-    "teal": 674,
-    "source": 191,
+    "teal": 669,
+    "source": 200,
     "pc": [
       655
     ]
   },
   {
-    "teal": 675,
-    "source": 191,
+    "teal": 672,
+    "source": 199,
     "pc": [
-      656
+      656,
+      657,
+      658
     ]
   },
   {
-    "teal": 676,
-    "source": 191,
+    "teal": 673,
+    "source": 199,
     "pc": [
-      657,
-      658,
       659
     ]
   },
   {
-    "teal": 677,
-    "source": 192,
+    "teal": 676,
+    "source": 198,
     "pc": [
       660,
-      661
-    ]
-  },
-  {
-    "teal": 678,
-    "source": 192,
-    "pc": [
+      661,
       662
     ]
   },
   {
-    "teal": 679,
-    "source": 192,
+    "teal": 677,
+    "source": 198,
     "pc": [
-      663
+      663,
+      664,
+      665
     ]
   },
   {
     "teal": 680,
-    "source": 192,
+    "source": 197,
     "pc": [
-      664
-    ]
-  },
-  {
-    "teal": 681,
-    "source": 192,
-    "pc": [
-      665,
       666,
-      667
-    ]
-  },
-  {
-    "teal": 682,
-    "source": 192,
-    "pc": [
+      667,
       668
     ]
   },
   {
-    "teal": 683,
-    "source": 192,
+    "teal": 681,
+    "source": 197,
     "pc": [
-      669
+      669,
+      670,
+      671
     ]
   },
   {
     "teal": 684,
-    "source": 192,
+    "source": 196,
     "pc": [
-      670,
-      671,
-      672
-    ]
-  },
-  {
-    "teal": 685,
-    "source": 193,
-    "pc": [
+      672,
       673,
       674
     ]
   },
   {
-    "teal": 686,
-    "source": 193,
+    "teal": 685,
+    "source": 196,
     "pc": [
-      675
-    ]
-  },
-  {
-    "teal": 687,
-    "source": 193,
-    "pc": [
-      676
-    ]
-  },
-  {
-    "teal": 688,
-    "source": 193,
-    "pc": [
+      675,
+      676,
       677
     ]
   },
   {
-    "teal": 689,
-    "source": 193,
+    "teal": 688,
+    "source": 195,
     "pc": [
       678,
       679,
@@ -2984,33 +3035,27 @@
     ]
   },
   {
-    "teal": 690,
-    "source": 193,
+    "teal": 689,
+    "source": 195,
     "pc": [
-      681
-    ]
-  },
-  {
-    "teal": 691,
-    "source": 193,
-    "pc": [
-      682
+      681,
+      682,
+      683
     ]
   },
   {
     "teal": 692,
-    "source": 193,
+    "source": 194,
     "pc": [
-      683,
       684,
-      685
+      685,
+      686
     ]
   },
   {
     "teal": 693,
     "source": 194,
     "pc": [
-      686,
       687
     ]
   },
@@ -3036,31 +3081,32 @@
     ]
   },
   {
-    "teal": 697,
+    "teal": 699,
     "source": 194,
+    "errorMessage": "argument 6 (to) for mint must be a address",
     "pc": [
-      691,
-      692,
-      693
+      691
     ]
   },
   {
-    "teal": 698,
-    "source": 194,
+    "teal": 702,
+    "source": 193,
     "pc": [
+      692,
+      693,
       694
     ]
   },
   {
-    "teal": 699,
-    "source": 194,
+    "teal": 703,
+    "source": 193,
     "pc": [
       695
     ]
   },
   {
-    "teal": 700,
-    "source": 194,
+    "teal": 706,
+    "source": 192,
     "pc": [
       696,
       697,
@@ -3068,669 +3114,3664 @@
     ]
   },
   {
-    "teal": 701,
-    "source": 187,
+    "teal": 707,
+    "source": 192,
     "pc": [
       699
     ]
   },
   {
-    "teal": 702,
-    "source": 187,
+    "teal": 708,
+    "source": 192,
     "pc": [
       700
     ]
   },
   {
-    "teal": 703,
-    "source": 187,
+    "teal": 712,
+    "source": 192,
     "pc": [
       701,
-      702
+      702,
+      703
     ]
   },
   {
-    "teal": 707,
-    "source": 197,
+    "teal": 715,
+    "source": 192,
     "pc": [
-      703,
       704
     ]
   },
   {
-    "teal": 708,
-    "source": 197,
+    "teal": 716,
+    "source": 192,
     "pc": [
       705
     ]
   },
   {
-    "teal": 709,
-    "source": 197,
+    "teal": 723,
+    "source": 203,
     "pc": [
-      706
-    ]
-  },
-  {
-    "teal": 710,
-    "source": 197,
-    "pc": [
+      706,
       707
     ]
   },
   {
-    "teal": 711,
-    "source": 197,
+    "teal": 724,
+    "source": 203,
     "pc": [
       708,
       709
     ]
   },
   {
-    "teal": 712,
-    "source": 197,
+    "teal": 725,
+    "source": 203,
     "pc": [
       710
     ]
   },
   {
-    "teal": 716,
-    "source": 198,
+    "teal": 728,
+    "source": 202,
+    "errorMessage": "Only creator is allowed to mint specific NFTs for this collection",
     "pc": [
-      711,
-      712
+      711
     ]
   },
   {
-    "teal": 717,
-    "source": 198,
+    "teal": 732,
+    "source": 206,
     "pc": [
-      713,
+      712,
+      713
+    ]
+  },
+  {
+    "teal": 733,
+    "source": 206,
+    "pc": [
       714
     ]
   },
   {
-    "teal": 718,
-    "source": 198,
+    "teal": 734,
+    "source": 206,
     "pc": [
-      715,
-      716,
-      717
+      715
     ]
   },
   {
-    "teal": 722,
-    "source": 199,
+    "teal": 735,
+    "source": 206,
     "pc": [
-      718
+      716
     ]
   },
   {
-    "teal": 723,
-    "source": 199,
+    "teal": 736,
+    "source": 206,
     "pc": [
-      719,
-      720
+      717,
+      718,
+      719
     ]
   },
   {
-    "teal": 724,
-    "source": 199,
+    "teal": 737,
+    "source": 206,
     "pc": [
-      721,
+      720,
+      721
+    ]
+  },
+  {
+    "teal": 738,
+    "source": 206,
+    "pc": [
       722,
-      723,
-      724,
-      725,
-      726,
-      727,
-      728,
+      723
+    ]
+  },
+  {
+    "teal": 739,
+    "source": 206,
+    "pc": [
+      724
+    ]
+  },
+  {
+    "teal": 740,
+    "source": 206,
+    "pc": [
+      725
+    ]
+  },
+  {
+    "teal": 744,
+    "source": 206,
+    "errorMessage": "Minter can set state only to ON_SALE or not for sale ",
+    "pc": [
+      726
+    ]
+  },
+  {
+    "teal": 748,
+    "source": 207,
+    "pc": [
+      727
+    ]
+  },
+  {
+    "teal": 749,
+    "source": 207,
+    "pc": [
+      728
+    ]
+  },
+  {
+    "teal": 750,
+    "source": 207,
+    "pc": [
       729,
-      730,
-      731,
-      732,
+      730
+    ]
+  },
+  {
+    "teal": 764,
+    "source": 209,
+    "pc": [
+      731
+    ]
+  },
+  {
+    "teal": 765,
+    "source": 209,
+    "pc": [
+      732
+    ]
+  },
+  {
+    "teal": 766,
+    "source": 209,
+    "pc": [
       733,
       734,
       735,
-      736,
+      736
+    ]
+  },
+  {
+    "teal": 767,
+    "source": 210,
+    "pc": [
       737,
-      738,
-      739,
+      738
+    ]
+  },
+  {
+    "teal": 768,
+    "source": 210,
+    "pc": [
+      739
+    ]
+  },
+  {
+    "teal": 769,
+    "source": 210,
+    "pc": [
       740,
       741,
-      742,
+      742
+    ]
+  },
+  {
+    "teal": 770,
+    "source": 211,
+    "pc": [
       743,
-      744,
+      744
+    ]
+  },
+  {
+    "teal": 771,
+    "source": 211,
+    "pc": [
       745,
       746,
-      747,
+      747
+    ]
+  },
+  {
+    "teal": 772,
+    "source": 212,
+    "pc": [
       748,
-      749,
+      749
+    ]
+  },
+  {
+    "teal": 773,
+    "source": 212,
+    "pc": [
       750,
       751,
-      752,
+      752
+    ]
+  },
+  {
+    "teal": 774,
+    "source": 213,
+    "pc": [
       753,
       754
     ]
   },
   {
-    "teal": 725,
-    "source": 199,
+    "teal": 775,
+    "source": 213,
     "pc": [
       755
     ]
   },
   {
-    "teal": 726,
-    "source": 199,
+    "teal": 776,
+    "source": 213,
     "pc": [
       756
     ]
   },
   {
-    "teal": 727,
-    "source": 199,
+    "teal": 777,
+    "source": 213,
     "pc": [
       757
     ]
   },
   {
-    "teal": 728,
-    "source": 199,
+    "teal": 778,
+    "source": 213,
     "pc": [
-      758
-    ]
-  },
-  {
-    "teal": 729,
-    "source": 199,
-    "pc": [
-      759
-    ]
-  },
-  {
-    "teal": 732,
-    "source": 199,
-    "errorMessage": "index + 1 overflowed 256 bits",
-    "pc": [
+      758,
+      759,
       760
     ]
   },
   {
-    "teal": 733,
-    "source": 199,
+    "teal": 779,
+    "source": 213,
     "pc": [
       761
     ]
   },
   {
-    "teal": 734,
-    "source": 199,
+    "teal": 780,
+    "source": 213,
     "pc": [
       762
     ]
   },
   {
-    "teal": 735,
-    "source": 199,
+    "teal": 781,
+    "source": 213,
     "pc": [
-      763
-    ]
-  },
-  {
-    "teal": 736,
-    "source": 199,
-    "pc": [
-      764
-    ]
-  },
-  {
-    "teal": 737,
-    "source": 199,
-    "pc": [
+      763,
+      764,
       765
     ]
   },
   {
-    "teal": 738,
-    "source": 199,
+    "teal": 782,
+    "source": 214,
     "pc": [
-      766
-    ]
-  },
-  {
-    "teal": 739,
-    "source": 199,
-    "pc": [
+      766,
       767
     ]
   },
   {
-    "teal": 740,
-    "source": 199,
+    "teal": 783,
+    "source": 214,
     "pc": [
       768
     ]
   },
   {
-    "teal": 741,
-    "source": 199,
+    "teal": 784,
+    "source": 214,
     "pc": [
       769
     ]
   },
   {
-    "teal": 742,
-    "source": 199,
+    "teal": 785,
+    "source": 214,
     "pc": [
       770
     ]
   },
   {
-    "teal": 743,
-    "source": 179,
+    "teal": 786,
+    "source": 214,
     "pc": [
-      771
-    ]
-  },
-  {
-    "teal": 746,
-    "source": 46,
-    "pc": [
+      771,
       772,
-      773,
-      774,
-      775,
-      776,
-      777
+      773
     ]
   },
   {
-    "teal": 747,
-    "source": 46,
+    "teal": 787,
+    "source": 214,
     "pc": [
-      778,
+      774
+    ]
+  },
+  {
+    "teal": 788,
+    "source": 214,
+    "pc": [
+      775
+    ]
+  },
+  {
+    "teal": 789,
+    "source": 214,
+    "pc": [
+      776,
+      777,
+      778
+    ]
+  },
+  {
+    "teal": 790,
+    "source": 215,
+    "pc": [
       779,
       780
     ]
   },
   {
-    "teal": 748,
-    "source": 46,
+    "teal": 791,
+    "source": 215,
     "pc": [
-      781,
-      782,
-      783,
-      784
+      781
     ]
   },
   {
-    "teal": 751,
-    "source": 46,
-    "errorMessage": "this contract does not implement the given ABI method for create NoOp",
+    "teal": 792,
+    "source": 215,
     "pc": [
-      785
+      782
     ]
   },
   {
-    "teal": 754,
-    "source": 46,
+    "teal": 793,
+    "source": 215,
     "pc": [
-      786,
-      787,
-      788,
+      783
+    ]
+  },
+  {
+    "teal": 794,
+    "source": 215,
+    "pc": [
+      784,
+      785,
+      786
+    ]
+  },
+  {
+    "teal": 795,
+    "source": 215,
+    "pc": [
+      787
+    ]
+  },
+  {
+    "teal": 796,
+    "source": 215,
+    "pc": [
+      788
+    ]
+  },
+  {
+    "teal": 797,
+    "source": 215,
+    "pc": [
       789,
       790,
       791
     ]
   },
   {
-    "teal": 755,
-    "source": 46,
+    "teal": 798,
+    "source": 216,
     "pc": [
       792,
-      793,
-      794,
-      795,
-      796,
-      797
+      793
     ]
   },
   {
-    "teal": 756,
-    "source": 46,
+    "teal": 799,
+    "source": 216,
     "pc": [
+      794
+    ]
+  },
+  {
+    "teal": 800,
+    "source": 216,
+    "pc": [
+      795
+    ]
+  },
+  {
+    "teal": 801,
+    "source": 216,
+    "pc": [
+      796
+    ]
+  },
+  {
+    "teal": 802,
+    "source": 216,
+    "pc": [
+      797,
       798,
-      799,
-      800,
-      801,
+      799
+    ]
+  },
+  {
+    "teal": 803,
+    "source": 216,
+    "pc": [
+      800
+    ]
+  },
+  {
+    "teal": 804,
+    "source": 216,
+    "pc": [
+      801
+    ]
+  },
+  {
+    "teal": 805,
+    "source": 216,
+    "pc": [
       802,
-      803
+      803,
+      804
     ]
   },
   {
-    "teal": 757,
-    "source": 46,
+    "teal": 806,
+    "source": 217,
     "pc": [
-      804,
       805,
-      806,
-      807,
+      806
+    ]
+  },
+  {
+    "teal": 807,
+    "source": 217,
+    "pc": [
+      807
+    ]
+  },
+  {
+    "teal": 808,
+    "source": 217,
+    "pc": [
       808,
-      809
+      809,
+      810
     ]
   },
   {
-    "teal": 758,
-    "source": 46,
+    "teal": 809,
+    "source": 218,
     "pc": [
-      810,
       811,
-      812,
-      813,
+      812
+    ]
+  },
+  {
+    "teal": 810,
+    "source": 218,
+    "pc": [
+      813
+    ]
+  },
+  {
+    "teal": 811,
+    "source": 218,
+    "pc": [
       814,
-      815
+      815,
+      816
     ]
   },
   {
-    "teal": 759,
-    "source": 46,
+    "teal": 812,
+    "source": 209,
     "pc": [
-      816,
-      817,
-      818,
+      817
+    ]
+  },
+  {
+    "teal": 813,
+    "source": 209,
+    "pc": [
+      818
+    ]
+  },
+  {
+    "teal": 814,
+    "source": 209,
+    "pc": [
       819,
-      820,
-      821
+      820
     ]
   },
   {
-    "teal": 760,
-    "source": 46,
+    "teal": 818,
+    "source": 220,
     "pc": [
-      822,
+      821,
+      822
+    ]
+  },
+  {
+    "teal": 819,
+    "source": 220,
+    "pc": [
       823,
-      824,
-      825,
-      826,
-      827
+      824
     ]
   },
   {
-    "teal": 761,
-    "source": 46,
+    "teal": 820,
+    "source": 220,
     "pc": [
+      825,
+      826
+    ]
+  },
+  {
+    "teal": 821,
+    "source": 220,
+    "pc": [
+      827,
       828,
-      829,
-      830,
-      831,
-      832,
+      829
+    ]
+  },
+  {
+    "teal": 822,
+    "source": 220,
+    "pc": [
+      830
+    ]
+  },
+  {
+    "teal": 823,
+    "source": 220,
+    "pc": [
+      831
+    ]
+  },
+  {
+    "teal": 824,
+    "source": 220,
+    "pc": [
+      832
+    ]
+  },
+  {
+    "teal": 827,
+    "source": 220,
+    "errorMessage": "Token state is not 0",
+    "pc": [
       833
     ]
   },
   {
-    "teal": 762,
-    "source": 46,
+    "teal": 831,
+    "source": 221,
     "pc": [
       834,
-      835,
+      835
+    ]
+  },
+  {
+    "teal": 832,
+    "source": 221,
+    "pc": [
       836
     ]
   },
   {
-    "teal": 763,
-    "source": 46,
+    "teal": 833,
+    "source": 221,
     "pc": [
-      837,
-      838,
-      839,
+      837
+    ]
+  },
+  {
+    "teal": 834,
+    "source": 221,
+    "pc": [
+      838
+    ]
+  },
+  {
+    "teal": 835,
+    "source": 221,
+    "pc": [
+      839
+    ]
+  },
+  {
+    "teal": 836,
+    "source": 221,
+    "pc": [
       840,
-      841,
-      842,
+      841
+    ]
+  },
+  {
+    "teal": 837,
+    "source": 221,
+    "pc": [
+      842
+    ]
+  },
+  {
+    "teal": 841,
+    "source": 222,
+    "pc": [
       843,
-      844,
-      845,
-      846,
-      847,
+      844
+    ]
+  },
+  {
+    "teal": 842,
+    "source": 222,
+    "pc": [
+      845
+    ]
+  },
+  {
+    "teal": 843,
+    "source": 222,
+    "pc": [
+      846
+    ]
+  },
+  {
+    "teal": 844,
+    "source": 222,
+    "pc": [
+      847
+    ]
+  },
+  {
+    "teal": 845,
+    "source": 222,
+    "pc": [
       848,
-      849,
-      850,
-      851,
-      852,
-      853,
+      849
+    ]
+  },
+  {
+    "teal": 846,
+    "source": 222,
+    "pc": [
+      850
+    ]
+  },
+  {
+    "teal": 849,
+    "source": 222,
+    "errorMessage": "index as uint256 overflowed 256 bits",
+    "pc": [
+      851
+    ]
+  },
+  {
+    "teal": 850,
+    "source": 222,
+    "pc": [
+      852
+    ]
+  },
+  {
+    "teal": 851,
+    "source": 222,
+    "pc": [
+      853
+    ]
+  },
+  {
+    "teal": 852,
+    "source": 222,
+    "pc": [
       854
     ]
   },
   {
-    "teal": 766,
-    "source": 46,
-    "errorMessage": "this contract does not implement the given ABI method for call NoOp",
+    "teal": 853,
+    "source": 222,
     "pc": [
       855
     ]
   },
   {
-    "teal": 769,
-    "source": 46,
+    "teal": 854,
+    "source": 222,
     "pc": [
-      856,
-      857,
+      856
+    ]
+  },
+  {
+    "teal": 855,
+    "source": 222,
+    "pc": [
+      857
+    ]
+  },
+  {
+    "teal": 856,
+    "source": 222,
+    "pc": [
       858
     ]
   },
   {
-    "teal": 770,
-    "source": 46,
+    "teal": 857,
+    "source": 222,
     "pc": [
-      859,
+      859
+    ]
+  },
+  {
+    "teal": 858,
+    "source": 222,
+    "pc": [
       860
     ]
   },
   {
-    "teal": 771,
-    "source": 46,
+    "teal": 859,
+    "source": 222,
     "pc": [
       861,
       862
     ]
   },
   {
-    "teal": 772,
-    "source": 46,
+    "teal": 860,
+    "source": 222,
     "pc": [
-      863
-    ]
-  },
-  {
-    "teal": 773,
-    "source": 46,
-    "pc": [
+      863,
       864,
       865
     ]
   },
   {
-    "teal": 774,
-    "source": 46,
+    "teal": 864,
+    "source": 224,
     "pc": [
       866,
       867
     ]
   },
   {
-    "teal": 775,
-    "source": 46,
+    "teal": 865,
+    "source": 224,
     "pc": [
       868
     ]
   },
   {
-    "teal": 778,
-    "source": 46,
+    "teal": 866,
+    "source": 224,
     "pc": [
-      869,
-      870,
-      871
+      869
     ]
   },
   {
-    "teal": 779,
-    "source": 46,
+    "teal": 869,
+    "source": 224,
+    "errorMessage": "box value does not exist: this.tokenBox(index).value",
     "pc": [
-      872,
-      873
+      870
     ]
   },
   {
-    "teal": 780,
-    "source": 46,
+    "teal": 870,
+    "source": 224,
     "pc": [
-      874,
-      875
+      871,
+      872
     ]
   },
   {
-    "teal": 781,
-    "source": 46,
+    "teal": 871,
+    "source": 224,
     "pc": [
-      876
+      873,
+      874
     ]
   },
   {
-    "teal": 782,
-    "source": 46,
+    "teal": 872,
+    "source": 224,
     "pc": [
-      877,
+      875,
+      876,
+      877
+    ]
+  },
+  {
+    "teal": 873,
+    "source": 224,
+    "pc": [
       878
     ]
   },
   {
-    "teal": 783,
-    "source": 46,
+    "teal": 874,
+    "source": 224,
     "pc": [
-      879,
+      879
+    ]
+  },
+  {
+    "teal": 875,
+    "source": 224,
+    "pc": [
       880
     ]
   },
   {
-    "teal": 784,
-    "source": 46,
+    "teal": 878,
+    "source": 224,
+    "errorMessage": "State cannot be zero after minting",
     "pc": [
       881
     ]
   },
   {
-    "teal": 785,
-    "source": 46,
+    "teal": 882,
+    "source": 225,
     "pc": [
       882
     ]
   },
   {
-    "teal": 786,
-    "source": 46,
+    "teal": 883,
+    "source": 225,
     "pc": [
       883,
       884
     ]
   },
   {
-    "teal": 787,
-    "source": 46,
+    "teal": 884,
+    "source": 225,
     "pc": [
       885
     ]
   },
   {
-    "teal": 788,
-    "source": 46,
+    "teal": 885,
+    "source": 225,
     "pc": [
       886
     ]
   },
   {
-    "teal": 789,
-    "source": 46,
+    "teal": 886,
+    "source": 225,
     "pc": [
       887
     ]
   },
   {
-    "teal": 790,
-    "source": 46,
+    "teal": 887,
+    "source": 192,
     "pc": [
-      888,
-      889,
-      890
+      888
     ]
   },
   {
-    "teal": 791,
-    "source": 46,
+    "teal": 892,
+    "source": 233,
     "pc": [
-      891,
+      889,
+      890,
+      891
+    ]
+  },
+  {
+    "teal": 893,
+    "source": 233,
+    "pc": [
       892
     ]
   },
   {
-    "teal": 792,
-    "source": 46,
+    "teal": 896,
+    "source": 233,
     "pc": [
       893,
-      894
-    ]
-  },
-  {
-    "teal": 793,
-    "source": 46,
-    "pc": [
+      894,
       895
     ]
   },
   {
-    "teal": 794,
-    "source": 46,
+    "teal": 897,
+    "source": 233,
     "pc": [
       896
     ]
   },
   {
-    "teal": 795,
-    "source": 46,
+    "teal": 900,
+    "source": 233,
     "pc": [
       897,
-      898
+      898,
+      899
     ]
   },
   {
-    "teal": 796,
-    "source": 46,
+    "teal": 901,
+    "source": 233,
     "pc": [
-      899,
       900
     ]
   },
   {
-    "teal": 797,
-    "source": 46,
+    "teal": 902,
+    "source": 233,
     "pc": [
-      901,
-      902
+      901
     ]
   },
   {
-    "teal": 798,
-    "source": 46,
+    "teal": 910,
+    "source": 233,
     "pc": [
+      902,
       903,
       904
     ]
   },
   {
-    "teal": 799,
-    "source": 46,
+    "teal": 913,
+    "source": 233,
     "pc": [
       905
+    ]
+  },
+  {
+    "teal": 917,
+    "source": 234,
+    "pc": [
+      906,
+      907
+    ]
+  },
+  {
+    "teal": 918,
+    "source": 234,
+    "pc": [
+      908
+    ]
+  },
+  {
+    "teal": 919,
+    "source": 234,
+    "pc": [
+      909,
+      910
+    ]
+  },
+  {
+    "teal": 923,
+    "source": 234,
+    "pc": [
+      911,
+      912
+    ]
+  },
+  {
+    "teal": 924,
+    "source": 234,
+    "pc": [
+      913
+    ]
+  },
+  {
+    "teal": 927,
+    "source": 234,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      914
+    ]
+  },
+  {
+    "teal": 928,
+    "source": 235,
+    "pc": [
+      915,
+      916
+    ]
+  },
+  {
+    "teal": 929,
+    "source": 235,
+    "pc": [
+      917,
+      918
+    ]
+  },
+  {
+    "teal": 930,
+    "source": 235,
+    "pc": [
+      919,
+      920,
+      921
+    ]
+  },
+  {
+    "teal": 931,
+    "source": 235,
+    "pc": [
+      922,
+      923
+    ]
+  },
+  {
+    "teal": 932,
+    "source": 235,
+    "pc": [
+      924
+    ]
+  },
+  {
+    "teal": 935,
+    "source": 235,
+    "errorMessage": "Only owner of the NFT can change the state",
+    "pc": [
+      925
+    ]
+  },
+  {
+    "teal": 939,
+    "source": 236,
+    "pc": [
+      926,
+      927
+    ]
+  },
+  {
+    "teal": 940,
+    "source": 236,
+    "pc": [
+      928,
+      929
+    ]
+  },
+  {
+    "teal": 941,
+    "source": 236,
+    "pc": [
+      930
+    ]
+  },
+  {
+    "teal": 942,
+    "source": 236,
+    "pc": [
+      931
+    ]
+  },
+  {
+    "teal": 943,
+    "source": 236,
+    "pc": [
+      932,
+      933,
+      934
+    ]
+  },
+  {
+    "teal": 944,
+    "source": 236,
+    "pc": [
+      935,
+      936
+    ]
+  },
+  {
+    "teal": 945,
+    "source": 236,
+    "pc": [
+      937,
+      938,
+      939
+    ]
+  },
+  {
+    "teal": 946,
+    "source": 236,
+    "pc": [
+      940
+    ]
+  },
+  {
+    "teal": 947,
+    "source": 236,
+    "pc": [
+      941
+    ]
+  },
+  {
+    "teal": 951,
+    "source": 236,
+    "errorMessage": "Only owner of the NFT can change the state",
+    "pc": [
+      942
+    ]
+  },
+  {
+    "teal": 955,
+    "source": 237,
+    "pc": [
+      943,
+      944
+    ]
+  },
+  {
+    "teal": 956,
+    "source": 237,
+    "pc": [
+      945
+    ]
+  },
+  {
+    "teal": 957,
+    "source": 237,
+    "pc": [
+      946
+    ]
+  },
+  {
+    "teal": 960,
+    "source": 237,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      947
+    ]
+  },
+  {
+    "teal": 961,
+    "source": 237,
+    "pc": [
+      948,
+      949
+    ]
+  },
+  {
+    "teal": 962,
+    "source": 237,
+    "pc": [
+      950,
+      951
+    ]
+  },
+  {
+    "teal": 963,
+    "source": 237,
+    "pc": [
+      952
+    ]
+  },
+  {
+    "teal": 964,
+    "source": 237,
+    "pc": [
+      953,
+      954
+    ]
+  },
+  {
+    "teal": 965,
+    "source": 237,
+    "pc": [
+      955
+    ]
+  },
+  {
+    "teal": 966,
+    "source": 237,
+    "pc": [
+      956,
+      957
+    ]
+  },
+  {
+    "teal": 967,
+    "source": 237,
+    "pc": [
+      958
+    ]
+  },
+  {
+    "teal": 968,
+    "source": 237,
+    "pc": [
+      959
+    ]
+  },
+  {
+    "teal": 969,
+    "source": 237,
+    "pc": [
+      960
+    ]
+  },
+  {
+    "teal": 970,
+    "source": 237,
+    "pc": [
+      961
+    ]
+  },
+  {
+    "teal": 971,
+    "source": 237,
+    "pc": [
+      962
+    ]
+  },
+  {
+    "teal": 972,
+    "source": 237,
+    "pc": [
+      963
+    ]
+  },
+  {
+    "teal": 973,
+    "source": 233,
+    "pc": [
+      964
+    ]
+  },
+  {
+    "teal": 978,
+    "source": 245,
+    "pc": [
+      965,
+      966,
+      967
+    ]
+  },
+  {
+    "teal": 979,
+    "source": 245,
+    "pc": [
+      968
+    ]
+  },
+  {
+    "teal": 982,
+    "source": 245,
+    "pc": [
+      969,
+      970
+    ]
+  },
+  {
+    "teal": 983,
+    "source": 245,
+    "pc": [
+      971
+    ]
+  },
+  {
+    "teal": 984,
+    "source": 245,
+    "pc": [
+      972
+    ]
+  },
+  {
+    "teal": 987,
+    "source": 245,
+    "pc": [
+      973,
+      974,
+      975
+    ]
+  },
+  {
+    "teal": 988,
+    "source": 245,
+    "pc": [
+      976
+    ]
+  },
+  {
+    "teal": 989,
+    "source": 245,
+    "pc": [
+      977
+    ]
+  },
+  {
+    "teal": 997,
+    "source": 245,
+    "pc": [
+      978,
+      979,
+      980
+    ]
+  },
+  {
+    "teal": 1000,
+    "source": 245,
+    "pc": [
+      981
+    ]
+  },
+  {
+    "teal": 1004,
+    "source": 246,
+    "pc": [
+      982,
+      983
+    ]
+  },
+  {
+    "teal": 1005,
+    "source": 246,
+    "pc": [
+      984
+    ]
+  },
+  {
+    "teal": 1006,
+    "source": 246,
+    "pc": [
+      985,
+      986
+    ]
+  },
+  {
+    "teal": 1010,
+    "source": 246,
+    "pc": [
+      987,
+      988
+    ]
+  },
+  {
+    "teal": 1011,
+    "source": 246,
+    "pc": [
+      989
+    ]
+  },
+  {
+    "teal": 1014,
+    "source": 246,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      990
+    ]
+  },
+  {
+    "teal": 1015,
+    "source": 247,
+    "pc": [
+      991,
+      992
+    ]
+  },
+  {
+    "teal": 1016,
+    "source": 247,
+    "pc": [
+      993,
+      994
+    ]
+  },
+  {
+    "teal": 1017,
+    "source": 247,
+    "pc": [
+      995,
+      996,
+      997
+    ]
+  },
+  {
+    "teal": 1018,
+    "source": 247,
+    "pc": [
+      998
+    ]
+  },
+  {
+    "teal": 1019,
+    "source": 247,
+    "pc": [
+      999
+    ]
+  },
+  {
+    "teal": 1020,
+    "source": 247,
+    "pc": [
+      1000
+    ]
+  },
+  {
+    "teal": 1023,
+    "source": 247,
+    "errorMessage": "X1",
+    "pc": [
+      1001
+    ]
+  },
+  {
+    "teal": 1027,
+    "source": 246,
+    "pc": [
+      1002,
+      1003
+    ]
+  },
+  {
+    "teal": 1028,
+    "source": 246,
+    "pc": [
+      1004
+    ]
+  },
+  {
+    "teal": 1031,
+    "source": 246,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1005
+    ]
+  },
+  {
+    "teal": 1032,
+    "source": 248,
+    "pc": [
+      1006,
+      1007
+    ]
+  },
+  {
+    "teal": 1033,
+    "source": 248,
+    "pc": [
+      1008,
+      1009
+    ]
+  },
+  {
+    "teal": 1034,
+    "source": 248,
+    "pc": [
+      1010,
+      1011,
+      1012
+    ]
+  },
+  {
+    "teal": 1035,
+    "source": 248,
+    "pc": [
+      1013
+    ]
+  },
+  {
+    "teal": 1036,
+    "source": 248,
+    "pc": [
+      1014,
+      1015
+    ]
+  },
+  {
+    "teal": 1037,
+    "source": 248,
+    "pc": [
+      1016
+    ]
+  },
+  {
+    "teal": 1040,
+    "source": 248,
+    "errorMessage": "X10",
+    "pc": [
+      1017
+    ]
+  },
+  {
+    "teal": 1044,
+    "source": 246,
+    "pc": [
+      1018,
+      1019
+    ]
+  },
+  {
+    "teal": 1045,
+    "source": 246,
+    "pc": [
+      1020
+    ]
+  },
+  {
+    "teal": 1048,
+    "source": 246,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1021
+    ]
+  },
+  {
+    "teal": 1049,
+    "source": 249,
+    "pc": [
+      1022,
+      1023
+    ]
+  },
+  {
+    "teal": 1050,
+    "source": 249,
+    "pc": [
+      1024,
+      1025
+    ]
+  },
+  {
+    "teal": 1051,
+    "source": 249,
+    "pc": [
+      1026,
+      1027,
+      1028
+    ]
+  },
+  {
+    "teal": 1052,
+    "source": 249,
+    "pc": [
+      1029
+    ]
+  },
+  {
+    "teal": 1053,
+    "source": 249,
+    "pc": [
+      1030,
+      1031
+    ]
+  },
+  {
+    "teal": 1054,
+    "source": 249,
+    "pc": [
+      1032
+    ]
+  },
+  {
+    "teal": 1057,
+    "source": 249,
+    "errorMessage": "X100",
+    "pc": [
+      1033
+    ]
+  },
+  {
+    "teal": 1061,
+    "source": 250,
+    "pc": [
+      1034,
+      1035
+    ]
+  },
+  {
+    "teal": 1062,
+    "source": 250,
+    "pc": [
+      1036
+    ]
+  },
+  {
+    "teal": 1063,
+    "source": 250,
+    "pc": [
+      1037
+    ]
+  },
+  {
+    "teal": 1066,
+    "source": 250,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1038
+    ]
+  },
+  {
+    "teal": 1067,
+    "source": 250,
+    "pc": [
+      1039,
+      1040
+    ]
+  },
+  {
+    "teal": 1068,
+    "source": 250,
+    "pc": [
+      1041,
+      1042
+    ]
+  },
+  {
+    "teal": 1069,
+    "source": 250,
+    "pc": [
+      1043,
+      1044,
+      1045
+    ]
+  },
+  {
+    "teal": 1070,
+    "source": 250,
+    "pc": [
+      1046
+    ]
+  },
+  {
+    "teal": 1071,
+    "source": 250,
+    "pc": [
+      1047
+    ]
+  },
+  {
+    "teal": 1072,
+    "source": 250,
+    "pc": [
+      1048
+    ]
+  },
+  {
+    "teal": 1075,
+    "source": 250,
+    "errorMessage": "X0",
+    "pc": [
+      1049
+    ]
+  },
+  {
+    "teal": 1079,
+    "source": 251,
+    "pc": [
+      1050,
+      1051
+    ]
+  },
+  {
+    "teal": 1080,
+    "source": 251,
+    "pc": [
+      1052
+    ]
+  },
+  {
+    "teal": 1081,
+    "source": 251,
+    "pc": [
+      1053
+    ]
+  },
+  {
+    "teal": 1084,
+    "source": 251,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1054
+    ]
+  },
+  {
+    "teal": 1085,
+    "source": 251,
+    "pc": [
+      1055,
+      1056
+    ]
+  },
+  {
+    "teal": 1086,
+    "source": 251,
+    "pc": [
+      1057,
+      1058
+    ]
+  },
+  {
+    "teal": 1087,
+    "source": 251,
+    "pc": [
+      1059,
+      1060,
+      1061
+    ]
+  },
+  {
+    "teal": 1088,
+    "source": 251,
+    "pc": [
+      1062
+    ]
+  },
+  {
+    "teal": 1089,
+    "source": 251,
+    "pc": [
+      1063
+    ]
+  },
+  {
+    "teal": 1090,
+    "source": 251,
+    "pc": [
+      1064
+    ]
+  },
+  {
+    "teal": 1093,
+    "source": 251,
+    "errorMessage": "NFT Ticket is not for sale",
+    "pc": [
+      1065
+    ]
+  },
+  {
+    "teal": 1097,
+    "source": 246,
+    "pc": [
+      1066,
+      1067
+    ]
+  },
+  {
+    "teal": 1098,
+    "source": 246,
+    "pc": [
+      1068
+    ]
+  },
+  {
+    "teal": 1101,
+    "source": 246,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1069
+    ]
+  },
+  {
+    "teal": 1102,
+    "source": 252,
+    "pc": [
+      1070,
+      1071
+    ]
+  },
+  {
+    "teal": 1103,
+    "source": 252,
+    "pc": [
+      1072,
+      1073
+    ]
+  },
+  {
+    "teal": 1104,
+    "source": 252,
+    "pc": [
+      1074,
+      1075,
+      1076
+    ]
+  },
+  {
+    "teal": 1105,
+    "source": 252,
+    "pc": [
+      1077,
+      1078
+    ]
+  },
+  {
+    "teal": 1106,
+    "source": 252,
+    "pc": [
+      1079,
+      1080
+    ]
+  },
+  {
+    "teal": 1107,
+    "source": 252,
+    "pc": [
+      1081
+    ]
+  },
+  {
+    "teal": 1110,
+    "source": 252,
+    "errorMessage": "Price must be paid to the owner of the NFT",
+    "pc": [
+      1082
+    ]
+  },
+  {
+    "teal": 1114,
+    "source": 246,
+    "pc": [
+      1083,
+      1084
+    ]
+  },
+  {
+    "teal": 1115,
+    "source": 246,
+    "pc": [
+      1085
+    ]
+  },
+  {
+    "teal": 1118,
+    "source": 246,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1086
+    ]
+  },
+  {
+    "teal": 1119,
+    "source": 253,
+    "pc": [
+      1087,
+      1088
+    ]
+  },
+  {
+    "teal": 1120,
+    "source": 253,
+    "pc": [
+      1089,
+      1090
+    ]
+  },
+  {
+    "teal": 1121,
+    "source": 253,
+    "pc": [
+      1091,
+      1092,
+      1093
+    ]
+  },
+  {
+    "teal": 1122,
+    "source": 253,
+    "pc": [
+      1094
+    ]
+  },
+  {
+    "teal": 1123,
+    "source": 253,
+    "pc": [
+      1095,
+      1096
+    ]
+  },
+  {
+    "teal": 1124,
+    "source": 253,
+    "pc": [
+      1097,
+      1098
+    ]
+  },
+  {
+    "teal": 1125,
+    "source": 253,
+    "pc": [
+      1099
+    ]
+  },
+  {
+    "teal": 1128,
+    "source": 253,
+    "errorMessage": "Exact price must be paid to the owner of the NFT",
+    "pc": [
+      1100
+    ]
+  },
+  {
+    "teal": 1132,
+    "source": 246,
+    "pc": [
+      1101,
+      1102
+    ]
+  },
+  {
+    "teal": 1133,
+    "source": 246,
+    "pc": [
+      1103
+    ]
+  },
+  {
+    "teal": 1136,
+    "source": 246,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1104
+    ]
+  },
+  {
+    "teal": 1137,
+    "source": 255,
+    "pc": [
+      1105,
+      1106
+    ]
+  },
+  {
+    "teal": 1138,
+    "source": 255,
+    "pc": [
+      1107,
+      1108
+    ]
+  },
+  {
+    "teal": 1139,
+    "source": 255,
+    "pc": [
+      1109,
+      1110
+    ]
+  },
+  {
+    "teal": 1140,
+    "source": 255,
+    "pc": [
+      1111,
+      1112
+    ]
+  },
+  {
+    "teal": 1141,
+    "source": 255,
+    "pc": [
+      1113,
+      1114
+    ]
+  },
+  {
+    "teal": 1142,
+    "source": 255,
+    "pc": [
+      1115
+    ]
+  },
+  {
+    "teal": 1143,
+    "source": 246,
+    "pc": [
+      1116,
+      1117
+    ]
+  },
+  {
+    "teal": 1144,
+    "source": 246,
+    "pc": [
+      1118
+    ]
+  },
+  {
+    "teal": 1145,
+    "source": 246,
+    "pc": [
+      1119
+    ]
+  },
+  {
+    "teal": 1146,
+    "source": 246,
+    "pc": [
+      1120
+    ]
+  },
+  {
+    "teal": 1147,
+    "source": 246,
+    "pc": [
+      1121
+    ]
+  },
+  {
+    "teal": 1148,
+    "source": 246,
+    "pc": [
+      1122
+    ]
+  },
+  {
+    "teal": 1152,
+    "source": 246,
+    "pc": [
+      1123,
+      1124
+    ]
+  },
+  {
+    "teal": 1153,
+    "source": 246,
+    "pc": [
+      1125
+    ]
+  },
+  {
+    "teal": 1156,
+    "source": 246,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1126
+    ]
+  },
+  {
+    "teal": 1157,
+    "source": 256,
+    "pc": [
+      1127,
+      1128
+    ]
+  },
+  {
+    "teal": 1158,
+    "source": 256,
+    "pc": [
+      1129,
+      1130
+    ]
+  },
+  {
+    "teal": 1159,
+    "source": 256,
+    "pc": [
+      1131,
+      1132
+    ]
+  },
+  {
+    "teal": 1160,
+    "source": 256,
+    "pc": [
+      1133,
+      1134
+    ]
+  },
+  {
+    "teal": 1161,
+    "source": 246,
+    "pc": [
+      1135,
+      1136
+    ]
+  },
+  {
+    "teal": 1162,
+    "source": 246,
+    "pc": [
+      1137
+    ]
+  },
+  {
+    "teal": 1163,
+    "source": 246,
+    "pc": [
+      1138
+    ]
+  },
+  {
+    "teal": 1164,
+    "source": 246,
+    "pc": [
+      1139
+    ]
+  },
+  {
+    "teal": 1165,
+    "source": 246,
+    "pc": [
+      1140
+    ]
+  },
+  {
+    "teal": 1166,
+    "source": 246,
+    "pc": [
+      1141
+    ]
+  },
+  {
+    "teal": 1167,
+    "source": 245,
+    "pc": [
+      1142
+    ]
+  },
+  {
+    "teal": 1172,
+    "source": 265,
+    "pc": [
+      1143,
+      1144,
+      1145
+    ]
+  },
+  {
+    "teal": 1173,
+    "source": 265,
+    "pc": [
+      1146
+    ]
+  },
+  {
+    "teal": 1176,
+    "source": 265,
+    "pc": [
+      1147,
+      1148,
+      1149
+    ]
+  },
+  {
+    "teal": 1177,
+    "source": 265,
+    "pc": [
+      1150
+    ]
+  },
+  {
+    "teal": 1180,
+    "source": 265,
+    "pc": [
+      1151,
+      1152,
+      1153
+    ]
+  },
+  {
+    "teal": 1181,
+    "source": 265,
+    "pc": [
+      1154
+    ]
+  },
+  {
+    "teal": 1184,
+    "source": 265,
+    "pc": [
+      1155,
+      1156,
+      1157
+    ]
+  },
+  {
+    "teal": 1185,
+    "source": 265,
+    "pc": [
+      1158
+    ]
+  },
+  {
+    "teal": 1186,
+    "source": 265,
+    "pc": [
+      1159
+    ]
+  },
+  {
+    "teal": 1195,
+    "source": 265,
+    "pc": [
+      1160,
+      1161,
+      1162
+    ]
+  },
+  {
+    "teal": 1198,
+    "source": 265,
+    "pc": [
+      1163
+    ]
+  },
+  {
+    "teal": 1202,
+    "source": 266,
+    "pc": [
+      1164,
+      1165
+    ]
+  },
+  {
+    "teal": 1203,
+    "source": 266,
+    "pc": [
+      1166
+    ]
+  },
+  {
+    "teal": 1204,
+    "source": 266,
+    "pc": [
+      1167,
+      1168
+    ]
+  },
+  {
+    "teal": 1208,
+    "source": 266,
+    "pc": [
+      1169,
+      1170
+    ]
+  },
+  {
+    "teal": 1209,
+    "source": 266,
+    "pc": [
+      1171
+    ]
+  },
+  {
+    "teal": 1212,
+    "source": 266,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1172
+    ]
+  },
+  {
+    "teal": 1213,
+    "source": 267,
+    "pc": [
+      1173,
+      1174
+    ]
+  },
+  {
+    "teal": 1214,
+    "source": 267,
+    "pc": [
+      1175,
+      1176
+    ]
+  },
+  {
+    "teal": 1215,
+    "source": 267,
+    "pc": [
+      1177,
+      1178,
+      1179
+    ]
+  },
+  {
+    "teal": 1216,
+    "source": 267,
+    "pc": [
+      1180
+    ]
+  },
+  {
+    "teal": 1217,
+    "source": 267,
+    "pc": [
+      1181
+    ]
+  },
+  {
+    "teal": 1218,
+    "source": 267,
+    "pc": [
+      1182
+    ]
+  },
+  {
+    "teal": 1219,
+    "source": 267,
+    "pc": [
+      1183
+    ]
+  },
+  {
+    "teal": 1220,
+    "source": 267,
+    "pc": [
+      1184,
+      1185,
+      1186
+    ]
+  },
+  {
+    "teal": 1221,
+    "source": 266,
+    "pc": [
+      1187,
+      1188
+    ]
+  },
+  {
+    "teal": 1222,
+    "source": 266,
+    "pc": [
+      1189
+    ]
+  },
+  {
+    "teal": 1225,
+    "source": 266,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1190
+    ]
+  },
+  {
+    "teal": 1226,
+    "source": 267,
+    "pc": [
+      1191,
+      1192
+    ]
+  },
+  {
+    "teal": 1227,
+    "source": 267,
+    "pc": [
+      1193,
+      1194
+    ]
+  },
+  {
+    "teal": 1228,
+    "source": 267,
+    "pc": [
+      1195,
+      1196,
+      1197
+    ]
+  },
+  {
+    "teal": 1229,
+    "source": 267,
+    "pc": [
+      1198
+    ]
+  },
+  {
+    "teal": 1230,
+    "source": 267,
+    "pc": [
+      1199,
+      1200
+    ]
+  },
+  {
+    "teal": 1231,
+    "source": 267,
+    "pc": [
+      1201
+    ]
+  },
+  {
+    "teal": 1232,
+    "source": 267,
+    "pc": [
+      1202
+    ]
+  },
+  {
+    "teal": 1236,
+    "source": 267,
+    "errorMessage": "NFT Ticket is not in valid state",
+    "pc": [
+      1203
+    ]
+  },
+  {
+    "teal": 1240,
+    "source": 266,
+    "pc": [
+      1204,
+      1205
+    ]
+  },
+  {
+    "teal": 1241,
+    "source": 266,
+    "pc": [
+      1206
+    ]
+  },
+  {
+    "teal": 1244,
+    "source": 266,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1207
+    ]
+  },
+  {
+    "teal": 1245,
+    "source": 268,
+    "pc": [
+      1208,
+      1209
+    ]
+  },
+  {
+    "teal": 1246,
+    "source": 268,
+    "pc": [
+      1210,
+      1211
+    ]
+  },
+  {
+    "teal": 1247,
+    "source": 268,
+    "pc": [
+      1212,
+      1213,
+      1214
+    ]
+  },
+  {
+    "teal": 1248,
+    "source": 268,
+    "pc": [
+      1215,
+      1216
+    ]
+  },
+  {
+    "teal": 1249,
+    "source": 268,
+    "pc": [
+      1217
+    ]
+  },
+  {
+    "teal": 1252,
+    "source": 268,
+    "errorMessage": "Only owner of this NFT can change the price",
+    "pc": [
+      1218
+    ]
+  },
+  {
+    "teal": 1256,
+    "source": 266,
+    "pc": [
+      1219,
+      1220
+    ]
+  },
+  {
+    "teal": 1257,
+    "source": 266,
+    "pc": [
+      1221
+    ]
+  },
+  {
+    "teal": 1260,
+    "source": 266,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1222
+    ]
+  },
+  {
+    "teal": 1261,
+    "source": 270,
+    "pc": [
+      1223,
+      1224
+    ]
+  },
+  {
+    "teal": 1262,
+    "source": 270,
+    "pc": [
+      1225,
+      1226
+    ]
+  },
+  {
+    "teal": 1263,
+    "source": 270,
+    "pc": [
+      1227,
+      1228,
+      1229,
+      1230,
+      1231,
+      1232,
+      1233,
+      1234,
+      1235,
+      1236
+    ]
+  },
+  {
+    "teal": 1264,
+    "source": 270,
+    "pc": [
+      1237,
+      1238
+    ]
+  },
+  {
+    "teal": 1265,
+    "source": 266,
+    "pc": [
+      1239,
+      1240
+    ]
+  },
+  {
+    "teal": 1266,
+    "source": 266,
+    "pc": [
+      1241
+    ]
+  },
+  {
+    "teal": 1267,
+    "source": 266,
+    "pc": [
+      1242
+    ]
+  },
+  {
+    "teal": 1268,
+    "source": 266,
+    "pc": [
+      1243
+    ]
+  },
+  {
+    "teal": 1269,
+    "source": 266,
+    "pc": [
+      1244
+    ]
+  },
+  {
+    "teal": 1270,
+    "source": 266,
+    "pc": [
+      1245
+    ]
+  },
+  {
+    "teal": 1274,
+    "source": 266,
+    "pc": [
+      1246,
+      1247
+    ]
+  },
+  {
+    "teal": 1275,
+    "source": 266,
+    "pc": [
+      1248
+    ]
+  },
+  {
+    "teal": 1278,
+    "source": 266,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1249
+    ]
+  },
+  {
+    "teal": 1279,
+    "source": 271,
+    "pc": [
+      1250,
+      1251
+    ]
+  },
+  {
+    "teal": 1280,
+    "source": 271,
+    "pc": [
+      1252,
+      1253
+    ]
+  },
+  {
+    "teal": 1281,
+    "source": 271,
+    "pc": [
+      1254,
+      1255
+    ]
+  },
+  {
+    "teal": 1282,
+    "source": 271,
+    "pc": [
+      1256,
+      1257
+    ]
+  },
+  {
+    "teal": 1283,
+    "source": 271,
+    "pc": [
+      1258
+    ]
+  },
+  {
+    "teal": 1284,
+    "source": 271,
+    "pc": [
+      1259
+    ]
+  },
+  {
+    "teal": 1285,
+    "source": 266,
+    "pc": [
+      1260,
+      1261
+    ]
+  },
+  {
+    "teal": 1286,
+    "source": 266,
+    "pc": [
+      1262
+    ]
+  },
+  {
+    "teal": 1287,
+    "source": 266,
+    "pc": [
+      1263
+    ]
+  },
+  {
+    "teal": 1288,
+    "source": 266,
+    "pc": [
+      1264
+    ]
+  },
+  {
+    "teal": 1289,
+    "source": 266,
+    "pc": [
+      1265
+    ]
+  },
+  {
+    "teal": 1290,
+    "source": 266,
+    "pc": [
+      1266
+    ]
+  },
+  {
+    "teal": 1294,
+    "source": 266,
+    "pc": [
+      1267,
+      1268
+    ]
+  },
+  {
+    "teal": 1295,
+    "source": 266,
+    "pc": [
+      1269
+    ]
+  },
+  {
+    "teal": 1298,
+    "source": 266,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1270
+    ]
+  },
+  {
+    "teal": 1299,
+    "source": 272,
+    "pc": [
+      1271,
+      1272
+    ]
+  },
+  {
+    "teal": 1300,
+    "source": 272,
+    "pc": [
+      1273,
+      1274
+    ]
+  },
+  {
+    "teal": 1301,
+    "source": 272,
+    "pc": [
+      1275,
+      1276
+    ]
+  },
+  {
+    "teal": 1302,
+    "source": 272,
+    "pc": [
+      1277,
+      1278
+    ]
+  },
+  {
+    "teal": 1303,
+    "source": 272,
+    "pc": [
+      1279
+    ]
+  },
+  {
+    "teal": 1304,
+    "source": 272,
+    "pc": [
+      1280
+    ]
+  },
+  {
+    "teal": 1305,
+    "source": 266,
+    "pc": [
+      1281,
+      1282
+    ]
+  },
+  {
+    "teal": 1306,
+    "source": 266,
+    "pc": [
+      1283
+    ]
+  },
+  {
+    "teal": 1307,
+    "source": 266,
+    "pc": [
+      1284
+    ]
+  },
+  {
+    "teal": 1308,
+    "source": 266,
+    "pc": [
+      1285
+    ]
+  },
+  {
+    "teal": 1309,
+    "source": 266,
+    "pc": [
+      1286
+    ]
+  },
+  {
+    "teal": 1310,
+    "source": 266,
+    "pc": [
+      1287
+    ]
+  },
+  {
+    "teal": 1311,
+    "source": 265,
+    "pc": [
+      1288
+    ]
+  },
+  {
+    "teal": 1316,
+    "source": 279,
+    "pc": [
+      1289,
+      1290,
+      1291
+    ]
+  },
+  {
+    "teal": 1317,
+    "source": 279,
+    "pc": [
+      1292
+    ]
+  },
+  {
+    "teal": 1320,
+    "source": 279,
+    "pc": [
+      1293,
+      1294,
+      1295
+    ]
+  },
+  {
+    "teal": 1321,
+    "source": 279,
+    "pc": [
+      1296
+    ]
+  },
+  {
+    "teal": 1322,
+    "source": 279,
+    "pc": [
+      1297
+    ]
+  },
+  {
+    "teal": 1329,
+    "source": 279,
+    "pc": [
+      1298,
+      1299,
+      1300
+    ]
+  },
+  {
+    "teal": 1332,
+    "source": 279,
+    "pc": [
+      1301
+    ]
+  },
+  {
+    "teal": 1336,
+    "source": 280,
+    "pc": [
+      1302,
+      1303
+    ]
+  },
+  {
+    "teal": 1337,
+    "source": 280,
+    "pc": [
+      1304
+    ]
+  },
+  {
+    "teal": 1338,
+    "source": 280,
+    "pc": [
+      1305,
+      1306
+    ]
+  },
+  {
+    "teal": 1342,
+    "source": 280,
+    "pc": [
+      1307,
+      1308
+    ]
+  },
+  {
+    "teal": 1343,
+    "source": 280,
+    "pc": [
+      1309
+    ]
+  },
+  {
+    "teal": 1346,
+    "source": 280,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1310
+    ]
+  },
+  {
+    "teal": 1347,
+    "source": 281,
+    "pc": [
+      1311,
+      1312
+    ]
+  },
+  {
+    "teal": 1348,
+    "source": 281,
+    "pc": [
+      1313,
+      1314
+    ]
+  },
+  {
+    "teal": 1349,
+    "source": 281,
+    "pc": [
+      1315,
+      1316,
+      1317
+    ]
+  },
+  {
+    "teal": 1350,
+    "source": 281,
+    "pc": [
+      1318
+    ]
+  },
+  {
+    "teal": 1351,
+    "source": 281,
+    "pc": [
+      1319
+    ]
+  },
+  {
+    "teal": 1352,
+    "source": 281,
+    "pc": [
+      1320
+    ]
+  },
+  {
+    "teal": 1355,
+    "source": 281,
+    "errorMessage": "NFT Ticket is not for sale",
+    "pc": [
+      1321
+    ]
+  },
+  {
+    "teal": 1359,
+    "source": 280,
+    "pc": [
+      1322,
+      1323
+    ]
+  },
+  {
+    "teal": 1360,
+    "source": 280,
+    "pc": [
+      1324
+    ]
+  },
+  {
+    "teal": 1363,
+    "source": 280,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1325
+    ]
+  },
+  {
+    "teal": 1364,
+    "source": 282,
+    "pc": [
+      1326,
+      1327
+    ]
+  },
+  {
+    "teal": 1365,
+    "source": 282,
+    "pc": [
+      1328,
+      1329
+    ]
+  },
+  {
+    "teal": 1366,
+    "source": 282,
+    "pc": [
+      1330,
+      1331,
+      1332
+    ]
+  },
+  {
+    "teal": 1367,
+    "source": 282,
+    "pc": [
+      1333,
+      1334
+    ]
+  },
+  {
+    "teal": 1368,
+    "source": 282,
+    "pc": [
+      1335
+    ]
+  },
+  {
+    "teal": 1371,
+    "source": 282,
+    "errorMessage": "Only owner of this NFT can change it from being on sale",
+    "pc": [
+      1336
+    ]
+  },
+  {
+    "teal": 1375,
+    "source": 280,
+    "pc": [
+      1337,
+      1338
+    ]
+  },
+  {
+    "teal": 1376,
+    "source": 280,
+    "pc": [
+      1339
+    ]
+  },
+  {
+    "teal": 1379,
+    "source": 280,
+    "errorMessage": "box value does not exist: this.tokenBox(nftIndex).value",
+    "pc": [
+      1340
+    ]
+  },
+  {
+    "teal": 1380,
+    "source": 284,
+    "pc": [
+      1341,
+      1342
+    ]
+  },
+  {
+    "teal": 1381,
+    "source": 284,
+    "pc": [
+      1343,
+      1344
+    ]
+  },
+  {
+    "teal": 1382,
+    "source": 284,
+    "pc": [
+      1345,
+      1346
+    ]
+  },
+  {
+    "teal": 1383,
+    "source": 284,
+    "pc": [
+      1347,
+      1348
+    ]
+  },
+  {
+    "teal": 1384,
+    "source": 280,
+    "pc": [
+      1349,
+      1350
+    ]
+  },
+  {
+    "teal": 1385,
+    "source": 280,
+    "pc": [
+      1351
+    ]
+  },
+  {
+    "teal": 1386,
+    "source": 280,
+    "pc": [
+      1352
+    ]
+  },
+  {
+    "teal": 1387,
+    "source": 280,
+    "pc": [
+      1353
+    ]
+  },
+  {
+    "teal": 1388,
+    "source": 280,
+    "pc": [
+      1354
+    ]
+  },
+  {
+    "teal": 1389,
+    "source": 280,
+    "pc": [
+      1355
+    ]
+  },
+  {
+    "teal": 1390,
+    "source": 279,
+    "pc": [
+      1356
+    ]
+  },
+  {
+    "teal": 1393,
+    "source": 57,
+    "pc": [
+      1357,
+      1358,
+      1359,
+      1360,
+      1361,
+      1362
+    ]
+  },
+  {
+    "teal": 1394,
+    "source": 57,
+    "pc": [
+      1363,
+      1364,
+      1365
+    ]
+  },
+  {
+    "teal": 1395,
+    "source": 57,
+    "pc": [
+      1366,
+      1367,
+      1368,
+      1369
+    ]
+  },
+  {
+    "teal": 1398,
+    "source": 57,
+    "errorMessage": "this contract does not implement the given ABI method for create NoOp",
+    "pc": [
+      1370
+    ]
+  },
+  {
+    "teal": 1401,
+    "source": 57,
+    "pc": [
+      1371,
+      1372,
+      1373,
+      1374,
+      1375,
+      1376
+    ]
+  },
+  {
+    "teal": 1402,
+    "source": 57,
+    "pc": [
+      1377,
+      1378,
+      1379,
+      1380,
+      1381,
+      1382
+    ]
+  },
+  {
+    "teal": 1403,
+    "source": 57,
+    "pc": [
+      1383,
+      1384,
+      1385,
+      1386,
+      1387,
+      1388
+    ]
+  },
+  {
+    "teal": 1404,
+    "source": 57,
+    "pc": [
+      1389,
+      1390,
+      1391,
+      1392,
+      1393,
+      1394
+    ]
+  },
+  {
+    "teal": 1405,
+    "source": 57,
+    "pc": [
+      1395,
+      1396,
+      1397,
+      1398,
+      1399,
+      1400
+    ]
+  },
+  {
+    "teal": 1406,
+    "source": 57,
+    "pc": [
+      1401,
+      1402,
+      1403,
+      1404,
+      1405,
+      1406
+    ]
+  },
+  {
+    "teal": 1407,
+    "source": 57,
+    "pc": [
+      1407,
+      1408,
+      1409,
+      1410,
+      1411,
+      1412
+    ]
+  },
+  {
+    "teal": 1408,
+    "source": 57,
+    "pc": [
+      1413,
+      1414,
+      1415,
+      1416,
+      1417,
+      1418
+    ]
+  },
+  {
+    "teal": 1409,
+    "source": 57,
+    "pc": [
+      1419,
+      1420,
+      1421,
+      1422,
+      1423,
+      1424
+    ]
+  },
+  {
+    "teal": 1410,
+    "source": 57,
+    "pc": [
+      1425,
+      1426,
+      1427,
+      1428,
+      1429,
+      1430
+    ]
+  },
+  {
+    "teal": 1411,
+    "source": 57,
+    "pc": [
+      1431,
+      1432,
+      1433,
+      1434,
+      1435,
+      1436
+    ]
+  },
+  {
+    "teal": 1412,
+    "source": 57,
+    "pc": [
+      1437,
+      1438,
+      1439,
+      1440,
+      1441,
+      1442
+    ]
+  },
+  {
+    "teal": 1413,
+    "source": 57,
+    "pc": [
+      1443,
+      1444,
+      1445
+    ]
+  },
+  {
+    "teal": 1414,
+    "source": 57,
+    "pc": [
+      1446,
+      1447,
+      1448,
+      1449,
+      1450,
+      1451,
+      1452,
+      1453,
+      1454,
+      1455,
+      1456,
+      1457,
+      1458,
+      1459,
+      1460,
+      1461,
+      1462,
+      1463,
+      1464,
+      1465,
+      1466,
+      1467,
+      1468,
+      1469,
+      1470,
+      1471
+    ]
+  },
+  {
+    "teal": 1417,
+    "source": 57,
+    "errorMessage": "this contract does not implement the given ABI method for call NoOp",
+    "pc": [
+      1472
+    ]
+  },
+  {
+    "teal": 1420,
+    "source": 57,
+    "pc": [
+      1473,
+      1474,
+      1475
+    ]
+  },
+  {
+    "teal": 1421,
+    "source": 57,
+    "pc": [
+      1476,
+      1477
+    ]
+  },
+  {
+    "teal": 1422,
+    "source": 57,
+    "pc": [
+      1478,
+      1479
+    ]
+  },
+  {
+    "teal": 1423,
+    "source": 57,
+    "pc": [
+      1480
+    ]
+  },
+  {
+    "teal": 1424,
+    "source": 57,
+    "pc": [
+      1481,
+      1482
+    ]
+  },
+  {
+    "teal": 1425,
+    "source": 57,
+    "pc": [
+      1483,
+      1484
+    ]
+  },
+  {
+    "teal": 1426,
+    "source": 57,
+    "pc": [
+      1485
+    ]
+  },
+  {
+    "teal": 1429,
+    "source": 57,
+    "pc": [
+      1486,
+      1487,
+      1488
+    ]
+  },
+  {
+    "teal": 1430,
+    "source": 57,
+    "pc": [
+      1489,
+      1490
+    ]
+  },
+  {
+    "teal": 1431,
+    "source": 57,
+    "pc": [
+      1491,
+      1492
+    ]
+  },
+  {
+    "teal": 1432,
+    "source": 57,
+    "pc": [
+      1493
+    ]
+  },
+  {
+    "teal": 1433,
+    "source": 57,
+    "pc": [
+      1494,
+      1495
+    ]
+  },
+  {
+    "teal": 1434,
+    "source": 57,
+    "pc": [
+      1496,
+      1497
+    ]
+  },
+  {
+    "teal": 1435,
+    "source": 57,
+    "pc": [
+      1498
+    ]
+  },
+  {
+    "teal": 1436,
+    "source": 57,
+    "pc": [
+      1499
+    ]
+  },
+  {
+    "teal": 1437,
+    "source": 57,
+    "pc": [
+      1500,
+      1501
+    ]
+  },
+  {
+    "teal": 1438,
+    "source": 57,
+    "pc": [
+      1502
+    ]
+  },
+  {
+    "teal": 1439,
+    "source": 57,
+    "pc": [
+      1503
+    ]
+  },
+  {
+    "teal": 1440,
+    "source": 57,
+    "pc": [
+      1504
+    ]
+  },
+  {
+    "teal": 1441,
+    "source": 57,
+    "pc": [
+      1505,
+      1506,
+      1507
+    ]
+  },
+  {
+    "teal": 1442,
+    "source": 57,
+    "pc": [
+      1508,
+      1509
+    ]
+  },
+  {
+    "teal": 1443,
+    "source": 57,
+    "pc": [
+      1510,
+      1511
+    ]
+  },
+  {
+    "teal": 1444,
+    "source": 57,
+    "pc": [
+      1512
+    ]
+  },
+  {
+    "teal": 1445,
+    "source": 57,
+    "pc": [
+      1513
+    ]
+  },
+  {
+    "teal": 1446,
+    "source": 57,
+    "pc": [
+      1514,
+      1515
+    ]
+  },
+  {
+    "teal": 1447,
+    "source": 57,
+    "pc": [
+      1516,
+      1517
+    ]
+  },
+  {
+    "teal": 1448,
+    "source": 57,
+    "pc": [
+      1518,
+      1519
+    ]
+  },
+  {
+    "teal": 1449,
+    "source": 57,
+    "pc": [
+      1520,
+      1521
+    ]
+  },
+  {
+    "teal": 1450,
+    "source": 57,
+    "pc": [
+      1522
     ]
   }
 ]

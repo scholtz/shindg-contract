@@ -2,6 +2,15 @@ import { Contract } from '@algorandfoundation/tealscript';
 
 type Token = {
   /**
+   * State of the ticket
+   *
+   * ON_SALE: 1,
+   * NOT_CHECKED_IN: 10,
+   * CHECKED_IN: 100,
+   * CHECKED_OUT: 1000,
+   */
+  state: uint64;
+  /**
    * Owner can move NFT to another account or he can delegate moving to this NFT or he can delegate moving rights to all NFTs under this contract
    */
   owner: Address;
@@ -9,12 +18,6 @@ type Token = {
    * Delegated account address who can transfer the NFT
    */
   controller: Address;
-  /**
-   * State of the ticket
-   *
-   * ON_SALE | NOT_CHECKED_IN | CHECKED_IN | CHECKED_OUT
-   */
-  state: string;
   /**
    * Area of the seat. If event allows to pick seats only just before the checkin time user can upgrade his ticket only within the same area.
    */
@@ -31,6 +34,14 @@ type Token = {
    * Image URL
    */
   image: string;
+  /**
+   * The price in base currency units
+   */
+  price: uint64;
+  /**
+   * Base currency
+   */
+  currency: uint64;
 };
 type Control = {
   /**
@@ -44,7 +55,7 @@ type Control = {
 };
 
 export class Shindg extends Contract {
-  index = GlobalStateKey<uint256>();
+  index = GlobalStateKey<uint64>();
 
   /**
    * NFT Name - Event name
@@ -59,7 +70,7 @@ export class Shindg extends Contract {
   /**
    * List of NFTs under this smart contract
    */
-  tokenBox = BoxMap<uint256, Token>();
+  tokenBox = BoxMap<uint64, Token>();
 
   /**
    * Owner Account can delegate the permission to move any NFT in this contract to another address. In this box is information about the delegation.
@@ -84,9 +95,10 @@ export class Shindg extends Contract {
    * @param tokenId TokenID
    */
   private transferTo(to: Address, tokenId: uint256): void {
-    assert(this.tokenBox(tokenId).exists);
-    this.tokenBox(tokenId).value.owner = to;
-    this.tokenBox(tokenId).value.controller = globals.zeroAddress;
+    const tokenId64 = tokenId as uint64;
+    assert(this.tokenBox(tokenId64).exists);
+    this.tokenBox(tokenId64).value.owner = to;
+    this.tokenBox(tokenId64).value.controller = globals.zeroAddress;
   }
 
   // ARC76 NON READONLY METHODS
@@ -95,7 +107,7 @@ export class Shindg extends Contract {
    * Transfers ownership of an NFT
    */
   arc72_transferFrom(_from: Address, to: Address, tokenId: uint256): void {
-    const token = this.tokenBox(tokenId).value;
+    const token = this.tokenBox(tokenId as uint64).value;
 
     const key: Control = { owner: this.txn.sender, controller: _from };
 
@@ -112,10 +124,11 @@ export class Shindg extends Contract {
    * @param tokenId The ID of the NFT
    */
   arc72_approve(approved: Address, tokenId: uint256): void {
-    assert(this.tokenBox(tokenId).exists);
-    assert(this.txn.sender === this.tokenBox(tokenId).value.owner);
+    const tokenId64 = tokenId as uint64;
+    assert(this.tokenBox(tokenId64).exists);
+    assert(this.txn.sender === this.tokenBox(tokenId64).value.owner);
 
-    this.tokenBox(tokenId).value.controller = approved;
+    this.tokenBox(tokenId64).value.controller = approved;
   }
 
   /**
@@ -144,7 +157,7 @@ export class Shindg extends Contract {
    */
   @abi.readonly
   arc72_ownerOf(tokenId: uint256): Address {
-    return this.tokenBox(tokenId).value.owner;
+    return this.tokenBox(tokenId as uint64).value.owner;
   }
 
   /**
@@ -156,7 +169,7 @@ export class Shindg extends Contract {
    */
   @abi.readonly
   arc72_tokenURI(tokenId: uint256): string {
-    return this.tokenBox(tokenId).value.uri;
+    return this.tokenBox(tokenId as uint64).value.uri;
   }
 
   /**
@@ -164,7 +177,7 @@ export class Shindg extends Contract {
    */
   @abi.readonly
   arc72_totalSupply(): uint256 {
-    return this.index.value;
+    return this.index.value as uint256;
   }
 
   /**
@@ -176,26 +189,98 @@ export class Shindg extends Contract {
   }
 
   // OTHER NFT METHODS
-  mint(to: Address, area: string, seat: string, image: string, uri: string): void {
+  mint(
+    state: uint64,
+    to: Address,
+    area: string,
+    seat: string,
+    image: string,
+    uri: string,
+    price: uint64,
+    currency: uint64
+  ): void {
     assert(
       this.txn.sender === globals.creatorAddress,
       'Only creator is allowed to mint specific NFTs for this collection'
     );
-
+    assert(state === 1 || state === 10, 'Minter can set state only to ON_SALE or not for sale ');
     const index = this.index.value;
 
     const token: Token = {
+      state: state,
       owner: to,
       controller: Address.zeroAddress,
-      state: 'ON_SALE',
       area: area,
       seat: seat,
       uri: uri,
       image: image,
+      price: price,
+      currency: currency,
     };
-
+    assert(token.state !== 0, 'Token state is not 0');
     this.tokenBox(index).value = token;
-    this.transferTo(to, index);
+    this.transferTo(to, index as uint256);
+
+    assert(this.tokenBox(index).value.state !== 0, 'State cannot be zero after minting');
     this.index.value = index + 1;
+  }
+
+  /**
+   * Owner of NFT can check in or check out from the event
+   * @param nftIndex
+   * @param state
+   */
+  checkIn(nftIndex: uint64, state: uint64): void {
+    const nft = this.tokenBox(nftIndex).value;
+    assert(nft.owner === this.txn.sender, 'Only owner of the NFT can change the state');
+    assert(state === 100 || state === 1000, 'Only owner of the NFT can change the state');
+    this.tokenBox(nftIndex).value.state = state;
+  }
+
+  /**
+   * Owner of NFT can check in or check out from the event
+   * @param buyTxn The buy transaction
+   * @param nftIndex NFT Index
+   */
+  buy(buyTxn: Txn, nftIndex: uint64): void {
+    const nft = this.tokenBox(nftIndex).value;
+    assert(nft.state !== 1, 'X1');
+    assert(nft.state !== 10, 'X10');
+    assert(nft.state !== 100, 'X100');
+    assert(this.tokenBox(nftIndex).value.state !== 0, 'X0');
+    assert(this.tokenBox(nftIndex).value.state === 1, 'NFT Ticket is not for sale');
+    assert(nft.owner === buyTxn.assetReceiver, 'Price must be paid to the owner of the NFT');
+    assert(nft.price === buyTxn.assetAmount, 'Exact price must be paid to the owner of the NFT');
+
+    nft.owner = buyTxn.sender;
+    nft.state = 10;
+  }
+
+  /**
+   * Owner of NFT can check in or check out from the event
+   * @param nftIndex NFT Index
+   * @param price The price which has to be paid
+   * @param currency The currency for price
+   */
+  setPrice(nftIndex: uint64, price: uint64, currency: uint64): void {
+    const nft = this.tokenBox(nftIndex).value;
+    assert(nft.state === 1 || nft.state === 10, 'NFT Ticket is not in valid state');
+    assert(nft.owner === this.txn.sender, 'Only owner of this NFT can change the price');
+
+    nft.state = 1;
+    nft.currency = currency;
+    nft.price = price;
+  }
+
+  /**
+   * Set not for sale
+   * @param nftIndex NFT
+   */
+  setNotForSale(nftIndex: uint64): void {
+    const nft = this.tokenBox(nftIndex).value;
+    assert(nft.state === 1, 'NFT Ticket is not for sale');
+    assert(nft.owner === this.txn.sender, 'Only owner of this NFT can change it from being on sale');
+
+    nft.state = 10;
   }
 }
