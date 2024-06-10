@@ -98,8 +98,10 @@ transferTo:
 
 	// contracts\Shindg.algo.ts:99
 	// assert(this.tokenBox(tokenId64).exists)
+	byte 0x6e // "n"
 	frame_dig 0 // tokenId64: uint64
 	itob
+	concat
 	box_len
 	swap
 	pop
@@ -107,8 +109,10 @@ transferTo:
 
 	// contracts\Shindg.algo.ts:100
 	// box = this.tokenBox(tokenId64).value
+	byte 0x6e // "n"
 	frame_dig 0 // tokenId64: uint64
 	itob
+	concat
 	frame_bury 1 // storage key//box
 
 	// contracts\Shindg.algo.ts:101
@@ -199,6 +203,7 @@ arc72_transferFrom:
 
 	// contracts\Shindg.algo.ts:111
 	// token = this.tokenBox(tokenId as uint64).value
+	byte 0x6e // "n"
 	frame_dig -3 // tokenId: uint256
 	dup
 	bitlen
@@ -210,6 +215,7 @@ arc72_transferFrom:
 	extract 24 8
 	btoi
 	itob
+	concat
 	frame_bury 0 // storage key//token
 
 	// contracts\Shindg.algo.ts:113
@@ -242,7 +248,9 @@ arc72_transferFrom:
 *skip_or0:
 	dup
 	bnz *skip_or1
+	byte 0x63 // "c"
 	frame_dig 1 // key: Control
+	concat
 	box_len
 	swap
 	pop
@@ -323,8 +331,10 @@ arc72_approve:
 
 	// contracts\Shindg.algo.ts:129
 	// assert(this.tokenBox(tokenId64).exists)
+	byte 0x6e // "n"
 	frame_dig 0 // tokenId64: uint64
 	itob
+	concat
 	box_len
 	swap
 	pop
@@ -332,8 +342,10 @@ arc72_approve:
 
 	// contracts\Shindg.algo.ts:130
 	// box = this.tokenBox(tokenId64).value
+	byte 0x6e // "n"
 	frame_dig 0 // tokenId64: uint64
 	itob
+	concat
 	frame_bury 1 // storage key//box
 
 	// contracts\Shindg.algo.ts:131
@@ -429,7 +441,9 @@ arc72_setApprovalForAll:
 	// *if1_consequent
 	// contracts\Shindg.algo.ts:147
 	// this.controlBox(key).value = ''
+	byte 0x63 // "c"
 	frame_dig 0 // key: Control
+	concat
 	dup
 	box_del
 	pop
@@ -440,7 +454,9 @@ arc72_setApprovalForAll:
 *if1_elseif1_condition:
 	// contracts\Shindg.algo.ts:148
 	// this.controlBox(key).exists
+	byte 0x63 // "c"
 	frame_dig 0 // key: Control
+	concat
 	box_len
 	swap
 	pop
@@ -449,7 +465,9 @@ arc72_setApprovalForAll:
 	// *if1_elseif1_consequent
 	// contracts\Shindg.algo.ts:148
 	// this.controlBox(key).delete()
+	byte 0x63 // "c"
 	frame_dig 0 // key: Control
+	concat
 	box_del
 
 *if1_end:
@@ -489,6 +507,7 @@ arc72_ownerOf:
 
 	// contracts\Shindg.algo.ts:162
 	// return this.tokenBox(tokenId as uint64).value.owner;
+	byte 0x6e // "n"
 	frame_dig -1 // tokenId: uint256
 	dup
 	bitlen
@@ -500,6 +519,7 @@ arc72_ownerOf:
 	extract 24 8
 	btoi
 	itob
+	concat
 	box_get
 
 	// box value does not exist: this.tokenBox(tokenId as uint64).value
@@ -549,6 +569,7 @@ arc72_tokenURI:
 
 	// contracts\Shindg.algo.ts:174
 	// return this.tokenBox(tokenId as uint64).value.uri;
+	byte 0x6e // "n"
 	frame_dig -1 // tokenId: uint256
 	dup
 	bitlen
@@ -560,6 +581,7 @@ arc72_tokenURI:
 	extract 24 8
 	btoi
 	itob
+	concat
 	box_get
 
 	// box value does not exist: this.tokenBox(tokenId as uint64).value
@@ -838,8 +860,10 @@ mint:
 
 	// contracts\Shindg.algo.ts:223
 	// this.tokenBox(index).value = token
+	byte 0x6e // "n"
 	frame_dig 0 // index: uint64
 	itob
+	concat
 	dup
 	box_del
 	pop
@@ -906,8 +930,10 @@ checkIn:
 
 	// contracts\Shindg.algo.ts:236
 	// nft = this.tokenBox(nftIndex).value
+	byte 0x6e // "n"
 	frame_dig -1 // nftIndex: uint64
 	itob
+	concat
 	frame_bury 0 // storage key//nft
 
 	// contracts\Shindg.algo.ts:237
@@ -992,8 +1018,10 @@ buy:
 
 	// contracts\Shindg.algo.ts:248
 	// nft = this.tokenBox(nftIndex).value
+	byte 0x6e // "n"
 	frame_dig -2 // nftIndex: uint64
 	itob
+	concat
 	frame_bury 0 // storage key//nft
 
 	// contracts\Shindg.algo.ts:249
@@ -1120,8 +1148,10 @@ setPrice:
 
 	// contracts\Shindg.algo.ts:264
 	// nft = this.tokenBox(nftIndex).value
+	byte 0x6e // "n"
 	frame_dig -1 // nftIndex: uint64
 	itob
+	concat
 	frame_bury 0 // storage key//nft
 
 	// contracts\Shindg.algo.ts:265
@@ -1254,8 +1284,10 @@ setNotForSale:
 
 	// contracts\Shindg.algo.ts:278
 	// nft = this.tokenBox(nftIndex).value
+	byte 0x6e // "n"
 	frame_dig -1 // nftIndex: uint64
 	itob
+	concat
 	frame_bury 0 // storage key//nft
 
 	// contracts\Shindg.algo.ts:279

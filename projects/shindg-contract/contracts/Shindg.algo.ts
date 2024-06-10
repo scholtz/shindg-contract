@@ -70,12 +70,12 @@ export class Shindg extends Contract {
   /**
    * List of NFTs under this smart contract
    */
-  tokenBox = BoxMap<uint64, Token>();
+  tokenBox = BoxMap<uint64, Token>({ prefix: 'n' });
 
   /**
    * Owner Account can delegate the permission to move any NFT in this contract to another address. In this box is information about the delegation.
    */
-  controlBox = BoxMap<Control, bytes>();
+  controlBox = BoxMap<Control, bytes>({ prefix: 'c' });
 
   /**
    * Constructor

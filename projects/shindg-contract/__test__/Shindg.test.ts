@@ -8,7 +8,7 @@ import algosdk, {
   makeAssetTransferTxnWithSuggestedParamsFromObject,
 } from 'algosdk';
 import { ShindgClient } from '../contracts/clients/ShindgClient';
-import { getLsigAccount } from '../src';
+import { getBoxReferenceNFT, getLsigAccount } from '../src';
 import { IQRCode } from '../src/types/IQRCode';
 import { State } from '../src/types/State';
 
@@ -43,6 +43,8 @@ describe('Shindg', () => {
     expect(qr.lisg.length).toBeGreaterThan(50);
   });
   test('create nft event, buy ticket, and enter event', async () => {
+    algokit.Config.configure({ populateAppCallResources: false }); // for tests do not populate fields.. all fields must be provided
+
     const { algod } = fixture.context;
     const eventCreatorAccount = await fixture.context.generateAccount({
       initialFunds: algokit.microAlgos(1_000_000_000),
@@ -118,40 +120,60 @@ describe('Shindg', () => {
       to: ref.appAddress,
     });
     await algod.sendRawTransaction(fundTx.signTxn(eventCreatorAccount.sk)).do();
-
+    const nextNFTIndex0 = (await client.getGlobalState()).index?.asNumber() ?? 0;
+    expect(nextNFTIndex0).toBe(0);
     // MINT nft one by one
-    await client.mint({
-      to: eventCreator.addr,
-      area: 'Red Zone',
-      seat: 'Seat 1',
-      image: 'https://shindg.vercel.app/seat1.png',
-      uri: 'https://shindg.vercel.app/Event1',
-      price: 10_000_000n, // 10 USDC
-      currency: usdcAsset,
-      state: State.ON_SALE,
-    });
+    await client.mint(
+      {
+        to: eventCreator.addr,
+        area: 'Red Zone',
+        seat: 'Seat 1',
+        image: 'https://shindg.vercel.app/seat1.png',
+        uri: 'https://shindg.vercel.app/Event1',
+        price: 10_000_000n, // 10 USDC
+        currency: usdcAsset,
+        state: State.ON_SALE,
+      },
+      {
+        boxes: [getBoxReferenceNFT({ app: ref.appId, nftAsset: nextNFTIndex0 })],
+      }
+    );
+    const nextNFTIndex1 = (await client.getGlobalState()).index?.asNumber() ?? 0;
+    expect(nextNFTIndex1).toBe(1);
     // MINT nft one by one
-    await client.mint({
-      to: eventCreator.addr,
-      area: 'Red Zone',
-      seat: 'Seat 2',
-      image: 'https://shindg.vercel.app/seat2.png',
-      uri: 'https://shindg.vercel.app/Event1',
-      price: 9_000_000n, // 9 USDC
-      currency: usdcAsset,
-      state: State.ON_SALE,
-    });
+    await client.mint(
+      {
+        to: eventCreator.addr,
+        area: 'Red Zone',
+        seat: 'Seat 2',
+        image: 'https://shindg.vercel.app/seat2.png',
+        uri: 'https://shindg.vercel.app/Event1',
+        price: 9_000_000n, // 9 USDC
+        currency: usdcAsset,
+        state: State.ON_SALE,
+      },
+      {
+        boxes: [getBoxReferenceNFT({ app: ref.appId, nftAsset: nextNFTIndex1 })],
+      }
+    );
+    const nextNFTIndex2 = (await client.getGlobalState()).index?.asNumber() ?? 0;
+    expect(nextNFTIndex2).toBe(2);
     // MINT nft one by one
-    await client.mint({
-      to: eventCreator.addr,
-      area: 'Blue Zone',
-      seat: 'Seat 1',
-      image: 'https://shindg.vercel.app/seat3.png',
-      uri: 'https://shindg.vercel.app/Event1',
-      price: 8_000_000n, // 8 USDC
-      currency: usdcAsset,
-      state: State.ON_SALE,
-    });
+    await client.mint(
+      {
+        to: eventCreator.addr,
+        area: 'Blue Zone',
+        seat: 'Seat 1',
+        image: 'https://shindg.vercel.app/seat3.png',
+        uri: 'https://shindg.vercel.app/Event1',
+        price: 8_000_000n, // 8 USDC
+        currency: usdcAsset,
+        state: State.ON_SALE,
+      },
+      {
+        boxes: [getBoxReferenceNFT({ app: ref.appId, nftAsset: nextNFTIndex2 })],
+      }
+    );
 
     expect((await client.getGlobalState()).index?.asNumber()).toBe(3);
     /// buy ticket by user
@@ -175,16 +197,21 @@ describe('Shindg', () => {
     // Buy nft
     const buyNFTIndex = 1;
 
-    await clientBuyer.buy({
-      buyTxn: makeAssetTransferTxnWithSuggestedParamsFromObject({
-        amount: 9_000_000n,
-        assetIndex: Number(usdcAsset),
-        from: eventBuyerAccount.addr,
-        suggestedParams: params,
-        to: eventCreatorAccount.addr,
-      }),
-      nftIndex: buyNFTIndex,
-    });
+    await clientBuyer.buy(
+      {
+        buyTxn: makeAssetTransferTxnWithSuggestedParamsFromObject({
+          amount: 9_000_000n,
+          assetIndex: Number(usdcAsset),
+          from: eventBuyerAccount.addr,
+          suggestedParams: params,
+          to: eventCreatorAccount.addr,
+        }),
+        nftIndex: buyNFTIndex,
+      },
+      {
+        boxes: [getBoxReferenceNFT({ app: ref.appId, nftAsset: buyNFTIndex })],
+      }
+    );
 
     const lsig = await getLsigAccount(algod, BigInt(ref.appId));
     lsig.sign(eventBuyerAccount.sk);
@@ -221,19 +248,34 @@ describe('Shindg', () => {
       algod
     );
     // Check in
-    await clientBuyerLsig.checkIn({
-      nftIndex: buyNFTIndex,
-      state: State.CHECKED_IN,
-    });
+    await clientBuyerLsig.checkIn(
+      {
+        nftIndex: buyNFTIndex,
+        state: State.CHECKED_IN,
+      },
+      {
+        boxes: [getBoxReferenceNFT({ app: ref.appId, nftAsset: buyNFTIndex })],
+      }
+    );
     // Check out .. person needs to go to the car
-    await clientBuyerLsig.checkIn({
-      nftIndex: buyNFTIndex,
-      state: State.CHECKED_OUT,
-    });
+    await clientBuyerLsig.checkIn(
+      {
+        nftIndex: buyNFTIndex,
+        state: State.CHECKED_OUT,
+      },
+      {
+        boxes: [getBoxReferenceNFT({ app: ref.appId, nftAsset: buyNFTIndex })],
+      }
+    );
     // Check in back again
-    await clientBuyerLsig.checkIn({
-      nftIndex: buyNFTIndex,
-      state: State.CHECKED_IN,
-    });
+    await clientBuyerLsig.checkIn(
+      {
+        nftIndex: buyNFTIndex,
+        state: State.CHECKED_IN,
+      },
+      {
+        boxes: [getBoxReferenceNFT({ app: ref.appId, nftAsset: buyNFTIndex })],
+      }
+    );
   });
 });
